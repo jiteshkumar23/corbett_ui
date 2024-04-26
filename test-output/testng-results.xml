@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-04-26T20:20:16 IST" name="Suite" finished-at="2024-04-26T20:21:17 IST" duration-ms="61259">
+  <suite started-at="2024-04-26T20:36:39 IST" name="Suite" finished-at="2024-04-26T20:38:00 IST" duration-ms="81147">
     <groups>
     </groups>
-    <test started-at="2024-04-26T20:20:16 IST" name="Test" finished-at="2024-04-26T20:21:17 IST" duration-ms="61259">
+    <test started-at="2024-04-26T20:36:39 IST" name="Test" finished-at="2024-04-26T20:38:00 IST" duration-ms="81147">
       <class name="corbett_siku.FullFlowWithWaits_Profile1">
-        <test-method signature="FillMemberDetails()[pri:0, instance:corbett_siku.FullFlowWithWaits_Profile1@33ecda92]" started-at="2024-04-26T20:20:16 IST" name="FillMemberDetails" finished-at="2024-04-26T20:21:14 IST" duration-ms="58041" status="PASS">
+        <test-method signature="FillMemberDetails()[pri:0, instance:corbett_siku.FullFlowWithWaits_Profile1@33ecda92]" started-at="2024-04-26T20:36:39 IST" name="FillMemberDetails" finished-at="2024-04-26T20:37:57 IST" duration-ms="77992" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- FillMemberDetails -->
-        <test-method signature="EnterMobile()[pri:0, instance:corbett_siku.FullFlowWithWaits_Profile1@33ecda92]" started-at="2024-04-26T20:21:14 IST" name="EnterMobile" finished-at="2024-04-26T20:21:17 IST" duration-ms="3152" status="PASS">
+        <test-method signature="EnterMobile()[pri:0, instance:corbett_siku.FullFlowWithWaits_Profile1@33ecda92]" started-at="2024-04-26T20:37:57 IST" name="EnterMobile" finished-at="2024-04-26T20:38:00 IST" duration-ms="3101" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- EnterMobile -->
