@@ -89,7 +89,9 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 			if (nationalityDropDownDisplayed) {
 				selectForeignCountry(nationalityOfFirstPersonFromExcel, "one", countryFirstPerson);
-				sikuClickOnThisWithScreen(screen_1a, "IDdropdown.png", 10, 0.5);
+				if (nationalityOfFirstPersonFromExcel.toLowerCase().equalsIgnoreCase("foreigner")) {
+					sikuClickOnThisWithScreen(screen_1a, "IDdropdown.png", 10, 0.5);
+				}
 			} else {
 				pressTab(1);
 			}
@@ -129,7 +131,9 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 			if (nationalityDropDownDisplayed) {
 				selectForeignCountry(NationalityOfSecondPerson, "two", countrySecondPerson);
-				sikuClickOnThisWithScreen(screen_2, "IDdropdown.png", 10, 0.5);
+				if (NationalityOfSecondPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+					sikuClickOnThisWithScreen(screen_2, "IDdropdown.png", 10, 0.5);
+				}
 			} else {
 				pressTab(1);
 			}
@@ -171,7 +175,9 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 			if (nationalityDropDownDisplayed) {
 				selectForeignCountry(NationalityOfThirdPerson, "three", countryThirdPerson);
-				sikuClickOnThisWithScreen(screen_3, "IDdropdown.png", 10, 0.5);
+				if (NationalityOfThirdPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+					sikuClickOnThisWithScreen(screen_3, "IDdropdown.png", 10, 0.5);
+				}
 			} else {
 				pressTab(1);
 			}
@@ -212,7 +218,9 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 			if (nationalityDropDownDisplayed) {
 				selectForeignCountry(NationalityOfFourthPerson, "four", countryFourthPerson);
-				sikuClickOnThisWithScreen(screen_4, "IDdropdown.png", 10, 0.5);
+				if (NationalityOfFourthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+					sikuClickOnThisWithScreen(screen_4, "IDdropdown.png", 10, 0.5);
+				}
 			} else {
 				pressTab(1);
 			}
@@ -253,7 +261,9 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 			if (nationalityDropDownDisplayed) {
 				selectForeignCountry(NationalityOfFifthPerson, "five", countryFifthPerson);
-				sikuClickOnThisWithScreen(screen_5, "IDdropdown.png", 10, 0.5);
+				if (NationalityOfFifthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+					sikuClickOnThisWithScreen(screen_5, "IDdropdown.png", 10, 0.5);
+				}
 			} else {
 				pressTab(1);
 			}
@@ -293,7 +303,9 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			Thread.sleep(WaitsProfile1.delayInGenderDropdown6);
 			if (nationalityDropDownDisplayed) {
 				selectForeignCountry(NationalityOfSixthPerson, "six", countrySixthPerson);
-				sikuClickOnThisWithScreen(screen_6, "IDdropdown.png", 10, 0.5);
+				if (NationalityOfSixthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+					sikuClickOnThisWithScreen(screen_6, "IDdropdown.png", 10, 0.5);
+				}
 			} else {
 				pressTab(1);
 			}
