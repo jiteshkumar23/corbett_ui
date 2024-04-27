@@ -69,15 +69,16 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		System.out.println("Image clicked");
 		scrollUpToTop();
 
-		//sikuClickOnThisWithinRegion(screen_1a, "firstNameBox.png", 206, 203, 830, 96);
-		
+		// sikuClickOnThisWithinRegion(screen_1a, "firstNameBox.png", 206, 203, 830,
+		// 96);
+
 		sikuClickOnThis("firstNameBox.png", 10, 0.77);
 
 		// First Person Data Input
 		intNumberOfAdultsFromExcel = Integer.parseInt(NumberOfAdultsFromExcel);
 
 		if (intNumberOfAdultsFromExcel >= 1) {
-			
+
 			makeRandomErrorinTypingAndCorrect(nameOfFirstPersonFromExcel, "one");
 
 			pressTab(1);
@@ -421,7 +422,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			screen.setRect(region);
 
 			// Find and click on the dropdown within the defined region
-		
+
 			Pattern dropdownPattern = new Pattern(fullImagePath);
 			screen.wait(dropdownPattern, 10);
 			screen.click(dropdownPattern);
@@ -548,7 +549,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			Thread.sleep(timePerCharacter);
 
 		}
-		 Thread.sleep(newR+23);
+		Thread.sleep(newR + 23);
 	}
 
 	public static void genderSelection(String gender) throws InterruptedException {
@@ -612,7 +613,6 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 		int timePerCharacter = waitTime / count;
 
-		
 		for (int i = 0; i < newRandom - 1; i++) {
 
 			screen.type(str[i]);
@@ -622,7 +622,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		System.out.println(probabilityOfMakingErrorInId);
 		int newR = randomNumberBetweenMinAndMax(1, 100);
 		if (newR <= Integer.parseInt(probabilityOfMakingErrorInId)) {
-			
+
 			int newRandom1 = randomNumberBetweenMinAndMax(0, 9);
 
 			screen.type(String.valueOf(newRandom1));
@@ -639,11 +639,8 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			Thread.sleep(timePerCharacter);
 
 		}
-		 Thread.sleep(newR+27);
+		Thread.sleep(newR + 27);
 	}
-
-
-	
 
 	public static void enterAge(String ageOfPersonFromExcel, String personNumber) throws InterruptedException {
 		int count = ageOfPersonFromExcel.length();

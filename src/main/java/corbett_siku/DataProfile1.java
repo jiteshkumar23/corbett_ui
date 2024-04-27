@@ -126,7 +126,7 @@ public class DataProfile1 {
 																	// "Indian","Foreigner","Student","Senior Citizen"
 		map1.put("countryFirstPerson", "USA");   // valid values are "USA", "United Kingdom","Canada","Australia","Italy"
 		map1.put("IdTypeOfFirstPerson", "Passport"); // valid values "Aadhar Card","Pan Card","Driving License","Passport","Student ID Card"
-		map1.put("IdNumberOfFirstPerson", "1111111111");
+		map1.put("IdNumberOfFirstPerson", "P656789");
 
 		// Second Person Details
 		map1.put("NameOfSecondPerson", "Testing Name");
@@ -135,7 +135,7 @@ public class DataProfile1 {
 		map1.put("NationalityOfSecondPerson", "Foreigner");// valid values are "Indian","Foreigner","Student","Senior Citizen"
 		map1.put("countrySecondPerson", "Canada");
 		map1.put("IdTypeOfSecondPerson", "Passport");
-		map1.put("IdNumberOfSecondPerson", "2222222222");
+		map1.put("IdNumberOfSecondPerson", "P537894");
 
 		// Third Person Details
 		map1.put("NameOfThirdPerson", "ThirdPerson Name");
@@ -144,7 +144,7 @@ public class DataProfile1 {
 		map1.put("NationalityOfThirdPerson", "Indian");// valid values are "Indian","Foreigner","Student","Senior Citizen"
 		map1.put("countryThirdPerson", "Canada");
 		map1.put("IdTypeOfThirdPerson", "Aadhar Card");
-		map1.put("IdNumberOfThirdPerson", "3333333333");
+		map1.put("IdNumberOfThirdPerson", "878901876781");
 
 		// Fourth Person Details
 		map1.put("NameOfFourthPerson", "FourthPerson Name");
@@ -152,8 +152,8 @@ public class DataProfile1 {
 		map1.put("GenderOfFourthPerson", "Female");
 		map1.put("NationalityOfFourthPerson", "Foreigner");// valid values are "Indian","Foreigner","Student","Senior Citizen"
 		map1.put("countryFourthPerson", "Australia");
-		map1.put("IdTypeOfFourthPerson", "Aadhar Card");
-		map1.put("IdNumberOfFourthPerson", "4444444444");
+		map1.put("IdTypeOfFourthPerson", "Passport");
+		map1.put("IdNumberOfFourthPerson", "U869096");
 
 		// Fifth Person Details
 		map1.put("NameOfFifthPerson", "FifthPerson Name");
@@ -161,8 +161,8 @@ public class DataProfile1 {
 		map1.put("GenderOfFifthPerson", "Male");
 		map1.put("NationalityOfFifthPerson", "Foreigner");// valid values are "Indian","Foreigner","Student","Senior Citizen"
 		map1.put("countryFifthPerson", "Italy");
-		map1.put("IdTypeOfFifthPerson", "Pan Card");
-		map1.put("IdNumberOfFifthPerson", "5555555555");
+		map1.put("IdTypeOfFifthPerson", "Passport");
+		map1.put("IdNumberOfFifthPerson", "U869044");
 
 		// Sixth Person Details
 		map1.put("NameOfSixthPerson", "SixthPerson name");
@@ -171,7 +171,7 @@ public class DataProfile1 {
 		map1.put("NationalityOfSixthPerson", "Indian");// valid values are "Indian","Foreigner","Student","Senior Citizen"
 		map1.put("countrySixthPerson", "India");
 		map1.put("IdTypeOfSixthPerson", "Student ID Card");
-		map1.put("IdNumberOfSixthPerson", "01ME30101ME301");
+		map1.put("IdNumberOfSixthPerson", "01ME301");
 
 		// set mobile number here
 		map1.put("mobileNumber", "9911674753");
