@@ -49,6 +49,7 @@ public class DataProfile1 {
 	public static String IdNumberOfSixthPerson;
 	public static String mobileNumber;
 	public static String probabilityOfMakingErrorInName;
+	public static String probabilityOfMakingErrorInId;
 
 
 	public DataProfile1() {
@@ -106,7 +107,7 @@ public class DataProfile1 {
 		countrySixthPerson = test.get("countrySixthPerson");
 		mobileNumber = test.get("mobileNumber");
 		probabilityOfMakingErrorInName = test.get("probabilityOfMakingErrorInName");
-
+		probabilityOfMakingErrorInId = test.get("probabilityOfMakingErrorInId");
 	}
 
 	public HashMap<String, String> returnData() {
@@ -125,7 +126,7 @@ public class DataProfile1 {
 																	// "Indian","Foreigner","Student","Senior Citizen"
 		map1.put("countryFirstPerson", "USA");   // valid values are "USA", "United Kingdom","Canada","Australia","Italy"
 		map1.put("IdTypeOfFirstPerson", "Passport"); // valid values "Aadhar Card","Pan Card","Driving License","Passport","Student ID Card"
-		map1.put("IdNumberOfFirstPerson", "P665879");
+		map1.put("IdNumberOfFirstPerson", "1111111111");
 
 		// Second Person Details
 		map1.put("NameOfSecondPerson", "Testing Name");
@@ -134,7 +135,7 @@ public class DataProfile1 {
 		map1.put("NationalityOfSecondPerson", "Foreigner");// valid values are "Indian","Foreigner","Student","Senior Citizen"
 		map1.put("countrySecondPerson", "Canada");
 		map1.put("IdTypeOfSecondPerson", "Passport");
-		map1.put("IdNumberOfSecondPerson", "P908758");
+		map1.put("IdNumberOfSecondPerson", "2222222222");
 
 		// Third Person Details
 		map1.put("NameOfThirdPerson", "ThirdPerson Name");
@@ -143,7 +144,7 @@ public class DataProfile1 {
 		map1.put("NationalityOfThirdPerson", "Indian");// valid values are "Indian","Foreigner","Student","Senior Citizen"
 		map1.put("countryThirdPerson", "Canada");
 		map1.put("IdTypeOfThirdPerson", "Aadhar Card");
-		map1.put("IdNumberOfThirdPerson", "987856459834");
+		map1.put("IdNumberOfThirdPerson", "3333333333");
 
 		// Fourth Person Details
 		map1.put("NameOfFourthPerson", "FourthPerson Name");
@@ -152,7 +153,7 @@ public class DataProfile1 {
 		map1.put("NationalityOfFourthPerson", "Foreigner");// valid values are "Indian","Foreigner","Student","Senior Citizen"
 		map1.put("countryFourthPerson", "Australia");
 		map1.put("IdTypeOfFourthPerson", "Aadhar Card");
-		map1.put("IdNumberOfFourthPerson", "767098167678");
+		map1.put("IdNumberOfFourthPerson", "4444444444");
 
 		// Fifth Person Details
 		map1.put("NameOfFifthPerson", "FifthPerson Name");
@@ -161,7 +162,7 @@ public class DataProfile1 {
 		map1.put("NationalityOfFifthPerson", "Foreigner");// valid values are "Indian","Foreigner","Student","Senior Citizen"
 		map1.put("countryFifthPerson", "Italy");
 		map1.put("IdTypeOfFifthPerson", "Pan Card");
-		map1.put("IdNumberOfFifthPerson", "ARHPK1895B");
+		map1.put("IdNumberOfFifthPerson", "5555555555");
 
 		// Sixth Person Details
 		map1.put("NameOfSixthPerson", "SixthPerson name");
@@ -170,11 +171,13 @@ public class DataProfile1 {
 		map1.put("NationalityOfSixthPerson", "Indian");// valid values are "Indian","Foreigner","Student","Senior Citizen"
 		map1.put("countrySixthPerson", "India");
 		map1.put("IdTypeOfSixthPerson", "Student ID Card");
-		map1.put("IdNumberOfSixthPerson", "01ME301");
+		map1.put("IdNumberOfSixthPerson", "01ME30101ME301");
 
 		// set mobile number here
 		map1.put("mobileNumber", "9911674753");
 		map1.put("probabilityOfMakingErrorInName", "100");
+		map1.put("probabilityOfMakingErrorInId", "100");
+		
 		
 		return map1;
 	}

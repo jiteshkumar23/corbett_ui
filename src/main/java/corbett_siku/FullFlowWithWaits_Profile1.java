@@ -69,12 +69,15 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		System.out.println("Image clicked");
 		scrollUpToTop();
 
-		sikuClickOnThis("firstNameBox.png", 10, 0.5);
+		//sikuClickOnThisWithinRegion(screen_1a, "firstNameBox.png", 206, 203, 830, 96);
+		
+		sikuClickOnThis("firstNameBox.png", 10, 0.77);
 
 		// First Person Data Input
 		intNumberOfAdultsFromExcel = Integer.parseInt(NumberOfAdultsFromExcel);
 
 		if (intNumberOfAdultsFromExcel >= 1) {
+			
 			makeRandomErrorinTypingAndCorrect(nameOfFirstPersonFromExcel, "one");
 
 			pressTab(1);
@@ -404,7 +407,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 	}
 
 	public static void sikuClickOnThisWithinRegion(Screen screen, String specificImagePath, int regionX, int regionY,
-			int regionWidth, int regionHeight) throws FindFailed {
+			int regionWidth, int regionHeight) throws FindFailed, InterruptedException {
 
 		String fullImagePath = imagePath + specificImagePath;
 		// Pattern targetImagePattern = new Pattern(fullImagePath).targetOffset(targetX,
@@ -418,6 +421,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			screen.setRect(region);
 
 			// Find and click on the dropdown within the defined region
+		
 			Pattern dropdownPattern = new Pattern(fullImagePath);
 			screen.wait(dropdownPattern, 10);
 			screen.click(dropdownPattern);
@@ -476,13 +480,13 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 	public static void scrollDownToEnd() {
 
-		screen.type(Key.END, KeyModifier.SHIFT);
+		screen.type(Key.END, KeyModifier.CTRL);
 
 	}
 
 	public static void scrollUpToTop() {
 
-		screen.type(Key.HOME, KeyModifier.SHIFT);
+		screen.type(Key.HOME, KeyModifier.CTRL);
 
 	}
 
@@ -580,6 +584,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 	public static void enterIDNumber(String IdNumberOfPerson, String personNumber) throws InterruptedException {
 		int count = IdNumberOfPerson.length();
 		String[] str = IdNumberOfPerson.split("");
+		int newRandom = randomNumberBetweenMinAndMax(1, count);
 
 		int waitTime = 500;
 
@@ -607,14 +612,38 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 		int timePerCharacter = waitTime / count;
 
-		for (int i = 0; i < count; i++) {
+		
+		for (int i = 0; i < newRandom - 1; i++) {
 
 			screen.type(str[i]);
 			Thread.sleep(timePerCharacter);
 
 		}
+		System.out.println(probabilityOfMakingErrorInId);
+		int newR = randomNumberBetweenMinAndMax(1, 100);
+		if (newR <= Integer.parseInt(probabilityOfMakingErrorInId)) {
+			
+			int newRandom1 = randomNumberBetweenMinAndMax(0, 9);
 
+			screen.type(String.valueOf(newRandom1));
+			Thread.sleep(210);
+
+			// Simulate pressing the "Backspace" key to delete the last character
+			screen.type(Key.BACKSPACE);
+			Thread.sleep(100);
+		}
+
+		for (int i = newRandom - 1; i < count; i++) {
+
+			screen.type(str[i]);
+			Thread.sleep(timePerCharacter);
+
+		}
+		 Thread.sleep(newR+27);
 	}
+
+
+	
 
 	public static void enterAge(String ageOfPersonFromExcel, String personNumber) throws InterruptedException {
 		int count = ageOfPersonFromExcel.length();
