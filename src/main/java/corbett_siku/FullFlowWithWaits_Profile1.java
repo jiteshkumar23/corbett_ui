@@ -65,9 +65,9 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 		System.out.println("Waiting for 120 seconds for form to show up for filling details");
 
-		sikuClickOnThis("point345.png", 120, 0.5);
+		sikuClickOnThis("point345.png", 120, 0.4);
 		System.out.println("Image clicked");
-		scrollUpToTop();
+		scrollUpToTop(2);
 
 		// sikuClickOnThisWithinRegion(screen_1a, "firstNameBox.png", 206, 203, 830,
 		// 96);
@@ -349,7 +349,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 	@Test
 	private static void EnterMobile() throws Exception {
 
-		scrollDownToEnd();
+		scrollDownToEnd(2);
 		pressTab(2);
 		int waitTime = 500;
 		waitTime = WaitsProfile1.totalTimeForTypingMobileNumber;
@@ -503,15 +503,21 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		}
 	}
 
-	public static void scrollDownToEnd() {
+	public static void scrollDownToEnd(int count) {
 
-		screen.type(Key.END, KeyModifier.CTRL);
+		for (int i = 1; i <= count; i++) {
+			screen.type(Key.PAGE_DOWN);
+		}
 
 	}
 
-	public static void scrollUpToTop() {
+	public static void scrollUpToTop(int count) {
 
-		screen.type(Key.HOME, KeyModifier.CTRL);
+		//screen.type(Key.HOME, KeyModifier.CTRL);
+		
+		for (int i = 1; i <= count; i++) {
+			screen.type(Key.PAGE_UP);
+		}
 
 	}
 
@@ -757,7 +763,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 				if (countryPerson.equalsIgnoreCase("USA")) {
 					System.out.println("Inside USA Selection");
 					sikuClickOnThis("AForAmerica.png", 10, 0.5);
-					scrollDownToEnd();
+					scrollDownToEnd(2);
 					sikuClickOnThis("USA.png", 10, 0.5);
 
 				}
@@ -788,7 +794,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 					System.out.println("Inside USA Selection");
 					sikuClickOnThis("AForAmerica.png", 10, 0.5);
-					scrollDownToEnd();
+					scrollDownToEnd(2);
 					sikuClickOnThis("USA.png", 10, 0.5);
 
 				}
