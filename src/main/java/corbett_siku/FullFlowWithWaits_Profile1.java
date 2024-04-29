@@ -513,8 +513,8 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 	public static void scrollUpToTop(int count) {
 
-		//screen.type(Key.HOME, KeyModifier.CTRL);
-		
+		// screen.type(Key.HOME, KeyModifier.CTRL);
+
 		for (int i = 1; i <= count; i++) {
 			screen.type(Key.PAGE_UP);
 		}
@@ -750,7 +750,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 					sikuClickOnThisWithinRegion(screen_4, "india.png", 201, 586, 833, 110);
 					break;
 				case "five":
-					sikuClickOnThisWithinRegion(screen_5, "india.png", 199, 717, 840, 100);
+					sikuClickOnThisWithinRegion(screen_5, "india.png", 201, 717, 835, 100);
 					break;
 				case "six":
 					sikuClickOnThisWithinRegion(screen_6, "india.png", 204, 385, 827, 115);
@@ -763,32 +763,37 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 				if (countryPerson.equalsIgnoreCase("USA")) {
 					System.out.println("Inside USA Selection");
 					sikuClickOnThis("AForAmerica.png", 10, 0.5);
-					scrollDownToEnd(2);
-					sikuClickOnThis("USA.png", 10, 0.5);
+//					scrollDownToEnd(2);
+//					sikuClickOnThis("USA.png", 10, 0.5);
+					searchForCountryAndClickOnIt("usa");
 
 				}
 
 				else if (countryPerson.equalsIgnoreCase("United Kingdom")) {
 					System.out.println("Inside United Kingdom Selection");
 					sikuClickOnThis("UForUnitedKingdom.png", 10, 0.6);
-					sikuClickOnThis("UnitedKingdom.png", 10, 0.6);
+					// sikuClickOnThis("UnitedKingdom.png", 10, 0.6);
+					searchForCountryAndClickOnIt("united");
 				} else if (countryPerson.equalsIgnoreCase("Canada")) {
 					System.out.println("Inside Canada Selection");
 					sikuClickOnThis("CForCanada.png", 10, 0.6);
-					sikuClickOnThis("Canada.png", 10, 0.6);
+					// sikuClickOnThis("Canada.png", 10, 0.6);
+					searchForCountryAndClickOnIt("canada");
 				} else if (countryPerson.equalsIgnoreCase("Australia")) {
 
 					System.out.println("Inside Australia Selection");
 					sikuClickOnThis("AForAmerica.png", 10, 0.6);
-					sikuClickOnThisWithTargetOffset("Australia.png", -29, 84, 0.6);
-
+					// scrollDownToEnd(1);
+					// sikuClickOnThisWithTargetOffset("Australia.png", -29, 84, 0.7);
+					searchForCountryAndClickOnIt("australia");
 				}
 
 				else if (countryPerson.equalsIgnoreCase("Italy")) {
 
 					System.out.println("Inside Italy Selection");
 					sikuClickOnThis("IForItaly.png", 10, 0.5);
-					sikuClickOnThisWithTargetOffset("Italy.png", -72, 78, 0.6);
+					// sikuClickOnThisWithTargetOffset("Italy.png", -72, 78, 0.6);
+					searchForCountryAndClickOnIt("italy");
 
 				} else {
 
@@ -803,6 +808,21 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			System.out.println("Expection in selecting foreign country :" + e);
 			e.printStackTrace();
 		}
+	}
+
+	private static void searchForCountryAndClickOnIt(String countryToSearchFor) throws InterruptedException {
+
+		screen.type("f", KeyModifier.CTRL);
+		screen.type(countryToSearchFor);
+		if (countryToSearchFor.toLowerCase().contains("usa")) {
+			Thread.sleep(700 + randomNumberBetweenMinAndMax(1, 20));
+		} else {
+			Thread.sleep(400 + randomNumberBetweenMinAndMax(1, 20));
+		}
+		screen.type(Key.ESC);
+		screen.type(Key.ENTER);
+		Thread.sleep(10 + randomNumberBetweenMinAndMax(1, 20));
+
 	}
 
 }
