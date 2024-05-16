@@ -114,9 +114,8 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 			enterAge(ageOfFirstPersonFromExcel, "one");
 
-			if (intNumberOfAdultsFromExcel == 1) {
-				Thread.sleep(WaitsProfile1.person1wait);
-			}
+			Thread.sleep(WaitsProfile1.person1wait);
+
 		}
 
 		// Second Person Data Input
@@ -157,9 +156,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 			enterAge(AgeOfSecondPerson, "two");
 
-			if (intNumberOfAdultsFromExcel == 2) {
-				Thread.sleep(WaitsProfile1.person2wait);
-			}
+			Thread.sleep(WaitsProfile1.person2wait);
 
 		}
 
@@ -203,9 +200,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 			enterAge(AgeOfThirdPerson, "three");
 
-			if (intNumberOfAdultsFromExcel == 3) {
-				Thread.sleep(WaitsProfile1.person3wait);
-			}
+			Thread.sleep(WaitsProfile1.person3wait);
 
 		}
 
@@ -248,9 +243,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 			enterAge(AgeOfFourthPerson, "four");
 
-			if (intNumberOfAdultsFromExcel == 4) {
-				Thread.sleep(WaitsProfile1.person4wait);
-			}
+			Thread.sleep(WaitsProfile1.person4wait);
 
 		}
 
@@ -293,9 +286,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 			enterAge(AgeOfFifthPerson, "five");
 
-			if (intNumberOfAdultsFromExcel == 5) {
-				Thread.sleep(WaitsProfile1.person5wait);
-			}
+			Thread.sleep(WaitsProfile1.person5wait);
 
 		}
 
@@ -338,9 +329,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 			enterAge(AgeOfSixthPerson, "six");
 
-			if (intNumberOfAdultsFromExcel == 6) {
-				Thread.sleep(WaitsProfile1.person6wait);
-			}
+			Thread.sleep(WaitsProfile1.person6wait);
 
 		}
 
