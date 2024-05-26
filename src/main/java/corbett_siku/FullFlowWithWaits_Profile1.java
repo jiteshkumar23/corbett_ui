@@ -1,18 +1,16 @@
 package corbett_siku;
 
-//import java.io.File;
-//import java.io.IOException;
-//import java.text.SimpleDateFormat;
-//import java.time.Duration;
-//import java.time.LocalTime;
-//import java.util.Date;
-//import java.util.List;
-//import java.util.Random;
-//import java.util.Set;
-
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
+import java.awt.Rectangle;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.File;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Random;
-
+import javax.swing.JFrame;
 import org.sikuli.script.FindFailed;
 import org.sikuli.script.Key;
 import org.sikuli.script.KeyModifier;
@@ -22,24 +20,256 @@ import org.sikuli.script.Mouse;
 import org.sikuli.script.Pattern;
 import org.sikuli.script.Region;
 import org.sikuli.script.Screen;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
-public class FullFlowWithWaits_Profile1 extends DataProfile1 {
+public class FullFlowWithWaits_Profile1 extends DataProfile1  {
 
 	public static int intNumberOfAdultsFromExcel;
-	public static Screen screen;
-	public static Screen screen_1a;
-	public static Screen screen_2;
-	public static Screen screen_3;
-	public static Screen screen_4;
-	public static Screen screen_5;
-	public static Screen screen_6;
+	public static Screen screen =  new Screen();
+	public static Screen screen_1a = new Screen();
+	public static Screen screen_2 = new Screen();
+	public static Screen screen_3 = new Screen();
+	public static Screen screen_4= new Screen();
+	public static Screen screen_5= new Screen();
+	public static Screen screen_6= new Screen();
 	public static String imagePath = System.getProperty("user.dir") + File.separator + "images" + File.separator;
 	public static Random rand;
 	public static boolean nationalityDropDownDisplayed;
+	public int intNumberOfAdults1 = Integer.parseInt(NumberOfAdultsFromExcel);
+	public int intNumberOfRooms = Integer.parseInt(numberOfRooms);
+	public int intnumberOfChildren = Integer.parseInt(numberOfChildren);
+	public boolean keyCombinationPressed = false;
+	
+	@BeforeSuite
+	public void waitForKeyCombination() {
+		JFrame frame = new JFrame();
+		frame.setSize(200, 200);
+		frame.setUndecorated(true); // Remove window decorations
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Terminate the program when closing the frame
+
+		// Calculate frame location
+		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+		GraphicsDevice[] gs = ge.getScreenDevices();
+		Rectangle bounds = gs[0].getDefaultConfiguration().getBounds();
+		int screenWidth = bounds.width;
+		int screenHeight = bounds.height;
+		int frameWidth = frame.getWidth();
+		int frameHeight = frame.getHeight();
+		int x = 0; // Left side of the screen
+		int y = screenHeight - frameHeight; // Bottom of the screen
+
+		frame.setLocation(x, y);
+		frame.setAlwaysOnTop(true); // Make the frame always on top
+		frame.setVisible(true);
+		frame.requestFocus(); // Request focus for the frame
+
+		frame.addKeyListener(new KeyListener() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_B) {
+					keyCombinationPressed = true;
+				}
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+			}
+		});
+
+		// Thread to periodically bring the frame to the front
+		new Thread(() -> {
+			while (!keyCombinationPressed) {
+				if (!frame.isFocused()) {
+					frame.toFront();
+				}
+				try {
+					Thread.sleep(500); // Adjust the sleep duration as needed
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}).start();
+
+		// Wait for the key combination to be pressed
+		while (!keyCombinationPressed) {
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		frame.dispose(); // Close the frame once the key combination is pressed
+	}
+
+	
+	@Test
+	public void firstPage() throws FindFailed, InterruptedException {
+
+		// timeout in seconds below
+
+		System.out.println("Hot key has been pressed !!!");
+		System.out.println("###################   Starting   ###################");
+		System.out.println("");
+
+		sikuClickOnThis("checkindate.png", 120, 0.7);
+
+		System.out.println(checkInDate);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		LocalDate checkInDateObj = LocalDate.parse(checkInDate, formatter);
+		LocalDate checkOutDateObj = LocalDate.parse(checkOutDate, formatter);
+		LocalDate currentDate = LocalDate.now();
+
+		long differenceInDaysCheckInAndCurrent = ChronoUnit.DAYS.between(currentDate, checkInDateObj);
+		long differenceInDaysCheckOutAndCheckIn = ChronoUnit.DAYS.between(checkInDateObj, checkOutDateObj);
+
+		int intdifferenceInDaysCheckInAndCurrent = (int) differenceInDaysCheckInAndCurrent;
+
+		int intdifferenceInDaysCheckOutAndCheckIn = (int) differenceInDaysCheckOutAndCheckIn;
+
+		System.out.println(intdifferenceInDaysCheckInAndCurrent);
+		System.out.println(intdifferenceInDaysCheckOutAndCheckIn);
+
+		pressRightArrow(intdifferenceInDaysCheckInAndCurrent);
+		pressEnter(1);
+		pressTab(1);
+		pressRightArrow(intdifferenceInDaysCheckOutAndCheckIn - 1);
+		pressEnter(1);
+		pressTab(1);
+
+		switch (intNumberOfRooms) {
+		case 1:
+			System.out.println("Do nothing for number of rooms");
+			break;
+		case 2:
+			pressDownArrowKey(1);
+			break;
+		case 3:
+			pressDownArrowKey(2);
+			break;
+		}
+
+		pressTab(1);
+
+		switch (intNumberOfAdults1) {
+		case 1:
+			pressUpArrowKey(1);
+			break;
+		case 2:
+			System.out.println("Do nothing for number of adults");
+			break;
+		case 3:
+			pressDownArrowKey(1);
+			break;
+		case 4:
+			pressDownArrowKey(2);
+			break;
+		case 5:
+			pressDownArrowKey(3);
+			break;
+		case 6:
+			pressDownArrowKey(4);
+			break;
+		}
+
+		pressTab(1);
+
+		switch (intnumberOfChildren) {
+		case 0:
+			System.out.println("Do nothing for number of children");
+			break;
+		case 1:
+			pressDownArrowKey(1);
+			break;
+		case 2:
+			pressDownArrowKey(2);
+			break;
+		}
+
+		System.out.println("Number of adults is -->" + intNumberOfAdults1);
+
+		if (intNumberOfAdults1 >= 1) {
+			pressTab(1);
+			selectPaxType(nationalityOfFirstPersonFromExcel);
+		}
+
+		if (intNumberOfAdults1 >= 2) {
+			pressTab(1);
+			selectPaxType(NationalityOfSecondPerson);
+		}
+		if (intNumberOfAdults1 >= 3) {
+			pressTab(1);
+			selectPaxType(NationalityOfThirdPerson);
+		}
+		if (intNumberOfAdults1 >= 4) {
+			pressTab(1);
+			selectPaxType(NationalityOfFourthPerson);
+		}
+		if (intNumberOfAdults1 >= 5) {
+			pressTab(1);
+			selectPaxType(NationalityOfFifthPerson);
+		}
+		if (intNumberOfAdults1 >= 6) {
+			pressTab(1);
+			selectPaxType(NationalityOfSixthPerson);
+		}
+
+		pressTab(1);
+		pressEnter(1);
+		
+		Thread.sleep(1000);
+		
+		//Bijrani
+		//Gairal
+		//Halduparao
+		//Jhirna
+		//Morghati
+		//Mudiapani
+		//Pakhro
+		//Rathuwadhab
+	
+		switch (roomPrioirty) {
+		case "Bijrani":
+			System.out.println("roomPrioirty selected is "+roomPrioirty);
+			screen.type("1", KeyModifier.SHIFT);
+			break;
+		case "Gairal":
+			System.out.println("roomPrioirty selected is "+roomPrioirty);
+			screen.type("2", KeyModifier.SHIFT);
+			break;
+		case "Halduparao":
+			System.out.println("roomPrioirty selected is "+roomPrioirty);
+			screen.type("3", KeyModifier.SHIFT);
+			break;
+		case "Jhirna":
+			System.out.println("roomPrioirty selected is "+roomPrioirty);
+			screen.type("4", KeyModifier.SHIFT);
+			break;
+		case "Morghati":
+			System.out.println("roomPrioirty selected is "+roomPrioirty);
+			screen.type("5", KeyModifier.SHIFT);
+			break;
+		case "Mudiapani":
+			System.out.println("roomPrioirty selected is "+roomPrioirty);
+			screen.type("6", KeyModifier.SHIFT);
+			break;
+		case "Pakhro":
+			System.out.println("roomPrioirty selected is "+roomPrioirty);
+			screen.type("7", KeyModifier.SHIFT);
+			break;
+		case "Rathuwadhab":
+			System.out.println("roomPrioirty selected is "+roomPrioirty);
+			screen.type("8", KeyModifier.SHIFT);
+			break;
+		}
+	}
 
 	@Test
-	private static void FillMemberDetails() throws Exception {
+	public void FillMemberDetails() throws Exception {
 
 		if (nationalityOfFirstPersonFromExcel.toLowerCase().equalsIgnoreCase("foreigner")
 				|| NationalityOfSecondPerson.toLowerCase().equalsIgnoreCase("foreigner")
@@ -52,22 +282,11 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			nationalityDropDownDisplayed = true;
 		}
 		System.out.println("nationalityDropDownDisplayed is -->" + nationalityDropDownDisplayed);
-		System.out.println("###################   Starting   ###################");
-		System.out.println("");
-
-		screen = new Screen();
-		screen_1a = new Screen();
-		screen_2 = new Screen();
-		screen_3 = new Screen();
-		screen_4 = new Screen();
-		screen_5 = new Screen();
-		screen_6 = new Screen();
-
 		System.out.println("Waiting for 120 seconds for form to show up for filling details");
 
 		sikuClickOnThis("point345.png", 120, 0.4);
 		System.out.println("Image clicked");
-		scrollUpToTop(2);
+		scrollUpToTop(4);
 
 		// sikuClickOnThisWithinRegion(screen_1a, "firstNameBox.png", 206, 203, 830,
 		// 96);
@@ -335,8 +554,22 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 	}
 
+	private void selectPaxType(String nationalityOfPersonFromExcel) throws InterruptedException {
+
+		if (nationalityOfPersonFromExcel.equalsIgnoreCase("Indian")) {
+			pressDownArrowKey(1);
+		} else if (nationalityOfPersonFromExcel.equalsIgnoreCase("Foreigner")) {
+			pressDownArrowKey(2);
+		} else if (nationalityOfPersonFromExcel.equalsIgnoreCase("Student")) {
+			pressDownArrowKey(3);
+		} else if (nationalityOfPersonFromExcel.equalsIgnoreCase("Senior Citizen")) {
+			pressDownArrowKey(4);
+		}
+
+	}
+
 	@Test
-	private static void EnterMobile() throws Exception {
+	public void EnterMobile() throws Exception {
 
 		scrollDownToEnd(2);
 		pressTab(2);
@@ -500,12 +733,20 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 	}
 
-	public static void scrollUpToTop(int count) {
+	public static void scrollUpToTop(int count) throws InterruptedException {
 
 		// screen.type(Key.HOME, KeyModifier.CTRL);
 
 		for (int i = 1; i <= count; i++) {
 			screen.type(Key.PAGE_UP);
+			Thread.sleep(50);
+		}
+
+	}
+
+	public static void pressRightArrow(int count) {
+		for (int i = 1; i <= count; i++) {
+			screen.type(Key.RIGHT);
 		}
 
 	}
@@ -710,6 +951,13 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 	public static void pressDownArrowKey(int times) throws InterruptedException {
 		for (int i = 0; i < times; i++) {
 			screen.type(Key.DOWN);
+			Thread.sleep(75);
+		}
+	}
+
+	public static void pressUpArrowKey(int times) throws InterruptedException {
+		for (int i = 0; i < times; i++) {
+			screen.type(Key.UP);
 			Thread.sleep(75);
 		}
 	}

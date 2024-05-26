@@ -1,0 +1,114 @@
+[
+  {
+    "key": "shift+1",
+    "label": "Bijrani",
+    "action": "javascript",
+    "activeInInputs": true,
+    "blacklist": "whitelist",
+    "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
+    "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Bijrani']\").click()",
+    "sitesArray": [
+      "https://booking.corbettgov.org/resort/",
+      "https://booking.corbettgov.org/resort/#",
+      "https://booking.corbettgov.org/resort#"
+    ]
+  },
+ {
+    "key": "shift+2",
+    "label": "Gairal",
+    "action": "javascript",
+    "activeInInputs": true,
+    "blacklist": "whitelist",
+    "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
+    "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Gairal']\").click()",
+    "sitesArray": [
+      "https://booking.corbettgov.org/resort/",
+      "https://booking.corbettgov.org/resort/#",
+      "https://booking.corbettgov.org/resort#"
+    ]
+  },
+{
+    "key": "shift+3",
+    "label": "Halduparao",
+    "action": "javascript",
+    "activeInInputs": true,
+    "blacklist": "whitelist",
+    "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
+    "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Halduparao']\").click()",
+    "sitesArray": [
+      "https://booking.corbettgov.org/resort/",
+      "https://booking.corbettgov.org/resort/#",
+      "https://booking.corbettgov.org/resort#"
+    ]
+  },
+{
+    "key": "shift+4",
+    "label": "Jhirna",
+    "action": "javascript",
+    "activeInInputs": true,
+    "blacklist": "whitelist",
+    "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
+    "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Jhirna']\").click()",
+    "sitesArray": [
+      "https://booking.corbettgov.org/resort/",
+      "https://booking.corbettgov.org/resort/#",
+      "https://booking.corbettgov.org/resort#"
+    ]
+  },
+{
+    "key": "shift+5",
+    "label": "Morghati",
+    "action": "javascript",
+    "activeInInputs": true,
+    "blacklist": "whitelist",
+    "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
+    "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Morghati']\").click()",
+    "sitesArray": [
+      "https://booking.corbettgov.org/resort/",
+      "https://booking.corbettgov.org/resort/#",
+      "https://booking.corbettgov.org/resort#"
+    ]
+  },
+{
+    "key": "shift+6",
+    "label": "Mudiapani",
+    "action": "javascript",
+    "activeInInputs": true,
+    "blacklist": "whitelist",
+    "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
+    "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Mudiapani']\").click()",
+    "sitesArray": [
+      "https://booking.corbettgov.org/resort/",
+      "https://booking.corbettgov.org/resort/#",
+      "https://booking.corbettgov.org/resort#"
+    ]
+  },
+{
+    "key": "shift+7",
+    "label": "Pakhro",
+    "action": "javascript",
+    "activeInInputs": true,
+    "blacklist": "whitelist",
+    "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
+    "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Pakhro']\").click()",
+    "sitesArray": [
+      "https://booking.corbettgov.org/resort/",
+      "https://booking.corbettgov.org/resort/#",
+      "https://booking.corbettgov.org/resort#"
+    ]
+  },
+ {
+    "key": "shift+8",
+    "label": "Rathuwadhab",
+    "action": "javascript",
+    "activeInInputs": true,
+    "blacklist": "whitelist",
+    "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
+    "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Rathuwadhab']\").click()",
+    "sitesArray": [
+      "https://booking.corbettgov.org/resort/",
+      "https://booking.corbettgov.org/resort/#",
+      "https://booking.corbettgov.org/resort#"
+    ]
+  }
+]
