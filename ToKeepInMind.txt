@@ -1,0 +1,16 @@
+Enter Dates and all information in the DataProfile1.java
+Run CheckInCheckOutDates.xml to get the code for checkin and checkout date
+Put these values in ShortKeys PlugIn
+
+
+Save ShortKeys 
+
+
+
+Run FullFlowWithWaitsRun_Profile1.xml
+
+Go to chrome
+Remove all popups , Prepare the site to start automation
+
+Click on the Grey Coloured box that is displayed on left bottom
+Press Ctrl+B 

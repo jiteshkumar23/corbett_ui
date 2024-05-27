@@ -21,7 +21,12 @@ import org.sikuli.script.Pattern;
 import org.sikuli.script.Region;
 import org.sikuli.script.Screen;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
@@ -42,7 +47,9 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 	public boolean keyCombinationPressed = false;
 
 	@BeforeSuite
-	public void waitForKeyCombination() {
+	@Parameters("suiteName")
+	public void waitForKeyCombination(String suiteName) {
+		if ("MySpecificSuite".equals(suiteName)) {
 		JFrame frame = new JFrame();
 		frame.setSize(200, 200);
 		frame.setUndecorated(true); // Remove window decorations
@@ -105,7 +112,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		}
 		frame.dispose(); // Close the frame once the key combination is pressed
 	}
-
+	}
 	@Test
 	public void firstPage() throws FindFailed, InterruptedException {
 
@@ -118,6 +125,8 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		sikuClickOnThis("checkindate.png", 120, 0.7);
 
 		System.out.println(checkInDate);
+		System.out.println(checkOutDate);
+		
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		LocalDate checkInDateObj = LocalDate.parse(checkInDate, formatter);
 		LocalDate checkOutDateObj = LocalDate.parse(checkOutDate, formatter);
@@ -134,10 +143,17 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		System.out.println(intdifferenceInDaysCheckOutAndCheckIn);
 
 		pressRightArrow(intdifferenceInDaysCheckInAndCurrent);
-		pressEnter(1);
+//		pressEnter(1);
+		Thread.sleep(200);
+		screen.type("i", KeyModifier.ALT);
+		Thread.sleep(200);
+		
 		pressTab(1);
 		pressRightArrow(intdifferenceInDaysCheckOutAndCheckIn - 1);
-		pressEnter(1);
+//		pressEnter(1);
+		Thread.sleep(200);
+		screen.type("o", KeyModifier.ALT);
+		Thread.sleep(200);
 		pressTab(1);
 
 		switch (intNumberOfRooms) {
@@ -1122,5 +1138,38 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		Thread.sleep(10 + randomNumberBetweenMinAndMax(1, 20));
 
 	}
+	
+	@Test
+	public void checkInCheckOutDates() {
+		
+		        // Define the date and time as strings
+		        String checkIndateString = checkInDate;
+		        String checkOutdateString = checkOutDate;
+		        String timeString = "05:30:00";
+
+		        // Combine date and time strings
+		        String checkIndateTimeString = checkIndateString + "T" + timeString;
+		        String checkOutdateTimeString = checkOutdateString + "T" + timeString;
+
+		        // Parse the combined date-time string to LocalDateTime
+		        LocalDateTime checkinLocalDateTime = LocalDateTime.parse(checkIndateTimeString, DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+		        LocalDateTime checkOutLocalDateTime = LocalDateTime.parse(checkOutdateTimeString, DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+		        
+		        // Convert LocalDateTime to milliseconds since epoch
+		        ZonedDateTime checkInzonedDateTime = checkinLocalDateTime.atZone(ZoneId.systemDefault());
+		        ZonedDateTime checkOutzonedDateTime = checkOutLocalDateTime.atZone(ZoneId.systemDefault());
+		        
+		        long checkInMilliseconds = checkInzonedDateTime.toInstant().toEpochMilli();
+		        long checkOutMilliseconds = checkOutzonedDateTime.toInstant().toEpochMilli();
+
+		        // Output the result
+		        System.out.println("CheckIn Date Code for "+checkInDate+" --> " + checkInMilliseconds);
+		        System.out.println("CheckOut Date Code for "+checkOutDate+"--> " + checkOutMilliseconds);
+	
+	}
+		
+
+		
+	
 
 }

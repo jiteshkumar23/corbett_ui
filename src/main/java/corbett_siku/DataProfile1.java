@@ -124,13 +124,13 @@ public class DataProfile1 {
 
 		HashMap<String, String> map1 = new HashMap<String, String>();	
 	
-		map1.put("checkInDate", "2024-05-28");
-		map1.put("checkOutDate", "2024-05-29");
+		map1.put("checkInDate", "2024-05-29");
+		map1.put("checkOutDate", "2024-05-30");
 		
 		// set number of rooms
 		map1.put("numberOfRooms", "2");
 		// set number of adults
-		map1.put("NumberOfAdultsFromExcel", "6");
+		map1.put("NumberOfAdultsFromExcel", "3");
 		// set number of children
 		map1.put("numberOfChildren", "0");// valid values are "0", "1","2"
 		
