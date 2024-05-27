@@ -23,16 +23,16 @@ import org.sikuli.script.Screen;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
-public class FullFlowWithWaits_Profile1 extends DataProfile1  {
+public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 	public static int intNumberOfAdultsFromExcel;
-	public static Screen screen =  new Screen();
+	public static Screen screen = new Screen();
 	public static Screen screen_1a = new Screen();
 	public static Screen screen_2 = new Screen();
 	public static Screen screen_3 = new Screen();
-	public static Screen screen_4= new Screen();
-	public static Screen screen_5= new Screen();
-	public static Screen screen_6= new Screen();
+	public static Screen screen_4 = new Screen();
+	public static Screen screen_5 = new Screen();
+	public static Screen screen_6 = new Screen();
 	public static String imagePath = System.getProperty("user.dir") + File.separator + "images" + File.separator;
 	public static Random rand;
 	public static boolean nationalityDropDownDisplayed;
@@ -40,7 +40,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1  {
 	public int intNumberOfRooms = Integer.parseInt(numberOfRooms);
 	public int intnumberOfChildren = Integer.parseInt(numberOfChildren);
 	public boolean keyCombinationPressed = false;
-	
+
 	@BeforeSuite
 	public void waitForKeyCombination() {
 		JFrame frame = new JFrame();
@@ -106,7 +106,6 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1  {
 		frame.dispose(); // Close the frame once the key combination is pressed
 	}
 
-	
 	@Test
 	public void firstPage() throws FindFailed, InterruptedException {
 
@@ -220,50 +219,89 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1  {
 
 		pressTab(1);
 		pressEnter(1);
-		
+
 		Thread.sleep(1000);
-		
-		//Bijrani
-		//Gairal
-		//Halduparao
-		//Jhirna
-		//Morghati
-		//Mudiapani
-		//Pakhro
-		//Rathuwadhab
-	
+
 		switch (roomPrioirty) {
 		case "Bijrani":
-			System.out.println("roomPrioirty selected is "+roomPrioirty);
+			System.out.println("roomPrioirty selected is " + roomPrioirty);
 			screen.type("1", KeyModifier.SHIFT);
 			break;
-		case "Gairal":
-			System.out.println("roomPrioirty selected is "+roomPrioirty);
+		case "Gairal New":
+			System.out.println("roomPrioirty selected is " + roomPrioirty);
 			screen.type("2", KeyModifier.SHIFT);
 			break;
 		case "Halduparao":
-			System.out.println("roomPrioirty selected is "+roomPrioirty);
+			System.out.println("roomPrioirty selected is " + roomPrioirty);
 			screen.type("3", KeyModifier.SHIFT);
 			break;
 		case "Jhirna":
-			System.out.println("roomPrioirty selected is "+roomPrioirty);
+			System.out.println("roomPrioirty selected is " + roomPrioirty);
 			screen.type("4", KeyModifier.SHIFT);
 			break;
 		case "Morghati":
-			System.out.println("roomPrioirty selected is "+roomPrioirty);
+			System.out.println("roomPrioirty selected is " + roomPrioirty);
 			screen.type("5", KeyModifier.SHIFT);
 			break;
 		case "Mudiapani":
-			System.out.println("roomPrioirty selected is "+roomPrioirty);
+			System.out.println("roomPrioirty selected is " + roomPrioirty);
 			screen.type("6", KeyModifier.SHIFT);
 			break;
 		case "Pakhro":
-			System.out.println("roomPrioirty selected is "+roomPrioirty);
+			System.out.println("roomPrioirty selected is " + roomPrioirty);
 			screen.type("7", KeyModifier.SHIFT);
 			break;
 		case "Rathuwadhab":
-			System.out.println("roomPrioirty selected is "+roomPrioirty);
+			System.out.println("roomPrioirty selected is " + roomPrioirty);
 			screen.type("8", KeyModifier.SHIFT);
+			break;
+		case "Gairal Dormitory":
+			System.out.println("roomPrioirty selected is " + roomPrioirty);
+			screen.type("9", KeyModifier.SHIFT);
+			break;
+		case "Hutment-Dhikala":
+			System.out.println("roomPrioirty selected is " + roomPrioirty);
+			screen.type("0", KeyModifier.SHIFT);
+			break;
+		case "Cabin 4ABC-Dhikala":
+			System.out.println("roomPrioirty selected is " + roomPrioirty);
+			screen.type("0", KeyModifier.ALT);
+			break;
+		case "New-Dhikala":
+			System.out.println("roomPrioirty selected is " + roomPrioirty);
+			screen.type("1", KeyModifier.ALT);
+			break;
+		case "Annexi-Dhikala FRH-1/2/3/4/6":
+			System.out.println("roomPrioirty selected is " + roomPrioirty);
+			screen.type("2", KeyModifier.ALT);
+			break;
+		case "Annexi-Dhikala FRH- 5/7":
+			System.out.println("roomPrioirty selected is " + roomPrioirty);
+			screen.type("3", KeyModifier.ALT);
+			break;
+		case "Sarpduli FRH":
+			System.out.println("roomPrioirty selected is " + roomPrioirty);
+			screen.type("4", KeyModifier.ALT);
+			break;
+		case "Sarpduli Dormitory":
+			System.out.println("roomPrioirty selected is " + roomPrioirty);
+			screen.type("5", KeyModifier.ALT);
+			break;
+		case "Dhela":
+			System.out.println("roomPrioirty selected is " + roomPrioirty);
+			screen.type("6", KeyModifier.ALT);
+			break;
+		case "Sultan":
+			System.out.println("roomPrioirty selected is " + roomPrioirty);
+			screen.type("7", KeyModifier.ALT);
+			break;
+		case "Mailani":
+			System.out.println("roomPrioirty selected is " + roomPrioirty);
+			screen.type("8", KeyModifier.ALT);
+			break;
+		case "Loghut-Dhikala":
+			System.out.println("roomPrioirty selected is " + roomPrioirty);
+			screen.type("9", KeyModifier.ALT);
 			break;
 		}
 	}
@@ -282,10 +320,16 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1  {
 			nationalityDropDownDisplayed = true;
 		}
 		System.out.println("nationalityDropDownDisplayed is -->" + nationalityDropDownDisplayed);
-		System.out.println("Waiting for 120 seconds for form to show up for filling details");
-
-		sikuClickOnThis("point345.png", 120, 0.4);
+		
+		try {
+			sikuClickOnThis("point345.png", 2, 0.4);
+		} catch (Exception e) {
+			System.out.println("Exception" + e);
+		}
 		System.out.println("Image clicked");
+
+		clickOnCenter(screen);
+
 		scrollUpToTop(4);
 
 		// sikuClickOnThisWithinRegion(screen_1a, "firstNameBox.png", 206, 203, 830,
@@ -551,6 +595,23 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1  {
 			Thread.sleep(WaitsProfile1.person6wait);
 
 		}
+
+	}
+
+	private void clickOnCenter(Screen screen) throws FindFailed {
+		// Get the screen resolution
+		int screenWidth = screen.getW();
+		int screenHeight = screen.getH();
+
+		// Calculate the center of the screen
+		int centerX = screenWidth / 2;
+		int centerY = screenHeight / 2;
+
+		// Create a Location object for the center
+		Location center = new Location(centerX, centerY);
+
+		// Click at the center of the screen
+		screen.click(center);
 
 	}
 

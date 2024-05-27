@@ -124,26 +124,39 @@ public class DataProfile1 {
 
 		HashMap<String, String> map1 = new HashMap<String, String>();	
 	
-		map1.put("checkInDate", "2024-05-27");
-		map1.put("checkOutDate", "2024-05-28");
+		map1.put("checkInDate", "2024-05-28");
+		map1.put("checkOutDate", "2024-05-29");
 		
 		// set number of rooms
-		map1.put("numberOfRooms", "1");
+		map1.put("numberOfRooms", "2");
 		// set number of adults
-		map1.put("NumberOfAdultsFromExcel", "1");
+		map1.put("NumberOfAdultsFromExcel", "6");
 		// set number of children
 		map1.put("numberOfChildren", "0");// valid values are "0", "1","2"
 		
 		//Set the room to be booked
-		//Bijrani
-		//Gairal
-		//Halduparao
-		//Jhirna
-		//Morghati
-		//Mudiapani
-		//Pakhro
-		//Rathuwadhab
-		map1.put("roomPrioirty", "Pakhro");
+		//"Bijrani"
+		//"Gairal New"
+		//"Halduparao"
+		//"Jhirna"
+		//"Morghati"
+		//"Mudiapani"
+		//"Pakhro"
+		//"Rathuwadhab"
+		//"Gairal Dormitory"
+		//"Hutment-Dhikala"
+		//"Cabin 4ABC-Dhikala"
+		//"New-Dhikala"
+		//"Annexi-Dhikala FRH-1/2/3/4/6"
+		//"Annexi-Dhikala FRH- 5/7"
+		//"Sarpduli FRH"
+		//"Sarpduli Dormitory"
+		//"Dhela"
+		//"Sultan"
+		//"Mailani"
+		//"Loghut-Dhikala"
+
+		map1.put("roomPrioirty", "Rathuwadhab");
 		
 		
 		

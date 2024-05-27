@@ -15,12 +15,12 @@
   },
  {
     "key": "shift+2",
-    "label": "Gairal",
+    "label": "Gairal New",
     "action": "javascript",
     "activeInInputs": true,
     "blacklist": "whitelist",
     "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
-    "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Gairal']\").click()",
+    "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Gairal New']\").click()",
     "sitesArray": [
       "https://booking.corbettgov.org/resort/",
       "https://booking.corbettgov.org/resort/#",
@@ -105,6 +105,174 @@
     "blacklist": "whitelist",
     "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
     "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Rathuwadhab']\").click()",
+    "sitesArray": [
+      "https://booking.corbettgov.org/resort/",
+      "https://booking.corbettgov.org/resort/#",
+      "https://booking.corbettgov.org/resort#"
+    ]
+  },
+ {
+    "key": "shift+9",
+    "label": "Gairal Dormitory",
+    "action": "javascript",
+    "activeInInputs": true,
+    "blacklist": "whitelist",
+    "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
+    "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Gairal Dormitory']\").click()",
+    "sitesArray": [
+      "https://booking.corbettgov.org/resort/",
+      "https://booking.corbettgov.org/resort/#",
+      "https://booking.corbettgov.org/resort#"
+    ]
+  },
+ {
+    "key": "shift+0",
+    "label": "Hutment-Dhikala",
+    "action": "javascript",
+    "activeInInputs": true,
+    "blacklist": "whitelist",
+    "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
+    "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Hutment-Dhikala']\").click()",
+    "sitesArray": [
+      "https://booking.corbettgov.org/resort/",
+      "https://booking.corbettgov.org/resort/#",
+      "https://booking.corbettgov.org/resort#"
+    ]
+  },
+ {
+    "key": "alt+0",
+    "label": "Cabin 4ABC-Dhikala",
+    "action": "javascript",
+    "activeInInputs": true,
+    "blacklist": "whitelist",
+    "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
+    "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Cabin 4ABC-Dhikala']\").click()",
+    "sitesArray": [
+      "https://booking.corbettgov.org/resort/",
+      "https://booking.corbettgov.org/resort/#",
+      "https://booking.corbettgov.org/resort#"
+    ]
+  },
+ {
+    "key": "alt+1",
+    "label": "New-Dhikala",
+    "action": "javascript",
+    "activeInInputs": true,
+    "blacklist": "whitelist",
+    "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
+    "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='New-Dhikala']\").click()",
+    "sitesArray": [
+      "https://booking.corbettgov.org/resort/",
+      "https://booking.corbettgov.org/resort/#",
+      "https://booking.corbettgov.org/resort#"
+    ]
+  },
+ {
+    "key": "alt+2",
+    "label": "Annexi-Dhikala FRH-1/2/3/4/6",
+    "action": "javascript",
+    "activeInInputs": true,
+    "blacklist": "whitelist",
+    "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
+    "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Annexi-Dhikala FRH-1/2/3/4/6']\").click()",
+    "sitesArray": [
+      "https://booking.corbettgov.org/resort/",
+      "https://booking.corbettgov.org/resort/#",
+      "https://booking.corbettgov.org/resort#"
+    ]
+  },
+ {
+    "key": "alt+3",
+    "label": "Annexi-Dhikala FRH- 5/7",
+    "action": "javascript",
+    "activeInInputs": true,
+    "blacklist": "whitelist",
+    "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
+    "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Annexi-Dhikala FRH- 5/7']\").click()",
+    "sitesArray": [
+      "https://booking.corbettgov.org/resort/",
+      "https://booking.corbettgov.org/resort/#",
+      "https://booking.corbettgov.org/resort#"
+    ]
+  },
+ {
+    "key": "alt+4",
+    "label": "Sarpduli FRH",
+    "action": "javascript",
+    "activeInInputs": true,
+    "blacklist": "whitelist",
+    "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
+    "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Sarpduli FRH']\").click()",
+    "sitesArray": [
+      "https://booking.corbettgov.org/resort/",
+      "https://booking.corbettgov.org/resort/#",
+      "https://booking.corbettgov.org/resort#"
+    ]
+  },
+ {
+    "key": "alt+5",
+    "label": "Sarpduli Dormitory",
+    "action": "javascript",
+    "activeInInputs": true,
+    "blacklist": "whitelist",
+    "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
+    "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Sarpduli Dormitory']\").click()",
+    "sitesArray": [
+      "https://booking.corbettgov.org/resort/",
+      "https://booking.corbettgov.org/resort/#",
+      "https://booking.corbettgov.org/resort#"
+    ]
+  },
+ {
+    "key": "alt+6",
+    "label": "Dhela",
+    "action": "javascript",
+    "activeInInputs": true,
+    "blacklist": "whitelist",
+    "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
+    "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Dhela']\").click()",
+    "sitesArray": [
+      "https://booking.corbettgov.org/resort/",
+      "https://booking.corbettgov.org/resort/#",
+      "https://booking.corbettgov.org/resort#"
+    ]
+  },
+ {
+    "key": "alt+7",
+    "label": "Sultan",
+    "action": "javascript",
+    "activeInInputs": true,
+    "blacklist": "whitelist",
+    "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
+    "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Sultan']\").click()",
+    "sitesArray": [
+      "https://booking.corbettgov.org/resort/",
+      "https://booking.corbettgov.org/resort/#",
+      "https://booking.corbettgov.org/resort#"
+    ]
+  },
+ {
+    "key": "alt+8",
+    "label": "Mailani",
+    "action": "javascript",
+    "activeInInputs": true,
+    "blacklist": "whitelist",
+    "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
+    "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Mailani']\").click()",
+    "sitesArray": [
+      "https://booking.corbettgov.org/resort/",
+      "https://booking.corbettgov.org/resort/#",
+      "https://booking.corbettgov.org/resort#"
+    ]
+  },
+ {
+    "key": "alt+9",
+    "label": "Loghut-Dhikala",
+    "action": "javascript",
+    "activeInInputs": true,
+    "blacklist": "whitelist",
+    "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
+    "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Loghut-Dhikala']\").click()",
     "sitesArray": [
       "https://booking.corbettgov.org/resort/",
       "https://booking.corbettgov.org/resort/#",
