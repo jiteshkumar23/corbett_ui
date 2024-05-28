@@ -1052,22 +1052,22 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 				switch (person) {
 				case "one":
-					sikuClickOnThisWithinRegion(screen_1a, "india.png", 206, 203, 830, 96);
+					sikuClickOnThisWithinRegion(screen_1a, "india.png", 107, 223, 1133, 125);
 					break;
 				case "two":
-					sikuClickOnThisWithinRegion(screen_2, "india.png", 205, 326, 834, 111);
+					sikuClickOnThisWithinRegion(screen_2, "india.png", 107, 353, 1128, 120);
 					break;
 				case "three":
-					sikuClickOnThisWithinRegion(screen_3, "india.png", 201, 454, 836, 117);
+					sikuClickOnThisWithinRegion(screen_3, "india.png", 107, 482, 1127, 117);
 					break;
 				case "four":
-					sikuClickOnThisWithinRegion(screen_4, "india.png", 201, 586, 833, 110);
+					sikuClickOnThisWithinRegion(screen_4, "india.png", 107, 611, 1127, 111);
 					break;
 				case "five":
-					sikuClickOnThisWithinRegion(screen_5, "india.png", 201, 717, 835, 100);
+					sikuClickOnThisWithinRegion(screen_5, "india.png", 107, 352, 1127, 124);
 					break;
 				case "six":
-					sikuClickOnThisWithinRegion(screen_6, "india.png", 204, 385, 827, 115);
+					sikuClickOnThisWithinRegion(screen_6, "india.png", 107, 478, 1127, 123);
 					break;
 				}
 				System.out.println("India image clicked");
