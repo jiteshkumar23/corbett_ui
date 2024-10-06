@@ -337,21 +337,21 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		}
 		System.out.println("nationalityDropDownDisplayed is -->" + nationalityDropDownDisplayed);
 		
-		try {
-			sikuClickOnThis("point345.png", 2, 0.4);
-		} catch (Exception e) {
-			System.out.println("Exception" + e);
-		}
-		System.out.println("Image clicked");
-
-		clickOnCenter(screen);
-
-		scrollUpToTop(4);
+//		try {
+//			sikuClickOnThis("point345.png", 2, 0.4);
+//		} catch (Exception e) {
+//			System.out.println("Exception" + e);
+//		}
+//		System.out.println("Image clicked");
+//
+//		clickOnCenter(screen);
+//
+//		scrollUpToTop(4);
 
 		// sikuClickOnThisWithinRegion(screen_1a, "firstNameBox.png", 206, 203, 830,
 		// 96);
 
-		sikuClickOnThis("firstNameBox.png", 10, 0.77);
+		sikuClickOnThis("firstNameBox.png", 600, 0.77);
 
 		// First Person Data Input
 		intNumberOfAdultsFromExcel = Integer.parseInt(NumberOfAdultsFromExcel);
@@ -649,7 +649,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 	public void EnterMobile() throws Exception {
 
 		scrollDownToEnd(2);
-		pressTab(2);
+		pressTab(3);
 		int waitTime = 500;
 		waitTime = WaitsProfile1.totalTimeForTypingMobileNumber;
 
@@ -663,6 +663,8 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			Thread.sleep(timePerCharacter);
 
 		}
+		pressTab(1);
+		pressEnter(1);
 
 	}
 
