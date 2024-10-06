@@ -46,7 +46,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 	public int intnumberOfChildren = Integer.parseInt(numberOfChildren);
 	public boolean keyCombinationPressed = false;
 
-	@BeforeSuite
+	//@BeforeSuite
 	@Parameters("suiteName")
 	public void waitForKeyCombination(String suiteName) {
 		if ("MySpecificSuite".equals(suiteName)) {
