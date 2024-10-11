@@ -46,7 +46,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 	public int intnumberOfChildren = Integer.parseInt(numberOfChildren);
 	public boolean keyCombinationPressed = false;
 
-	//@BeforeSuite
+	@BeforeSuite
 	@Parameters("suiteName")
 	public void waitForKeyCombination(String suiteName) {
 		if ("MySpecificSuite".equals(suiteName)) {
@@ -120,38 +120,38 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 		System.out.println("Hot key has been pressed !!!");
 		System.out.println("###################   Starting   ###################");
-		System.out.println("");
+		System.out.println("waiting for check in date image");
 
-		sikuClickOnThis("checkindate.png", 120, 0.7);
+		sikuClickOnThis("checkindate.png", 120, 0.81);
 
 		System.out.println(checkInDate);
 		System.out.println(checkOutDate);
 		
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-		LocalDate checkInDateObj = LocalDate.parse(checkInDate, formatter);
-		LocalDate checkOutDateObj = LocalDate.parse(checkOutDate, formatter);
-		LocalDate currentDate = LocalDate.now();
+//		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+//		LocalDate checkInDateObj = LocalDate.parse(checkInDate, formatter);
+//		LocalDate checkOutDateObj = LocalDate.parse(checkOutDate, formatter);
+//		LocalDate currentDate = LocalDate.now();
+//
+//		long differenceInDaysCheckInAndCurrent = ChronoUnit.DAYS.between(currentDate, checkInDateObj);
+//		long differenceInDaysCheckOutAndCheckIn = ChronoUnit.DAYS.between(checkInDateObj, checkOutDateObj);
+//
+//		int intdifferenceInDaysCheckInAndCurrent = (int) differenceInDaysCheckInAndCurrent;
+//
+//		int intdifferenceInDaysCheckOutAndCheckIn = (int) differenceInDaysCheckOutAndCheckIn;
+//
+//		System.out.println(intdifferenceInDaysCheckInAndCurrent);
+//		System.out.println(intdifferenceInDaysCheckOutAndCheckIn);
 
-		long differenceInDaysCheckInAndCurrent = ChronoUnit.DAYS.between(currentDate, checkInDateObj);
-		long differenceInDaysCheckOutAndCheckIn = ChronoUnit.DAYS.between(checkInDateObj, checkOutDateObj);
-
-		int intdifferenceInDaysCheckInAndCurrent = (int) differenceInDaysCheckInAndCurrent;
-
-		int intdifferenceInDaysCheckOutAndCheckIn = (int) differenceInDaysCheckOutAndCheckIn;
-
-		System.out.println(intdifferenceInDaysCheckInAndCurrent);
-		System.out.println(intdifferenceInDaysCheckOutAndCheckIn);
-
-		pressRightArrow(intdifferenceInDaysCheckInAndCurrent);
+//		pressRightArrow(intdifferenceInDaysCheckInAndCurrent);
 //		pressEnter(1);
-		Thread.sleep(200);
+		Thread.sleep(250);
 		screen.type("i", KeyModifier.ALT);
 		Thread.sleep(200);
 		
 		pressTab(1);
-		pressRightArrow(intdifferenceInDaysCheckOutAndCheckIn - 1);
+//		pressRightArrow(intdifferenceInDaysCheckOutAndCheckIn - 1);
 //		pressEnter(1);
-		Thread.sleep(200);
+		Thread.sleep(250);
 		screen.type("o", KeyModifier.ALT);
 		Thread.sleep(200);
 		pressTab(1);
@@ -237,6 +237,8 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		pressEnter(1);
 
 		Thread.sleep(1000);
+		//sikuClickOnThis("rooms.png", 120, 0.70);
+		sikuWaitForThisImage("rooms.png", 120, 0.70);
 
 		switch (roomPrioirty) {
 		case "Bijrani":

@@ -7,7 +7,7 @@
 		<classes>
 			<class name="corbett_siku.FullFlowWithWaits_Profile1">
 				<methods>
-					<include name="firstPage"></include>
+					<include name="firstPage"></include> 
 					<include name="FillMemberDetails"></include>
 					<include name="EnterMobile"></include>
 				</methods>
