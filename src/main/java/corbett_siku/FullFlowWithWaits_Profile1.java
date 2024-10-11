@@ -20,6 +20,7 @@ import org.sikuli.script.Mouse;
 import org.sikuli.script.Pattern;
 import org.sikuli.script.Region;
 import org.sikuli.script.Screen;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -113,6 +114,25 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		frame.dispose(); // Close the frame once the key combination is pressed
 	}
 	}
+	
+	@AfterSuite
+	@Parameters("suiteName")
+	public void killAllObjects(String suiteName) {
+		if ("MySpecificSuite".equals(suiteName)) {
+			// Dispose of screen objects
+			System.err.println("Killing screen objects");
+            screen = null;
+            screen_1a = null;
+            screen_2 = null;
+            screen_3 = null;
+            screen_4 = null;
+            screen_5 = null;
+            screen_6 = null;
+            // Suggest to the JVM to perform garbage collection
+            System.gc();
+		}
+	}	
+	
 	@Test
 	public void firstPage() throws FindFailed, InterruptedException {
 
@@ -676,8 +696,14 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		sikuClickOnThis("UPI.png", 120, 0.70);
 		Thread.sleep(200);
 		sikuClickOnThis("PayNow.png", 120, 0.70);
-		sikuClickOnThis("contactdetails.png", 20, 0.70);
-		pressTab(3);
+		sikuFindImageWaitAndClick("contactdetails.png", 20, 250, 0.70);
+		//sikuClickOnThis("contactdetails.png", 20, 0.70);
+		pressTab(1);
+		Thread.sleep(100);
+		pressTab(1);
+		Thread.sleep(100);
+		pressTab(1);
+		Thread.sleep(100);
 		screen.type(emailAddress);
 		sikuClickOnThis("continue.png", 20, 0.70);
 		sikuClickOnThis("showQR.png", 20, 0.70);
@@ -689,6 +715,21 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		// System.out.println(imagePath);
 		Pattern imagePattern = new Pattern(imagePath + specificImagePath).similar(match);
 		screen.wait(imagePattern, waitTime);
+		screen.click(imagePattern);
+
+	}
+	
+	public static void sikuFindImageWaitAndClick(String specificImagePath, int timeOut, int waitBeforeClickinMillis, double match) throws FindFailed {
+
+		// System.out.println(imagePath);
+		Pattern imagePattern = new Pattern(imagePath + specificImagePath).similar(match);
+		screen.wait(imagePattern, timeOut);
+		try {
+			Thread.sleep(waitBeforeClickinMillis);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		screen.click(imagePattern);
 
 	}
