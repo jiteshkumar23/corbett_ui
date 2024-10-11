@@ -1,12 +1,19 @@
+SHORTKEYS
+Review
+Documentation
+Support
+GitHub
+
+
 [
-{
+  {
     "key": "alt+i",
     "label": "checkInDate",
     "action": "javascript",
     "activeInInputs": true,
-    "blacklist": "whitelist",
+    "blacklist": false,
     "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
-    "code": "document.querySelector(\"td[data-date='1716940800000']\").click()",
+    "code": "document.querySelector(\"td[data-date='1731974400000']\").click()",
     "sitesArray": [
       "https://booking.corbettgov.org/resort/",
       "https://booking.corbettgov.org/resort/#",
@@ -18,9 +25,9 @@
     "label": "checkOutDate",
     "action": "javascript",
     "activeInInputs": true,
-    "blacklist": "whitelist",
+    "blacklist": false,
     "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
-    "code": "document.querySelector(\"td[data-date='1717027200000']\").click()",
+    "code": "document.querySelector(\"td[data-date='1732060800000']\").click()",
     "sitesArray": [
       "https://booking.corbettgov.org/resort/",
       "https://booking.corbettgov.org/resort/#",
@@ -32,7 +39,7 @@
     "label": "Bijrani",
     "action": "javascript",
     "activeInInputs": true,
-    "blacklist": "whitelist",
+    "blacklist": false,
     "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
     "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Bijrani']\").click()",
     "sitesArray": [
@@ -42,11 +49,11 @@
     ]
   },
   {
-    "key": "shift+2",
+    "key": "shift+[",
     "label": "Gairal New",
     "action": "javascript",
     "activeInInputs": true,
-    "blacklist": "whitelist",
+    "blacklist": false,
     "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
     "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Gairal New']\").click()",
     "sitesArray": [
@@ -60,7 +67,7 @@
     "label": "Halduparao",
     "action": "javascript",
     "activeInInputs": true,
-    "blacklist": "whitelist",
+    "blacklist": false,
     "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
     "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Halduparao']\").click()",
     "sitesArray": [
@@ -74,7 +81,7 @@
     "label": "Jhirna",
     "action": "javascript",
     "activeInInputs": true,
-    "blacklist": "whitelist",
+    "blacklist": false,
     "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
     "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Jhirna']\").click()",
     "sitesArray": [
@@ -88,7 +95,7 @@
     "label": "Morghati",
     "action": "javascript",
     "activeInInputs": true,
-    "blacklist": "whitelist",
+    "blacklist": false,
     "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
     "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Morghati']\").click()",
     "sitesArray": [
@@ -102,7 +109,7 @@
     "label": "Mudiapani",
     "action": "javascript",
     "activeInInputs": true,
-    "blacklist": "whitelist",
+    "blacklist": false,
     "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
     "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Mudiapani']\").click()",
     "sitesArray": [
@@ -116,7 +123,7 @@
     "label": "Pakhro",
     "action": "javascript",
     "activeInInputs": true,
-    "blacklist": "whitelist",
+    "blacklist": false,
     "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
     "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Pakhro']\").click()",
     "sitesArray": [
@@ -130,7 +137,7 @@
     "label": "Rathuwadhab",
     "action": "javascript",
     "activeInInputs": true,
-    "blacklist": "whitelist",
+    "blacklist": false,
     "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
     "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Rathuwadhab']\").click()",
     "sitesArray": [
@@ -144,7 +151,7 @@
     "label": "Gairal Dormitory",
     "action": "javascript",
     "activeInInputs": true,
-    "blacklist": "whitelist",
+    "blacklist": false,
     "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
     "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Gairal Dormitory']\").click()",
     "sitesArray": [
@@ -158,7 +165,7 @@
     "label": "Hutment-Dhikala",
     "action": "javascript",
     "activeInInputs": true,
-    "blacklist": "whitelist",
+    "blacklist": false,
     "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
     "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Hutment-Dhikala']\").click()",
     "sitesArray": [
@@ -172,7 +179,7 @@
     "label": "Cabin 4ABC-Dhikala",
     "action": "javascript",
     "activeInInputs": true,
-    "blacklist": "whitelist",
+    "blacklist": false,
     "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
     "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Cabin 4ABC-Dhikala']\").click()",
     "sitesArray": [
@@ -186,7 +193,7 @@
     "label": "New-Dhikala",
     "action": "javascript",
     "activeInInputs": true,
-    "blacklist": "whitelist",
+    "blacklist": false,
     "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
     "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='New-Dhikala']\").click()",
     "sitesArray": [
@@ -200,7 +207,7 @@
     "label": "Annexi-Dhikala FRH-1/2/3/4/6",
     "action": "javascript",
     "activeInInputs": true,
-    "blacklist": "whitelist",
+    "blacklist": false,
     "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
     "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Annexi-Dhikala FRH-1/2/3/4/6']\").click()",
     "sitesArray": [
@@ -214,7 +221,7 @@
     "label": "Annexi-Dhikala FRH- 5/7",
     "action": "javascript",
     "activeInInputs": true,
-    "blacklist": "whitelist",
+    "blacklist": false,
     "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
     "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Annexi-Dhikala FRH- 5/7']\").click()",
     "sitesArray": [
@@ -228,7 +235,7 @@
     "label": "Sarpduli FRH",
     "action": "javascript",
     "activeInInputs": true,
-    "blacklist": "whitelist",
+    "blacklist": false,
     "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
     "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Sarpduli FRH']\").click()",
     "sitesArray": [
@@ -242,7 +249,7 @@
     "label": "Sarpduli Dormitory",
     "action": "javascript",
     "activeInInputs": true,
-    "blacklist": "whitelist",
+    "blacklist": false,
     "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
     "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Sarpduli Dormitory']\").click()",
     "sitesArray": [
@@ -256,7 +263,7 @@
     "label": "Dhela",
     "action": "javascript",
     "activeInInputs": true,
-    "blacklist": "whitelist",
+    "blacklist": false,
     "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
     "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Dhela']\").click()",
     "sitesArray": [
@@ -270,7 +277,7 @@
     "label": "Sultan",
     "action": "javascript",
     "activeInInputs": true,
-    "blacklist": "whitelist",
+    "blacklist": false,
     "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
     "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Sultan']\").click()",
     "sitesArray": [
@@ -284,7 +291,7 @@
     "label": "Mailani",
     "action": "javascript",
     "activeInInputs": true,
-    "blacklist": "whitelist",
+    "blacklist": false,
     "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
     "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Mailani']\").click()",
     "sitesArray": [
@@ -298,7 +305,7 @@
     "label": "Loghut-Dhikala",
     "action": "javascript",
     "activeInInputs": true,
-    "blacklist": "whitelist",
+    "blacklist": false,
     "sites": "https://booking.corbettgov.org/resort/\nhttps://booking.corbettgov.org/resort/#\nhttps://booking.corbettgov.org/resort#",
     "code": "document.querySelector(\".btn.btn-success.book-button[data-resort-title*='Loghut-Dhikala']\").click()",
     "sitesArray": [

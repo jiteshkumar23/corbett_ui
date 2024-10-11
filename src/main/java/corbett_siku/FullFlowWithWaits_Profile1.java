@@ -247,7 +247,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			break;
 		case "Gairal New":
 			System.out.println("roomPrioirty selected is " + roomPrioirty);
-			screen.type("2", KeyModifier.SHIFT);
+			screen.type("[", KeyModifier.SHIFT);
 			break;
 		case "Halduparao":
 			System.out.println("roomPrioirty selected is " + roomPrioirty);
