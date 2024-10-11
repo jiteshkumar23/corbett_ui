@@ -669,6 +669,20 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		pressEnter(1);
 
 	}
+	
+	@Test
+	public void UPIPayment() throws Exception {
+
+		sikuClickOnThis("UPI.png", 120, 0.70);
+		Thread.sleep(200);
+		sikuClickOnThis("PayNow.png", 120, 0.70);
+		sikuClickOnThis("contactdetails.png", 20, 0.70);
+		pressTab(3);
+		screen.type(emailAddress);
+		sikuClickOnThis("continue.png", 20, 0.70);
+		sikuClickOnThis("showQR.png", 20, 0.70);
+		sikuClickOnThis("recommended.png", 20, 0.70);
+	}
 
 	public static void sikuClickOnThis(String specificImagePath, int waitTime, double match) throws FindFailed {
 
