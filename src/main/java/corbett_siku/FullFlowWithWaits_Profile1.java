@@ -697,6 +697,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		Thread.sleep(200);
 		sikuClickOnThis("PayNow.png", 120, 0.70);
 		sikuFindImageWaitAndClick("contactdetails.png", 20, 250, 0.70);
+		sikuFindImageWaitAndClick("contactdetails.png", 20, 250, 0.70);
 		//sikuClickOnThis("contactdetails.png", 20, 0.70);
 		pressTab(1);
 		Thread.sleep(100);
