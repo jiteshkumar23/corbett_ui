@@ -47,7 +47,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 	public int intnumberOfChildren = Integer.parseInt(numberOfChildren);
 	public boolean keyCombinationPressed = false;
 
-	@BeforeSuite
+	//@BeforeSuite
 	@Parameters("suiteName")
 	public void waitForKeyCombination(String suiteName) {
 		if ("MySpecificSuite".equals(suiteName)) {
@@ -391,7 +391,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			if (nationalityDropDownDisplayed) {
 				selectForeignCountry(nationalityOfFirstPersonFromExcel, "one", countryFirstPerson);
 				if (nationalityOfFirstPersonFromExcel.toLowerCase().equalsIgnoreCase("foreigner")) {
-					sikuClickOnThisWithScreen(screen_1a, "IDdropdown.png", 10, 0.5);
+					sikuClickOnThisWithScreen(screen_1a, "IdentityProofType.png", 10, 0.5);
 				} else {
 					pressTab(1);
 				}
@@ -399,7 +399,9 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 				pressTab(1);
 			}
 
+			if (!nationalityOfFirstPersonFromExcel.toLowerCase().equalsIgnoreCase("foreigner")) {
 			selectIDType(IdTypeOfFirstPerson);
+			}
 
 			if (nationalityOfFirstPersonFromExcel.toLowerCase().equalsIgnoreCase("foreigner")) {
 				pressTab(2);
@@ -434,14 +436,17 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			if (nationalityDropDownDisplayed) {
 				selectForeignCountry(NationalityOfSecondPerson, "two", countrySecondPerson);
 				if (NationalityOfSecondPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-					sikuClickOnThisWithScreen(screen_2, "IDdropdown.png", 10, 0.5);
+					sikuClickOnThisWithScreen(screen_2, "IdentityProofType.png", 10, 0.5);
 				} else {
 					pressTab(1);
 				}
 			} else {
 				pressTab(1);
 			}
+			
+			if (!NationalityOfSecondPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
 			selectIDType(IdTypeOfSecondPerson);
+			}
 
 			if (NationalityOfSecondPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
 				pressTab(2);
@@ -478,14 +483,17 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			if (nationalityDropDownDisplayed) {
 				selectForeignCountry(NationalityOfThirdPerson, "three", countryThirdPerson);
 				if (NationalityOfThirdPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-					sikuClickOnThisWithScreen(screen_3, "IDdropdown.png", 10, 0.5);
+					sikuClickOnThisWithScreen(screen_3, "IdentityProofType.png", 10, 0.5);
 				} else {
 					pressTab(1);
 				}
 			} else {
 				pressTab(1);
 			}
+			
+			if (!NationalityOfThirdPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
 			selectIDType(IdTypeOfThirdPerson);
+			}
 
 			if (NationalityOfThirdPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
 				pressTab(2);
@@ -521,14 +529,17 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			if (nationalityDropDownDisplayed) {
 				selectForeignCountry(NationalityOfFourthPerson, "four", countryFourthPerson);
 				if (NationalityOfFourthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-					sikuClickOnThisWithScreen(screen_4, "IDdropdown.png", 10, 0.5);
+					sikuClickOnThisWithScreen(screen_4, "IdentityProofType.png", 10, 0.5);
 				} else {
 					pressTab(1);
 				}
 			} else {
 				pressTab(1);
 			}
+			
+			if (!NationalityOfFourthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
 			selectIDType(IdTypeOfFourthPerson);
+			}
 
 			if (NationalityOfFourthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
 				pressTab(2);
@@ -564,14 +575,17 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			if (nationalityDropDownDisplayed) {
 				selectForeignCountry(NationalityOfFifthPerson, "five", countryFifthPerson);
 				if (NationalityOfFifthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-					sikuClickOnThisWithScreen(screen_5, "IDdropdown.png", 10, 0.5);
+					sikuClickOnThisWithScreen(screen_5, "IdentityProofType.png", 10, 0.5);
 				} else {
 					pressTab(1);
 				}
 			} else {
 				pressTab(1);
 			}
+			
+			if (!NationalityOfFifthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
 			selectIDType(IdTypeOfFifthPerson);
+			}
 
 			if (NationalityOfFifthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
 				pressTab(2);
@@ -606,7 +620,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			if (nationalityDropDownDisplayed) {
 				selectForeignCountry(NationalityOfSixthPerson, "six", countrySixthPerson);
 				if (NationalityOfSixthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-					sikuClickOnThisWithScreen(screen_6, "IDdropdown.png", 10, 0.5);
+					sikuClickOnThisWithScreen(screen_6, "IdentityProofType.png", 10, 0.5);
 				} else {
 					pressTab(1);
 				}
@@ -614,7 +628,9 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 				pressTab(1);
 			}
 
+			if (!NationalityOfSixthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
 			selectIDType(IdTypeOfSixthPerson);
+			}
 
 			if (NationalityOfSixthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
 				pressTab(2);
