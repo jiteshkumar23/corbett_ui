@@ -56,6 +56,9 @@ public class DataProfile1 {
 	public static String checkOutDate;
 	public static String roomPrioirty;
 	public static String emailAddress;
+	public static String upiToUse;
+	public static String upiAddress;
+
 
 	public DataProfile1() {
 
@@ -119,6 +122,8 @@ public class DataProfile1 {
 		probabilityOfMakingErrorInId = test.get("probabilityOfMakingErrorInId");
 		roomPrioirty = test.get("roomPrioirty");
 		emailAddress = test.get("emailAddress");
+		upiToUse = test.get("upiToUse");
+		upiAddress = test.get("upiAddress");
 		
 	}
 
@@ -126,8 +131,8 @@ public class DataProfile1 {
 
 		HashMap<String, String> map1 = new HashMap<String, String>();	
 	
-		map1.put("checkInDate", "2024-11-19");
-		map1.put("checkOutDate", "2024-11-20");
+		map1.put("checkInDate", "2024-12-11");
+		map1.put("checkOutDate", "2024-12-12");
 		
 		// set number of rooms
 		map1.put("numberOfRooms", "2");
@@ -158,7 +163,7 @@ public class DataProfile1 {
 		//"Mailani"
 		//"Loghut-Dhikala"
 
-		map1.put("roomPrioirty", "Morghati");
+		map1.put("roomPrioirty", "Rathuwadhab");
 		
 		
 		
@@ -166,64 +171,70 @@ public class DataProfile1 {
 		map1.put("nameOfFirstPersonFromExcel", "Srishti Sharma");
 		map1.put("ageOfFirstPersonFromExcel", "33");
 		map1.put("genderOfFirstPersonFromExcel", "Female"); // valid values are "Male", "Female","Transgender"
-		map1.put("nationalityOfFirstPersonFromExcel", "Indian"); // valid values are
+		map1.put("nationalityOfFirstPersonFromExcel", "Foreigner"); // valid values are
 																	// "Indian","Foreigner","Student","Senior Citizen"
-		map1.put("countryFirstPerson", "India");   // valid values are "USA", "United Kingdom","Canada","Australia","Italy"
-		map1.put("IdTypeOfFirstPerson", "Aadhar Card"); // valid values "Aadhar Card","Pan Card","Driving License","Passport","Student ID Card"
-		map1.put("IdNumberOfFirstPerson", "414409204158");
+		map1.put("countryFirstPerson", "USA");   // valid values are "USA", "United Kingdom","Canada","Australia","Italy"
+		map1.put("IdTypeOfFirstPerson", "Passport"); // valid values "Aadhar Card","Pan Card","Driving License","Passport","Student ID Card"
+		map1.put("IdNumberOfFirstPerson", "AU869041");
 
 		// Second Person Details
 		map1.put("NameOfSecondPerson", "Shivam Sharma");
 		map1.put("AgeOfSecondPerson", "36");
 		map1.put("GenderOfSecondPerson", "Male");
-		map1.put("NationalityOfSecondPerson", "Indian");// valid values are "Indian","Foreigner","Student","Senior Citizen"
-		map1.put("countrySecondPerson", "India");
-		map1.put("IdTypeOfSecondPerson", "Aadhar Card");
-		map1.put("IdNumberOfSecondPerson", "292490656653");
+		map1.put("NationalityOfSecondPerson", "Foreigner");// valid values are "Indian","Foreigner","Student","Senior Citizen"
+		map1.put("countrySecondPerson", "USA");
+		map1.put("IdTypeOfSecondPerson", "Passport");
+		map1.put("IdNumberOfSecondPerson", "AU869042");
 
 		// Third Person Details
 		map1.put("NameOfThirdPerson", "Nisha Kiran Sharma");
 		map1.put("AgeOfThirdPerson", "32");
 		map1.put("GenderOfThirdPerson", "Female");
-		map1.put("NationalityOfThirdPerson", "Indian");// valid values are "Indian","Foreigner","Student","Senior Citizen"
-		map1.put("countryThirdPerson", "India");
-		map1.put("IdTypeOfThirdPerson", "Aadhar Card");
-		map1.put("IdNumberOfThirdPerson", "201991886054");
+		map1.put("NationalityOfThirdPerson", "Foreigner");// valid values are "Indian","Foreigner","Student","Senior Citizen"
+		map1.put("countryThirdPerson", "USA");
+		map1.put("IdTypeOfThirdPerson", "Passport");
+		map1.put("IdNumberOfThirdPerson", "AU869043");
 
 		// Fourth Person Details
 		map1.put("NameOfFourthPerson", "Nimish Kiran Sharma");
 		map1.put("AgeOfFourthPerson", "35");
 		map1.put("GenderOfFourthPerson", "Male");
-		map1.put("NationalityOfFourthPerson", "Indian");// valid values are "Indian","Foreigner","Student","Senior Citizen"
-		map1.put("countryFourthPerson", "India");
-		map1.put("IdTypeOfFourthPerson", "Aadhar Card");
-		map1.put("IdNumberOfFourthPerson", "677696115172");
+		map1.put("NationalityOfFourthPerson", "Foreigner");// valid values are "Indian","Foreigner","Student","Senior Citizen"
+		map1.put("countryFourthPerson", "USA");
+		map1.put("IdTypeOfFourthPerson", "Passport");
+		map1.put("IdNumberOfFourthPerson", "AU869044");
 
 		// Fifth Person Details
 		map1.put("NameOfFifthPerson", "FifthPerson Name");
 		map1.put("AgeOfFifthPerson", "35");
 		map1.put("GenderOfFifthPerson", "Male");
-		map1.put("NationalityOfFifthPerson", "Indian");// valid values are "Indian","Foreigner","Student","Senior Citizen"
-		map1.put("countryFifthPerson", "India");
+		map1.put("NationalityOfFifthPerson", "Foreigner");// valid values are "Indian","Foreigner","Student","Senior Citizen"
+		map1.put("countryFifthPerson", "USA");
 		map1.put("IdTypeOfFifthPerson", "Passport");
-		map1.put("IdNumberOfFifthPerson", "U869044");
+		map1.put("IdNumberOfFifthPerson", "AU869045");
 
 		// Sixth Person Details
 		map1.put("NameOfSixthPerson", "SixthPerson name");
 		map1.put("AgeOfSixthPerson", "36");
 		map1.put("GenderOfSixthPerson", "Transgender");
-		map1.put("NationalityOfSixthPerson", "Indian");// valid values are "Indian","Foreigner","Student","Senior Citizen"
-		map1.put("countrySixthPerson", "India");
-		map1.put("IdTypeOfSixthPerson", "Student ID Card");
-		map1.put("IdNumberOfSixthPerson", "01ME301");
+		map1.put("NationalityOfSixthPerson", "Foreigner");// valid values are "Indian","Foreigner","Student","Senior Citizen"
+		map1.put("countrySixthPerson", "USA");
+		map1.put("IdTypeOfSixthPerson", "Passport");
+		map1.put("IdNumberOfSixthPerson", "AU869046");
 
 		// set mobile number here
-		map1.put("mobileNumber", "9971957083");
+		map1.put("mobileNumber", "9999999999");
 		map1.put("probabilityOfMakingErrorInName", "70");
 		map1.put("probabilityOfMakingErrorInId", "75");
 		
 		//set email address here
 		map1.put("emailAddress", "satrajuma@gmail.com");
+		
+		//set UPI or UPI_ID here
+		map1.put("upiToUse", "UPI_ID"); //"UPI" or "UPI_ID"
+		
+		//set UPI Address
+		map1.put("upiAddress", "9999999999@ibl"); //"UPI" or "UPI_ID"
 		
 		return map1;
 	}

@@ -51,88 +51,88 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 	@Parameters("suiteName")
 	public void waitForKeyCombination(String suiteName) {
 		if ("MySpecificSuite".equals(suiteName)) {
-		JFrame frame = new JFrame();
-		frame.setSize(200, 200);
-		frame.setUndecorated(true); // Remove window decorations
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Terminate the program when closing the frame
+			JFrame frame = new JFrame();
+			frame.setSize(200, 200);
+			frame.setUndecorated(true); // Remove window decorations
+			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Terminate the program when closing the frame
 
-		// Calculate frame location
-		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-		GraphicsDevice[] gs = ge.getScreenDevices();
-		Rectangle bounds = gs[0].getDefaultConfiguration().getBounds();
-		int screenWidth = bounds.width;
-		int screenHeight = bounds.height;
-		int frameWidth = frame.getWidth();
-		int frameHeight = frame.getHeight();
-		int x = 0; // Left side of the screen
-		int y = screenHeight - frameHeight; // Bottom of the screen
+			// Calculate frame location
+			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+			GraphicsDevice[] gs = ge.getScreenDevices();
+			Rectangle bounds = gs[0].getDefaultConfiguration().getBounds();
+			int screenWidth = bounds.width;
+			int screenHeight = bounds.height;
+			int frameWidth = frame.getWidth();
+			int frameHeight = frame.getHeight();
+			int x = 0; // Left side of the screen
+			int y = screenHeight - frameHeight; // Bottom of the screen
 
-		frame.setLocation(x, y);
-		frame.setAlwaysOnTop(true); // Make the frame always on top
-		frame.setVisible(true);
-		frame.requestFocus(); // Request focus for the frame
+			frame.setLocation(x, y);
+			frame.setAlwaysOnTop(true); // Make the frame always on top
+			frame.setVisible(true);
+			frame.requestFocus(); // Request focus for the frame
 
-		frame.addKeyListener(new KeyListener() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-			}
-
-			@Override
-			public void keyPressed(KeyEvent e) {
-				if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_B) {
-					keyCombinationPressed = true;
+			frame.addKeyListener(new KeyListener() {
+				@Override
+				public void keyTyped(KeyEvent e) {
 				}
-			}
 
-			@Override
-			public void keyReleased(KeyEvent e) {
-			}
-		});
+				@Override
+				public void keyPressed(KeyEvent e) {
+					if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_B) {
+						keyCombinationPressed = true;
+					}
+				}
 
-		// Thread to periodically bring the frame to the front
-		new Thread(() -> {
+				@Override
+				public void keyReleased(KeyEvent e) {
+				}
+			});
+
+			// Thread to periodically bring the frame to the front
+			new Thread(() -> {
+				while (!keyCombinationPressed) {
+					if (!frame.isFocused()) {
+						frame.toFront();
+					}
+					try {
+						Thread.sleep(500); // Adjust the sleep duration as needed
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+			}).start();
+
+			// Wait for the key combination to be pressed
 			while (!keyCombinationPressed) {
-				if (!frame.isFocused()) {
-					frame.toFront();
-				}
 				try {
-					Thread.sleep(500); // Adjust the sleep duration as needed
+					Thread.sleep(100);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
 			}
-		}).start();
-
-		// Wait for the key combination to be pressed
-		while (!keyCombinationPressed) {
-			try {
-				Thread.sleep(100);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+			frame.dispose(); // Close the frame once the key combination is pressed
 		}
-		frame.dispose(); // Close the frame once the key combination is pressed
 	}
-	}
-	
+
 	@AfterSuite
 	@Parameters("suiteName")
 	public void killAllObjects(String suiteName) {
 		if ("MySpecificSuite".equals(suiteName)) {
 			// Dispose of screen objects
 			System.err.println("Killing screen objects");
-            screen = null;
-            screen_1a = null;
-            screen_2 = null;
-            screen_3 = null;
-            screen_4 = null;
-            screen_5 = null;
-            screen_6 = null;
-            // Suggest to the JVM to perform garbage collection
-            System.gc();
+			screen = null;
+			screen_1a = null;
+			screen_2 = null;
+			screen_3 = null;
+			screen_4 = null;
+			screen_5 = null;
+			screen_6 = null;
+			// Suggest to the JVM to perform garbage collection
+			System.gc();
 		}
-	}	
-	
+	}
+
 	@Test
 	public void firstPage() throws FindFailed, InterruptedException {
 
@@ -146,31 +146,34 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 		System.out.println(checkInDate);
 		System.out.println(checkOutDate);
-		
-//		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-//		LocalDate checkInDateObj = LocalDate.parse(checkInDate, formatter);
-//		LocalDate checkOutDateObj = LocalDate.parse(checkOutDate, formatter);
-//		LocalDate currentDate = LocalDate.now();
-//
-//		long differenceInDaysCheckInAndCurrent = ChronoUnit.DAYS.between(currentDate, checkInDateObj);
-//		long differenceInDaysCheckOutAndCheckIn = ChronoUnit.DAYS.between(checkInDateObj, checkOutDateObj);
-//
-//		int intdifferenceInDaysCheckInAndCurrent = (int) differenceInDaysCheckInAndCurrent;
-//
-//		int intdifferenceInDaysCheckOutAndCheckIn = (int) differenceInDaysCheckOutAndCheckIn;
-//
-//		System.out.println(intdifferenceInDaysCheckInAndCurrent);
-//		System.out.println(intdifferenceInDaysCheckOutAndCheckIn);
 
-//		pressRightArrow(intdifferenceInDaysCheckInAndCurrent);
-//		pressEnter(1);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		LocalDate checkInDateObj = LocalDate.parse(checkInDate, formatter);
+		LocalDate checkOutDateObj = LocalDate.parse(checkOutDate, formatter);
+		LocalDate currentDate = LocalDate.now();
+		LocalDate targetDate = LocalDate.parse("2024-11-15", formatter);
+
+		LocalDate effectiveCurrentDate = currentDate.isAfter(targetDate) ? currentDate : targetDate;
+
+		long differenceInDaysCheckInAndCurrent = ChronoUnit.DAYS.between(effectiveCurrentDate, checkInDateObj);
+		long differenceInDaysCheckOutAndCheckIn = ChronoUnit.DAYS.between(checkInDateObj, checkOutDateObj);
+
+		int intdifferenceInDaysCheckInAndCurrent = (int) differenceInDaysCheckInAndCurrent;
+
+		int intdifferenceInDaysCheckOutAndCheckIn = (int) differenceInDaysCheckOutAndCheckIn;
+
+		System.out.println(intdifferenceInDaysCheckInAndCurrent);
+		System.out.println(intdifferenceInDaysCheckOutAndCheckIn);
+
+		pressRightArrow(intdifferenceInDaysCheckInAndCurrent);
+		pressEnter(1);
 		Thread.sleep(250);
 		screen.type("i", KeyModifier.ALT);
 		Thread.sleep(200);
-		
+
 		pressTab(1);
-//		pressRightArrow(intdifferenceInDaysCheckOutAndCheckIn - 1);
-//		pressEnter(1);
+		pressRightArrow(intdifferenceInDaysCheckOutAndCheckIn - 1);
+		pressEnter(1);
 		Thread.sleep(250);
 		screen.type("o", KeyModifier.ALT);
 		Thread.sleep(200);
@@ -257,7 +260,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		pressEnter(1);
 
 		Thread.sleep(1000);
-		//sikuClickOnThis("rooms.png", 120, 0.70);
+		// sikuClickOnThis("rooms.png", 120, 0.70);
 		sikuWaitForThisImage("rooms.png", 120, 0.70);
 
 		switch (roomPrioirty) {
@@ -358,7 +361,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			nationalityDropDownDisplayed = true;
 		}
 		System.out.println("nationalityDropDownDisplayed is -->" + nationalityDropDownDisplayed);
-		
+
 //		try {
 //			sikuClickOnThis("point345.png", 2, 0.4);
 //		} catch (Exception e) {
@@ -400,7 +403,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			}
 
 			if (!nationalityOfFirstPersonFromExcel.toLowerCase().equalsIgnoreCase("foreigner")) {
-			selectIDType(IdTypeOfFirstPerson);
+				selectIDType(IdTypeOfFirstPerson);
 			}
 
 			if (nationalityOfFirstPersonFromExcel.toLowerCase().equalsIgnoreCase("foreigner")) {
@@ -443,9 +446,9 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			} else {
 				pressTab(1);
 			}
-			
+
 			if (!NationalityOfSecondPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-			selectIDType(IdTypeOfSecondPerson);
+				selectIDType(IdTypeOfSecondPerson);
 			}
 
 			if (NationalityOfSecondPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
@@ -490,9 +493,9 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			} else {
 				pressTab(1);
 			}
-			
+
 			if (!NationalityOfThirdPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-			selectIDType(IdTypeOfThirdPerson);
+				selectIDType(IdTypeOfThirdPerson);
 			}
 
 			if (NationalityOfThirdPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
@@ -536,9 +539,9 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			} else {
 				pressTab(1);
 			}
-			
+
 			if (!NationalityOfFourthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-			selectIDType(IdTypeOfFourthPerson);
+				selectIDType(IdTypeOfFourthPerson);
 			}
 
 			if (NationalityOfFourthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
@@ -582,9 +585,9 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			} else {
 				pressTab(1);
 			}
-			
+
 			if (!NationalityOfFifthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-			selectIDType(IdTypeOfFifthPerson);
+				selectIDType(IdTypeOfFifthPerson);
 			}
 
 			if (NationalityOfFifthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
@@ -629,7 +632,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			}
 
 			if (!NationalityOfSixthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-			selectIDType(IdTypeOfSixthPerson);
+				selectIDType(IdTypeOfSixthPerson);
 			}
 
 			if (NationalityOfSixthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
@@ -705,16 +708,19 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		pressEnter(1);
 
 	}
-	
+
 	@Test
 	public void UPIPayment() throws Exception {
 
 		sikuClickOnThis("UPI.png", 120, 0.70);
 		Thread.sleep(200);
 		sikuClickOnThis("PayNow.png", 120, 0.70);
-		sikuFindImageWaitAndClick("contactdetails.png", 20, 250, 0.70);
-		sikuFindImageWaitAndClick("contactdetails.png", 20, 250, 0.70);
-		//sikuClickOnThis("contactdetails.png", 20, 0.70);
+		String result = imageDetectionBetweenTwoImages("contactdetails.png" ,1, 0.70, "tiger.png" ,1, 0.70, 60000);
+		
+		if(result.equalsIgnoreCase("first")) {
+		System.out.println("First image was found , now continuing the payment for first");
+		sikuFindImageWaitAndClick("contactdetails.png", 40, 100, 0.70);
+		// sikuClickOnThis("contactdetails.png", 20, 0.70);
 		pressTab(1);
 		Thread.sleep(100);
 		pressTab(1);
@@ -722,9 +728,39 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		pressTab(1);
 		Thread.sleep(100);
 		screen.type(emailAddress);
-		sikuClickOnThis("continue.png", 20, 0.70);
-		sikuClickOnThis("showQR.png", 20, 0.70);
-		sikuClickOnThis("recommended.png", 20, 0.70);
+		// sikuClickOnThis("continue.png", 40, 0.70);
+		pressTab(1);
+		pressEnter(1);
+		if (upiToUse.toLowerCase().equalsIgnoreCase("upi")) {
+			sikuClickOnThis("showQR.png", 40, 0.70);
+			sikuClickOnThis("recommended.png", 40, 0.70);
+		} else if (upiToUse.toLowerCase().equalsIgnoreCase("upi_id")) {
+			sikuClickOnThis("UPI_ID_Image1.png", 40, 0.70);
+			pressTab(2);
+			screen.type(upiAddress);
+			pressTab(1);
+			pressEnter(1);
+		}
+		}
+		else if (result.equalsIgnoreCase("second")) {
+			System.out.println("Second image was found , now contiuing the payment for second");
+			sikuClickOnThis("tiger.png", 40, 0.70);
+			pressTab(3);
+			screen.type(emailAddress);
+			sikuClickOnThis("proceedAfterTiger.png", 40, 0.70);
+			
+			if (upiToUse.toLowerCase().equalsIgnoreCase("upi")) {
+				sikuClickOnThis("showQRAfterTiger.png", 40, 0.70);
+				sikuClickOnThis("paywithUPIQR.png", 40, 0.70);
+			} else if (upiToUse.toLowerCase().equalsIgnoreCase("upi_id")) {
+				sikuClickOnThis("UPI_ID_Image2.png", 40, 0.70);
+				Thread.sleep(200);
+				screen.type(upiAddress);
+				pressTab(1);
+				pressEnter(1);
+			}
+			
+		}
 	}
 
 	public static void sikuClickOnThis(String specificImagePath, int waitTime, double match) throws FindFailed {
@@ -735,8 +771,9 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		screen.click(imagePattern);
 
 	}
-	
-	public static void sikuFindImageWaitAndClick(String specificImagePath, int timeOut, int waitBeforeClickinMillis, double match) throws FindFailed {
+
+	public static void sikuFindImageWaitAndClick(String specificImagePath, int timeOut, int waitBeforeClickinMillis,
+			double match) throws FindFailed {
 
 		// System.out.println(imagePath);
 		Pattern imagePattern = new Pattern(imagePath + specificImagePath).similar(match);
@@ -766,6 +803,39 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		// System.out.println(imagePath);
 		Pattern imagePattern = new Pattern(imagePath + specificImagePath).similar(match);
 		screen.wait(imagePattern, waitTime);
+
+	}
+
+	public static String imageDetectionBetweenTwoImages(String specificImagePath1, int waitTime1, double match1,String specificImagePath2, int waitTime2, double match2, long timeout) {
+
+		Pattern imagePattern1 = new Pattern(imagePath + specificImagePath1).similar(match1);
+		Pattern imagePattern2 = new Pattern(imagePath + specificImagePath2).similar(match2);
+
+		long startTime = System.currentTimeMillis(); 
+		
+		while (System.currentTimeMillis() - startTime < timeout) {
+            try {
+                screen.wait(imagePattern1, 0.5); // Check for 1 second
+                System.out.println("First image found!");
+                // Perform your action here
+                return "first";
+            } catch (FindFailed e1) {
+                try {
+                    screen.wait(imagePattern2, 0.5); // Check for 1 second
+                    System.out.println("Second image found!");
+                    // Perform your action here
+                    return "second";
+                } catch (FindFailed e2) {
+                     System.err.println("Neither image found, continue the loop");
+                }
+            }
+        }
+        
+        if (System.currentTimeMillis() - startTime >= timeout) {
+            System.out.println("Timeout reached without finding any image.");
+        }
+		return null;
+
 
 	}
 
@@ -1214,38 +1284,36 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		Thread.sleep(10 + randomNumberBetweenMinAndMax(1, 20));
 
 	}
-	
+
 	@Test
 	public void checkInCheckOutDates() {
-		
-		        // Define the date and time as strings
-		        String checkIndateString = checkInDate;
-		        String checkOutdateString = checkOutDate;
-		        String timeString = "05:30:00";
 
-		        // Combine date and time strings
-		        String checkIndateTimeString = checkIndateString + "T" + timeString;
-		        String checkOutdateTimeString = checkOutdateString + "T" + timeString;
+		// Define the date and time as strings
+		String checkIndateString = checkInDate;
+		String checkOutdateString = checkOutDate;
+		String timeString = "05:30:00";
 
-		        // Parse the combined date-time string to LocalDateTime
-		        LocalDateTime checkinLocalDateTime = LocalDateTime.parse(checkIndateTimeString, DateTimeFormatter.ISO_LOCAL_DATE_TIME);
-		        LocalDateTime checkOutLocalDateTime = LocalDateTime.parse(checkOutdateTimeString, DateTimeFormatter.ISO_LOCAL_DATE_TIME);
-		        
-		        // Convert LocalDateTime to milliseconds since epoch
-		        ZonedDateTime checkInzonedDateTime = checkinLocalDateTime.atZone(ZoneId.systemDefault());
-		        ZonedDateTime checkOutzonedDateTime = checkOutLocalDateTime.atZone(ZoneId.systemDefault());
-		        
-		        long checkInMilliseconds = checkInzonedDateTime.toInstant().toEpochMilli();
-		        long checkOutMilliseconds = checkOutzonedDateTime.toInstant().toEpochMilli();
+		// Combine date and time strings
+		String checkIndateTimeString = checkIndateString + "T" + timeString;
+		String checkOutdateTimeString = checkOutdateString + "T" + timeString;
 
-		        // Output the result
-		        System.out.println("CheckIn Date Code for "+checkInDate+" --> " + checkInMilliseconds);
-		        System.out.println("CheckOut Date Code for "+checkOutDate+"--> " + checkOutMilliseconds);
-	
+		// Parse the combined date-time string to LocalDateTime
+		LocalDateTime checkinLocalDateTime = LocalDateTime.parse(checkIndateTimeString,
+				DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+		LocalDateTime checkOutLocalDateTime = LocalDateTime.parse(checkOutdateTimeString,
+				DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+
+		// Convert LocalDateTime to milliseconds since epoch
+		ZonedDateTime checkInzonedDateTime = checkinLocalDateTime.atZone(ZoneId.systemDefault());
+		ZonedDateTime checkOutzonedDateTime = checkOutLocalDateTime.atZone(ZoneId.systemDefault());
+
+		long checkInMilliseconds = checkInzonedDateTime.toInstant().toEpochMilli();
+		long checkOutMilliseconds = checkOutzonedDateTime.toInstant().toEpochMilli();
+
+		// Output the result
+		System.out.println("CheckIn Date Code for " + checkInDate + " --> " + checkInMilliseconds);
+		System.out.println("CheckOut Date Code for " + checkOutDate + "--> " + checkOutMilliseconds);
+
 	}
-		
-
-		
-	
 
 }
