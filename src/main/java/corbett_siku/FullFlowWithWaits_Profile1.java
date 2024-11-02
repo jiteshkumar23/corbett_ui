@@ -738,8 +738,9 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			sikuClickOnThis("UPI_ID_Image1.png", 40, 0.70);
 			pressTab(2);
 			screen.type(upiAddress);
-			pressTab(1);
-			pressEnter(1);
+//			pressTab(1);
+//			pressEnter(1);
+			sikuClickOnThis("VerifyAndPay.png", 40, 0.70);	
 		}
 		}
 		else if (result.equalsIgnoreCase("second")) {
