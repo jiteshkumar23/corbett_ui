@@ -228,7 +228,7 @@ public class DataProfile1 {
 		map1.put("probabilityOfMakingErrorInId", "75");
 		
 		//set email address here
-		map1.put("emailAddress", "satrajuma@gmail.com");
+		map1.put("emailAddress", "abcd@gmail.com");
 		
 		//set UPI or UPI_ID here
 		map1.put("upiToUse", "UPI_ID"); //"UPI" or "UPI_ID"
