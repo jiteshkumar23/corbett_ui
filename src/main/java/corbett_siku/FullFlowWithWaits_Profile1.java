@@ -383,7 +383,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 		if (intNumberOfAdultsFromExcel >= 1) {
 
-			makeRandomErrorinTypingAndCorrect(nameOfFirstPersonFromExcel, "one");
+			makeRandomErrorinTypingAndCorrect(nameOfFirstPersonFromExcel.toLowerCase(), "one");
 
 			pressTab(1);
 
@@ -414,7 +414,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 			Thread.sleep(WaitsProfile1.delayInProofDropdown1);
 
-			enterIDNumber(IdNumberOfFirstPerson, "one");
+			enterIDNumber(IdNumberOfFirstPerson.toLowerCase(), "one");
 
 			pressTab(1);
 
@@ -428,7 +428,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		if (intNumberOfAdultsFromExcel >= 2) {
 			pressTab(1);
 
-			makeRandomErrorinTypingAndCorrect(NameOfSecondPerson, "two");
+			makeRandomErrorinTypingAndCorrect(NameOfSecondPerson.toLowerCase(), "two");
 
 			pressTab(1);
 
@@ -459,7 +459,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 			Thread.sleep(WaitsProfile1.delayInProofDropdown2);
 
-			enterIDNumber(IdNumberOfSecondPerson, "two");
+			enterIDNumber(IdNumberOfSecondPerson.toLowerCase(), "two");
 
 			pressTab(1);
 
@@ -475,7 +475,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 			pressTab(1);
 
-			makeRandomErrorinTypingAndCorrect(NameOfThirdPerson, "three");
+			makeRandomErrorinTypingAndCorrect(NameOfThirdPerson.toLowerCase(), "three");
 
 			pressTab(1);
 
@@ -506,7 +506,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 			Thread.sleep(WaitsProfile1.delayInProofDropdown3);
 
-			enterIDNumber(IdNumberOfThirdPerson, "three");
+			enterIDNumber(IdNumberOfThirdPerson.toLowerCase(), "three");
 
 			pressTab(1);
 
@@ -521,7 +521,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 			pressTab(1);
 
-			makeRandomErrorinTypingAndCorrect(NameOfFourthPerson, "four");
+			makeRandomErrorinTypingAndCorrect(NameOfFourthPerson.toLowerCase(), "four");
 
 			pressTab(1);
 
@@ -552,7 +552,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 			Thread.sleep(WaitsProfile1.delayInProofDropdown4);
 
-			enterIDNumber(IdNumberOfFourthPerson, "four");
+			enterIDNumber(IdNumberOfFourthPerson.toLowerCase(), "four");
 
 			pressTab(1);
 
@@ -567,7 +567,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 			pressTab(1);
 
-			makeRandomErrorinTypingAndCorrect(NameOfFifthPerson, "five");
+			makeRandomErrorinTypingAndCorrect(NameOfFifthPerson.toLowerCase(), "five");
 
 			pressTab(1);
 
@@ -598,7 +598,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 			Thread.sleep(WaitsProfile1.delayInProofDropdown5);
 
-			enterIDNumber(IdNumberOfFifthPerson, "five");
+			enterIDNumber(IdNumberOfFifthPerson.toLowerCase(), "five");
 
 			pressTab(1);
 
@@ -613,7 +613,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 			pressTab(1);
 
-			makeRandomErrorinTypingAndCorrect(NameOfSixthPerson, "six");
+			makeRandomErrorinTypingAndCorrect(NameOfSixthPerson.toLowerCase(), "six");
 
 			pressTab(1);
 
@@ -643,7 +643,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 			Thread.sleep(WaitsProfile1.delayInProofDropdown6);
 
-			enterIDNumber(IdNumberOfSixthPerson, "six");
+			enterIDNumber(IdNumberOfSixthPerson.toLowerCase(), "six");
 
 			pressTab(1);
 
@@ -691,7 +691,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 		scrollDownToEnd(2);
 		pressTab(3);
-		int waitTime = 500;
+		int waitTime = 0;
 		waitTime = WaitsProfile1.totalTimeForTypingMobileNumber;
 
 		int count = mobileNumber.length();
@@ -701,7 +701,8 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		for (int i = 0; i < count; i++) {
 
 			screen.type(str[i]);
-			Thread.sleep(timePerCharacter);
+			int newRandom2 = randomNumberBetweenMinAndMax(1, 99);
+			Thread.sleep(timePerCharacter+newRandom2);
 
 		}
 		pressTab(1);
@@ -711,7 +712,6 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 	@Test
 	public void UPIPayment() throws Exception {
-
 		sikuClickOnThis("UPI.png", 120, 0.70);
 		Thread.sleep(200);
 		sikuClickOnThis("PayNow.png", 120, 0.70);
@@ -736,7 +736,9 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			sikuClickOnThis("recommended.png", 40, 0.70);
 		} else if (upiToUse.toLowerCase().equalsIgnoreCase("upi_id")) {
 			sikuClickOnThis("UPI_ID_Image1.png", 40, 0.70);
-			pressTab(2);
+			Thread.sleep(150);
+			sikuClickOnThis("UPI_ID_Number.png", 40, 0.70);
+			pressTab(1);
 			screen.type(upiAddress);
 //			pressTab(1);
 //			pressEnter(1);
@@ -979,7 +981,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		int count = text.length();
 		int newRandom = randomNumberBetweenMinAndMax(1, count);
 
-		int waitTime = 500;
+		int waitTime = 0;
 		switch (personNumber) {
 		case "one":
 			waitTime = WaitsProfile1.totalTimeForTypingName1;
@@ -1000,15 +1002,13 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			waitTime = WaitsProfile1.totalTimeForTypingName6;
 			break;
 		}
-		// System.out.println("Name wait time is : "+waitTime);
 
 		int timePerCharacter = waitTime / count;
 		String[] str = text.split("");
 
 		for (int i = 0; i < newRandom - 1; i++) {
-
 			screen.type(str[i]);
-			Thread.sleep(timePerCharacter);
+			Thread.sleep(timePerCharacter+randomNumberBetweenMinAndMax(1, 99));
 
 		}
 		System.out.println(probabilityOfMakingErrorInName);
@@ -1020,20 +1020,19 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			char randomAlphabet = alphabets[randomIndex];
 
 			screen.type(String.valueOf(randomAlphabet));
-			Thread.sleep(250);
+			Thread.sleep(randomNumberBetweenMinAndMax(1, 99));
 
 			// Simulate pressing the "Backspace" key to delete the last character
 			screen.type(Key.BACKSPACE);
-			Thread.sleep(100);
+			Thread.sleep(randomNumberBetweenMinAndMax(1, 100));
 		}
 
 		for (int i = newRandom - 1; i < count; i++) {
-
 			screen.type(str[i]);
-			Thread.sleep(timePerCharacter);
+			Thread.sleep(timePerCharacter+randomNumberBetweenMinAndMax(1, 99));
 
 		}
-		Thread.sleep(newR + 23);
+		Thread.sleep(randomNumberBetweenMinAndMax(1, 100));
 	}
 
 	public static void genderSelection(String gender) throws InterruptedException {
@@ -1071,7 +1070,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		String[] str = IdNumberOfPerson.split("");
 		int newRandom = randomNumberBetweenMinAndMax(1, count);
 
-		int waitTime = 500;
+		int waitTime = 0;
 
 		switch (personNumber) {
 		case "one":
@@ -1100,7 +1099,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		for (int i = 0; i < newRandom - 1; i++) {
 
 			screen.type(str[i]);
-			Thread.sleep(timePerCharacter);
+			Thread.sleep(timePerCharacter+randomNumberBetweenMinAndMax(1, 99));
 
 		}
 		System.out.println(probabilityOfMakingErrorInId);
@@ -1110,27 +1109,27 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			int newRandom1 = randomNumberBetweenMinAndMax(0, 9);
 
 			screen.type(String.valueOf(newRandom1));
-			Thread.sleep(210);
+			randomNumberBetweenMinAndMax(1, 199);
 
 			// Simulate pressing the "Backspace" key to delete the last character
 			screen.type(Key.BACKSPACE);
-			Thread.sleep(100);
+			randomNumberBetweenMinAndMax(1, 99);
 		}
 
 		for (int i = newRandom - 1; i < count; i++) {
 
 			screen.type(str[i]);
-			Thread.sleep(timePerCharacter);
+			Thread.sleep(timePerCharacter+randomNumberBetweenMinAndMax(1, 99));
 
 		}
-		Thread.sleep(newR + 27);
+		Thread.sleep(randomNumberBetweenMinAndMax(1, 99));
 	}
 
 	public static void enterAge(String ageOfPersonFromExcel, String personNumber) throws InterruptedException {
 		int count = ageOfPersonFromExcel.length();
 		String[] str = ageOfPersonFromExcel.split("");
 
-		int waitTime = 200;
+		int waitTime = 0;
 
 		switch (personNumber) {
 		case "one":
@@ -1159,7 +1158,8 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		for (int i = 0; i < count; i++) {
 
 			screen.type(str[i]);
-			Thread.sleep(timePerCharacter);
+			int newRandom2 = randomNumberBetweenMinAndMax(1, 99);
+			Thread.sleep(timePerCharacter+newRandom2);
 
 		}
 
