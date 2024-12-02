@@ -1008,8 +1008,8 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 		for (int i = 0; i < newRandom - 1; i++) {
 			screen.type(str[i]);
-			Thread.sleep(timePerCharacter+randomNumberBetweenMinAndMax(1, 99));
-
+			//Thread.sleep(timePerCharacter+randomNumberBetweenMinAndMax(1, 99));
+			Thread.sleep(timePerCharacter);
 		}
 		System.out.println(probabilityOfMakingErrorInName);
 		int newR = randomNumberBetweenMinAndMax(1, 100);
@@ -1099,8 +1099,8 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		for (int i = 0; i < newRandom - 1; i++) {
 
 			screen.type(str[i]);
-			Thread.sleep(timePerCharacter+randomNumberBetweenMinAndMax(1, 99));
-
+			//Thread.sleep(timePerCharacter+randomNumberBetweenMinAndMax(1, 99));
+			Thread.sleep(timePerCharacter);
 		}
 		System.out.println(probabilityOfMakingErrorInId);
 		int newR = randomNumberBetweenMinAndMax(1, 100);
