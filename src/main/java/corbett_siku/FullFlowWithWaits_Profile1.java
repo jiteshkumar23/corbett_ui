@@ -6,9 +6,11 @@ import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.Date;
 import java.util.Random;
 import javax.swing.JFrame;
 import org.sikuli.script.FindFailed;
@@ -357,17 +359,25 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			X= 107;Y1= 223;Y2=353; Y3=482;Y4= 611;Y5=352;Y6=478; height=1127;width=123;
 		
 		}
+		
+		intNumberOfAdultsFromExcel = Integer.parseInt(NumberOfAdultsFromExcel);
 
-		if (nationalityOfFirstPersonFromExcel.toLowerCase().equalsIgnoreCase("foreigner")
-				|| NationalityOfSecondPerson.toLowerCase().equalsIgnoreCase("foreigner")
-				|| NationalityOfThirdPerson.toLowerCase().equalsIgnoreCase("foreigner")
-				|| NationalityOfFourthPerson.toLowerCase().equalsIgnoreCase("foreigner")
-				|| NationalityOfFifthPerson.toLowerCase().equalsIgnoreCase("foreigner")
-				|| NationalityOfSixthPerson.toLowerCase().equalsIgnoreCase("foreigner"))
-
-		{
-			nationalityDropDownDisplayed = true;
+		nationalityDropDownDisplayed = false;
+		
+		if (intNumberOfAdultsFromExcel >= 1 && nationalityOfFirstPersonFromExcel.toLowerCase().equalsIgnoreCase("foreigner")) {
+		    nationalityDropDownDisplayed = true;
+		} else if (intNumberOfAdultsFromExcel >= 2 && NationalityOfSecondPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+		    nationalityDropDownDisplayed = true;
+		} else if (intNumberOfAdultsFromExcel >= 3 && NationalityOfThirdPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+		    nationalityDropDownDisplayed = true;
+		} else if (intNumberOfAdultsFromExcel >= 4 && NationalityOfFourthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+		    nationalityDropDownDisplayed = true;
+		} else if (intNumberOfAdultsFromExcel >= 5 && NationalityOfFifthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+		    nationalityDropDownDisplayed = true;
+		} else if (intNumberOfAdultsFromExcel >= 6 && NationalityOfSixthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+		    nationalityDropDownDisplayed = true;
 		}
+
 		System.out.println("nationalityDropDownDisplayed is -->" + nationalityDropDownDisplayed);
 
 //		try {
@@ -387,10 +397,10 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		sikuClickOnThis("firstNameBox.png", 600, 0.77);
 
 		// First Person Data Input
-		intNumberOfAdultsFromExcel = Integer.parseInt(NumberOfAdultsFromExcel);
+		
 
 		if (intNumberOfAdultsFromExcel >= 1) {
-
+			printDateTime("Start Time -->");
 			makeRandomErrorinTypingAndCorrect(nameOfFirstPersonFromExcel.toLowerCase(), "one");
 
 //			pressTab(1);
@@ -577,6 +587,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			enterAge(AgeOfFourthPerson, "four");
 
 			Thread.sleep(WaitsProfile1.person4wait);
+			printDateTime("End Time -->");
 
 		}
 
@@ -1388,5 +1399,11 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 	}
 
+	private static void printDateTime(String msg) {
+		// Create a SimpleDateFormat instance with the desired date and time format
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+		// Format and print the current date and time
+		System.out.println(msg + dateFormat.format(new Date()));
+	}
 
 }
