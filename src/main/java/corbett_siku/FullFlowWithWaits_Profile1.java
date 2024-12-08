@@ -27,18 +27,18 @@ import org.testng.annotations.Test;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
+import org.sikuli.script.Mouse;
 
 public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 	public static int intNumberOfAdultsFromExcel;
 	public static Screen screen = new Screen();
-	public static Screen screen_1a = new Screen();
+//	public static Screen screen_1a = new Screen();
 	public static Screen screen_2 = new Screen();
-	public static Screen screen_3 = new Screen();
-	public static Screen screen_4 = new Screen();
-	public static Screen screen_5 = new Screen();
-	public static Screen screen_6 = new Screen();
+//	public static Screen screen_3 = new Screen();
+//	public static Screen screen_4 = new Screen();
+//	public static Screen screen_5 = new Screen();
+//	public static Screen screen_6 = new Screen();
 	public static String imagePath = System.getProperty("user.dir") + File.separator + "images" + File.separator;
 	public static Random rand;
 	public static boolean nationalityDropDownDisplayed;
@@ -46,6 +46,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 	public int intNumberOfRooms = Integer.parseInt(numberOfRooms);
 	public int intnumberOfChildren = Integer.parseInt(numberOfChildren);
 	public boolean keyCombinationPressed = false;
+	public static int X,Y1,Y2,Y3,Y4,Y5,Y6,height,width = 0;
 
 	//@BeforeSuite
 	@Parameters("suiteName")
@@ -122,12 +123,12 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			// Dispose of screen objects
 			System.err.println("Killing screen objects");
 			screen = null;
-			screen_1a = null;
+//			screen_1a = null;
 			screen_2 = null;
-			screen_3 = null;
-			screen_4 = null;
-			screen_5 = null;
-			screen_6 = null;
+//			screen_3 = null;
+//			screen_4 = null;
+//			screen_5 = null;
+//			screen_6 = null;
 			// Suggest to the JVM to perform garbage collection
 			System.gc();
 		}
@@ -348,7 +349,14 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 	}
 
 	@Test
-	public void FillMemberDetails() throws Exception {
+	public void FillMemberDetails() throws Exception {			
+		if(machineType.toLowerCase().equalsIgnoreCase("laptop")) {
+			X= 195;Y1= 186;Y2=316; Y3=446;Y4= 574;Y5=709;Y6=376; height=1136;width=123;
+		}
+		else if(machineType.toLowerCase().equalsIgnoreCase("desktop")) {
+			X= 107;Y1= 223;Y2=353; Y3=482;Y4= 611;Y5=352;Y6=478; height=1127;width=123;
+		
+		}
 
 		if (nationalityOfFirstPersonFromExcel.toLowerCase().equalsIgnoreCase("foreigner")
 				|| NationalityOfSecondPerson.toLowerCase().equalsIgnoreCase("foreigner")
@@ -385,38 +393,42 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 			makeRandomErrorinTypingAndCorrect(nameOfFirstPersonFromExcel.toLowerCase(), "one");
 
-			pressTab(1);
+//			pressTab(1);
 
-			genderSelection(genderOfFirstPersonFromExcel);
+			genderSelection(genderOfFirstPersonFromExcel, "one");
 
 			Thread.sleep(WaitsProfile1.delayInGenderDropdown1);
 
 			if (nationalityDropDownDisplayed) {
 				selectForeignCountry(nationalityOfFirstPersonFromExcel, "one", countryFirstPerson);
 				if (nationalityOfFirstPersonFromExcel.toLowerCase().equalsIgnoreCase("foreigner")) {
-					sikuClickOnThisWithScreen(screen_1a, "IdentityProofType.png", 10, 0.5);
+					//sikuClickOnThisWithScreen(screen_1a, "IdentityProofType.png", 10, 0.5);
 				} else {
-					pressTab(1);
+//					pressTab(1);
 				}
 			} else {
-				pressTab(1);
+//				pressTab(1);
 			}
 
 			if (!nationalityOfFirstPersonFromExcel.toLowerCase().equalsIgnoreCase("foreigner")) {
+					
+				clickImageInRegion("one", "IdentityProofType.png");
+				//sikuClickOnThisWithScreen(screen_1a, "IdentityProofType.png", 10, 0.5);
+				
 				selectIDType(IdTypeOfFirstPerson);
 			}
 
-			if (nationalityOfFirstPersonFromExcel.toLowerCase().equalsIgnoreCase("foreigner")) {
-				pressTab(2);
-			} else {
-				pressTab(1);
-			}
+//			if (nationalityOfFirstPersonFromExcel.toLowerCase().equalsIgnoreCase("foreigner")) {
+//				pressTab(2);
+//			} else {
+//				pressTab(1);
+//			}
 
 			Thread.sleep(WaitsProfile1.delayInProofDropdown1);
 
 			enterIDNumber(IdNumberOfFirstPerson.toLowerCase(), "one");
 
-			pressTab(1);
+//			pressTab(1);
 
 			enterAge(ageOfFirstPersonFromExcel, "one");
 
@@ -426,42 +438,44 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 		// Second Person Data Input
 		if (intNumberOfAdultsFromExcel >= 2) {
-			pressTab(1);
-
+//			pressTab(1);
+			clickImageInRegion("two", "FullName.png");
 			makeRandomErrorinTypingAndCorrect(NameOfSecondPerson.toLowerCase(), "two");
 
-			pressTab(1);
+//			pressTab(1);
 
-			genderSelection(GenderOfSecondPerson);
+			genderSelection(GenderOfSecondPerson,"two");
 
 			Thread.sleep(WaitsProfile1.delayInGenderDropdown2);
 
 			if (nationalityDropDownDisplayed) {
 				selectForeignCountry(NationalityOfSecondPerson, "two", countrySecondPerson);
 				if (NationalityOfSecondPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-					sikuClickOnThisWithScreen(screen_2, "IdentityProofType.png", 10, 0.5);
+					//sikuClickOnThisWithScreen(screen_2, "IdentityProofType.png", 10, 0.5);
 				} else {
-					pressTab(1);
+//					pressTab(1);
 				}
 			} else {
-				pressTab(1);
+//				pressTab(1);
 			}
 
 			if (!NationalityOfSecondPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+				//sikuClickOnThisWithScreen(screen_2, "IdentityProofType.png", 10, 0.5);
+				clickImageInRegion("two", "IdentityProofType.png");
 				selectIDType(IdTypeOfSecondPerson);
 			}
 
-			if (NationalityOfSecondPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-				pressTab(2);
-			} else {
-				pressTab(1);
-			}
+//			if (NationalityOfSecondPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+//				pressTab(2);
+//			} else {
+//				pressTab(1);
+//			}
 
 			Thread.sleep(WaitsProfile1.delayInProofDropdown2);
 
 			enterIDNumber(IdNumberOfSecondPerson.toLowerCase(), "two");
 
-			pressTab(1);
+//			pressTab(1);
 
 			enterAge(AgeOfSecondPerson, "two");
 
@@ -473,42 +487,44 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 		if (intNumberOfAdultsFromExcel >= 3) {
 
-			pressTab(1);
-
+//			pressTab(1);
+			clickImageInRegion("three", "FullName.png");
 			makeRandomErrorinTypingAndCorrect(NameOfThirdPerson.toLowerCase(), "three");
 
-			pressTab(1);
+//			pressTab(1);
 
-			genderSelection(GenderOfThirdPerson);
+			genderSelection(GenderOfThirdPerson, "three");
 
 			Thread.sleep(WaitsProfile1.delayInGenderDropdown3);
 
 			if (nationalityDropDownDisplayed) {
 				selectForeignCountry(NationalityOfThirdPerson, "three", countryThirdPerson);
 				if (NationalityOfThirdPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-					sikuClickOnThisWithScreen(screen_3, "IdentityProofType.png", 10, 0.5);
+					//sikuClickOnThisWithScreen(screen_3, "IdentityProofType.png", 10, 0.5);
 				} else {
-					pressTab(1);
+//					pressTab(1);
 				}
 			} else {
-				pressTab(1);
+//				pressTab(1);
 			}
 
 			if (!NationalityOfThirdPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+				//sikuClickOnThisWithScreen(screen_3, "IdentityProofType.png", 10, 0.5);
+				clickImageInRegion("three", "IdentityProofType.png");
 				selectIDType(IdTypeOfThirdPerson);
 			}
 
-			if (NationalityOfThirdPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-				pressTab(2);
-			} else {
-				pressTab(1);
-			}
+//			if (NationalityOfThirdPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+//				pressTab(2);
+//			} else {
+//				pressTab(1);
+//			}
 
 			Thread.sleep(WaitsProfile1.delayInProofDropdown3);
 
 			enterIDNumber(IdNumberOfThirdPerson.toLowerCase(), "three");
 
-			pressTab(1);
+//			pressTab(1);
 
 			enterAge(AgeOfThirdPerson, "three");
 
@@ -519,42 +535,44 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		// Fourth Person Data Input
 		if (intNumberOfAdultsFromExcel >= 4) {
 
-			pressTab(1);
-
+//			pressTab(1);
+			clickImageInRegion("four", "FullName.png");
 			makeRandomErrorinTypingAndCorrect(NameOfFourthPerson.toLowerCase(), "four");
 
-			pressTab(1);
+//			pressTab(1);
 
-			genderSelection(GenderOfFourthPerson);
+			genderSelection(GenderOfFourthPerson, "four");
 
 			Thread.sleep(WaitsProfile1.delayInGenderDropdown4);
 
 			if (nationalityDropDownDisplayed) {
 				selectForeignCountry(NationalityOfFourthPerson, "four", countryFourthPerson);
 				if (NationalityOfFourthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-					sikuClickOnThisWithScreen(screen_4, "IdentityProofType.png", 10, 0.5);
+					//sikuClickOnThisWithScreen(screen_4, "IdentityProofType.png", 10, 0.5);
 				} else {
-					pressTab(1);
+//					pressTab(1);
 				}
 			} else {
-				pressTab(1);
+//				pressTab(1);
 			}
 
 			if (!NationalityOfFourthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+				//sikuClickOnThisWithScreen(screen_4, "IdentityProofType.png", 10, 0.5);
+				clickImageInRegion("four", "IdentityProofType.png");
 				selectIDType(IdTypeOfFourthPerson);
 			}
 
-			if (NationalityOfFourthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-				pressTab(2);
-			} else {
-				pressTab(1);
-			}
+//			if (NationalityOfFourthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+//				pressTab(2);
+//			} else {
+//				pressTab(1);
+//			}
 
 			Thread.sleep(WaitsProfile1.delayInProofDropdown4);
 
 			enterIDNumber(IdNumberOfFourthPerson.toLowerCase(), "four");
 
-			pressTab(1);
+//			pressTab(1);
 
 			enterAge(AgeOfFourthPerson, "four");
 
@@ -565,87 +583,93 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		// Fifth Person Data Input
 		if (intNumberOfAdultsFromExcel >= 5) {
 
-			pressTab(1);
-
+			
+			clickImageInRegion("five", "FullName.png");
 			makeRandomErrorinTypingAndCorrect(NameOfFifthPerson.toLowerCase(), "five");
 
-			pressTab(1);
+//			pressTab(1);
 
-			genderSelection(GenderOfFifthPerson);
+			genderSelection(GenderOfFifthPerson, "five");
 
 			Thread.sleep(WaitsProfile1.delayInGenderDropdown5);
 
 			if (nationalityDropDownDisplayed) {
 				selectForeignCountry(NationalityOfFifthPerson, "five", countryFifthPerson);
 				if (NationalityOfFifthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-					sikuClickOnThisWithScreen(screen_5, "IdentityProofType.png", 10, 0.5);
+					//sikuClickOnThisWithScreen(screen_5, "IdentityProofType.png", 10, 0.5);
 				} else {
-					pressTab(1);
+//					pressTab(1);
 				}
 			} else {
-				pressTab(1);
+//				pressTab(1);
 			}
 
 			if (!NationalityOfFifthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+				//sikuClickOnThisWithScreen(screen_5, "IdentityProofType.png", 10, 0.5);
+				clickImageInRegion("five", "IdentityProofType.png");
 				selectIDType(IdTypeOfFifthPerson);
 			}
 
-			if (NationalityOfFifthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-				pressTab(2);
-			} else {
-				pressTab(1);
-			}
+//			if (NationalityOfFifthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+//				pressTab(2);
+//			} else {
+//				pressTab(1);
+//			}
 
 			Thread.sleep(WaitsProfile1.delayInProofDropdown5);
 
 			enterIDNumber(IdNumberOfFifthPerson.toLowerCase(), "five");
 
-			pressTab(1);
+//			pressTab(1);
 
 			enterAge(AgeOfFifthPerson, "five");
 
 			Thread.sleep(WaitsProfile1.person5wait);
-
+			
+			Thread.sleep(randomNumberBetweenMinAndMax(40, 60));
 		}
 
 		// Sixth Person Data Input
 		if (intNumberOfAdultsFromExcel >= 6) {
 
 			pressTab(1);
-
+			Thread.sleep(randomNumberBetweenMinAndMax(200, 600));
+			//clickImageInRegion("six", "FullName.png");
 			makeRandomErrorinTypingAndCorrect(NameOfSixthPerson.toLowerCase(), "six");
 
-			pressTab(1);
+//			pressTab(1);
 
-			genderSelection(GenderOfSixthPerson);
+			genderSelection(GenderOfSixthPerson, "six");
 
 			Thread.sleep(WaitsProfile1.delayInGenderDropdown6);
 			if (nationalityDropDownDisplayed) {
 				selectForeignCountry(NationalityOfSixthPerson, "six", countrySixthPerson);
 				if (NationalityOfSixthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-					sikuClickOnThisWithScreen(screen_6, "IdentityProofType.png", 10, 0.5);
+					//sikuClickOnThisWithScreen(screen_6, "IdentityProofType.png", 10, 0.5);
 				} else {
-					pressTab(1);
+//					pressTab(1);
 				}
 			} else {
-				pressTab(1);
+//				pressTab(1);
 			}
 
 			if (!NationalityOfSixthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+				//sikuClickOnThisWithScreen(screen_6, "IdentityProofType.png", 10, 0.5);
+				clickImageInRegion("six", "IdentityProofType.png");
 				selectIDType(IdTypeOfSixthPerson);
 			}
 
-			if (NationalityOfSixthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-				pressTab(2);
-			} else {
-				pressTab(1);
-			}
+//			if (NationalityOfSixthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+//				pressTab(2);
+//			} else {
+//				pressTab(1);
+//			}
 
 			Thread.sleep(WaitsProfile1.delayInProofDropdown6);
 
 			enterIDNumber(IdNumberOfSixthPerson.toLowerCase(), "six");
 
-			pressTab(1);
+//			pressTab(1);
 
 			enterAge(AgeOfSixthPerson, "six");
 
@@ -712,7 +736,8 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 	@Test
 	public void UPIPayment() throws Exception {
-		sikuClickOnThis("UPI.png", 120, 0.70);
+		System.out.println("Waiting for UPI Image");
+		sikuClickOnThis("UPI.png", 600, 0.70);
 		Thread.sleep(200);
 		sikuClickOnThis("PayNow.png", 120, 0.70);
 		String result = imageDetectionBetweenTwoImages("contactdetails.png" ,1, 0.70, "tiger.png" ,1, 0.70, 60000);
@@ -727,7 +752,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		Thread.sleep(100);
 		pressTab(1);
 		Thread.sleep(100);
-		screen.type(emailAddress);
+		screen_2.type(emailAddress);
 		// sikuClickOnThis("continue.png", 40, 0.70);
 		pressTab(1);
 		pressEnter(1);
@@ -739,7 +764,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			Thread.sleep(150);
 			sikuClickOnThis("UPI_ID_Number.png", 40, 0.70);
 			pressTab(1);
-			screen.type(upiAddress);
+			screen_2.type(upiAddress);
 //			pressTab(1);
 //			pressEnter(1);
 			sikuClickOnThis("VerifyAndPay.png", 40, 0.70);	
@@ -749,16 +774,19 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			System.out.println("Second image was found , now contiuing the payment for second");
 			sikuClickOnThis("tiger.png", 40, 0.70);
 			pressTab(3);
-			screen.type(emailAddress);
+			screen_2.type(emailAddress);
 			sikuClickOnThis("proceedAfterTiger.png", 40, 0.70);
 			
 			if (upiToUse.toLowerCase().equalsIgnoreCase("upi")) {
 				sikuClickOnThis("showQRAfterTiger.png", 40, 0.70);
 				sikuClickOnThis("paywithUPIQR.png", 40, 0.70);
 			} else if (upiToUse.toLowerCase().equalsIgnoreCase("upi_id")) {
+				
+				sikuClickOnThis("UPI_QR_Image2.png", 40, 0.70);
+				Thread.sleep(100);
 				sikuClickOnThis("UPI_ID_Image2.png", 40, 0.70);
 				Thread.sleep(200);
-				screen.type(upiAddress);
+				screen_2.type(upiAddress);
 				pressTab(1);
 				pressEnter(1);
 			}
@@ -770,8 +798,8 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 		// System.out.println(imagePath);
 		Pattern imagePattern = new Pattern(imagePath + specificImagePath).similar(match);
-		screen.wait(imagePattern, waitTime);
-		screen.click(imagePattern);
+		screen_2.wait(imagePattern, waitTime);
+		screen_2.click(imagePattern);
 
 	}
 
@@ -805,7 +833,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 		// System.out.println(imagePath);
 		Pattern imagePattern = new Pattern(imagePath + specificImagePath).similar(match);
-		screen.wait(imagePattern, waitTime);
+		screen_2.wait(imagePattern, waitTime);
 
 	}
 
@@ -818,13 +846,13 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		
 		while (System.currentTimeMillis() - startTime < timeout) {
             try {
-                screen.wait(imagePattern1, 0.5); // Check for 1 second
+                screen_2.wait(imagePattern1, 0.5); // Check for 1 second
                 System.out.println("First image found!");
                 // Perform your action here
                 return "first";
             } catch (FindFailed e1) {
                 try {
-                    screen.wait(imagePattern2, 0.5); // Check for 1 second
+                	screen_2.wait(imagePattern2, 0.5); // Check for 1 second
                     System.out.println("Second image found!");
                     // Perform your action here
                     return "second";
@@ -1007,7 +1035,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		String[] str = text.split("");
 
 		for (int i = 0; i < newRandom - 1; i++) {
-			screen.type(str[i]);
+			screen_2.type(str[i]);
 			//Thread.sleep(timePerCharacter+randomNumberBetweenMinAndMax(1, 99));
 			Thread.sleep(timePerCharacter);
 		}
@@ -1019,37 +1047,45 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			int randomIndex = random.nextInt(alphabets.length);
 			char randomAlphabet = alphabets[randomIndex];
 
-			screen.type(String.valueOf(randomAlphabet));
+			screen_2.type(String.valueOf(randomAlphabet));
 			Thread.sleep(randomNumberBetweenMinAndMax(1, 99));
 
 			// Simulate pressing the "Backspace" key to delete the last character
-			screen.type(Key.BACKSPACE);
+			screen_2.type(Key.BACKSPACE);
 			Thread.sleep(randomNumberBetweenMinAndMax(1, 100));
 		}
 
 		for (int i = newRandom - 1; i < count; i++) {
-			screen.type(str[i]);
+			screen_2.type(str[i]);
 			Thread.sleep(timePerCharacter+randomNumberBetweenMinAndMax(1, 99));
 
 		}
 		Thread.sleep(randomNumberBetweenMinAndMax(1, 100));
 	}
 
-	public static void genderSelection(String gender) throws InterruptedException {
+	public static void genderSelection(String gender, String personNumber) throws InterruptedException, FindFailed {
+		
 		if (gender.toLowerCase().equalsIgnoreCase("female")) {
-			screen.type(Key.RIGHT);
-			Thread.sleep(58);
+			clickImageInRegion(personNumber, "Gender.png");
+			screen.type(Key.DOWN);
+			Thread.sleep(randomNumberBetweenMinAndMax(50, 100));
+			screen.type(Key.ENTER);
+			Thread.sleep(randomNumberBetweenMinAndMax(20, 40));
 		}
 
 		else if (gender.toLowerCase().equalsIgnoreCase("transgender")) {
-			screen.type(Key.RIGHT);
-			screen.type(Key.RIGHT);
+			clickImageInRegion(personNumber, "Gender.png");
+			screen.type(Key.DOWN);
+			screen.type(Key.DOWN);
+			Thread.sleep(randomNumberBetweenMinAndMax(40, 60));
+			screen.type(Key.ENTER);
+			Thread.sleep(randomNumberBetweenMinAndMax(20, 40));
 		}
 
 	}
 
 	public static void selectIDType(String IdTypeOfPerson) throws InterruptedException {
-
+		
 		if (IdTypeOfPerson.toLowerCase().contains("aadhar")) {
 			pressDownArrowKey(1);
 		}
@@ -1063,9 +1099,14 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		} else if (IdTypeOfPerson.toLowerCase().contains("student")) {
 			pressDownArrowKey(5);
 		}
+		screen.type(Key.ENTER);
+		Thread.sleep(randomNumberBetweenMinAndMax(40, 60));
 	}
 
-	public static void enterIDNumber(String IdNumberOfPerson, String personNumber) throws InterruptedException {
+	public static void enterIDNumber(String IdNumberOfPerson, String personNumber) throws InterruptedException, FindFailed {
+		
+		clickImageInRegion(personNumber, "ID_Number.png");
+		
 		int count = IdNumberOfPerson.length();
 		String[] str = IdNumberOfPerson.split("");
 		int newRandom = randomNumberBetweenMinAndMax(1, count);
@@ -1098,7 +1139,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 		for (int i = 0; i < newRandom - 1; i++) {
 
-			screen.type(str[i]);
+			screen_2.type(str[i]);
 			//Thread.sleep(timePerCharacter+randomNumberBetweenMinAndMax(1, 99));
 			Thread.sleep(timePerCharacter);
 		}
@@ -1108,24 +1149,52 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 			int newRandom1 = randomNumberBetweenMinAndMax(0, 9);
 
-			screen.type(String.valueOf(newRandom1));
+			screen_2.type(String.valueOf(newRandom1));
 			randomNumberBetweenMinAndMax(1, 199);
 
 			// Simulate pressing the "Backspace" key to delete the last character
-			screen.type(Key.BACKSPACE);
+			screen_2.type(Key.BACKSPACE);
 			randomNumberBetweenMinAndMax(1, 99);
 		}
 
 		for (int i = newRandom - 1; i < count; i++) {
 
-			screen.type(str[i]);
+			screen_2.type(str[i]);
 			Thread.sleep(timePerCharacter+randomNumberBetweenMinAndMax(1, 99));
 
 		}
 		Thread.sleep(randomNumberBetweenMinAndMax(1, 99));
 	}
 
-	public static void enterAge(String ageOfPersonFromExcel, String personNumber) throws InterruptedException {
+	private static void clickImageInRegion(String personNumber, String image) throws FindFailed, InterruptedException {
+		
+		switch (personNumber) {
+		case "one":
+			sikuClickOnThisWithinRegion(screen, image, X, Y1, height, width);
+			break;
+		case "two":
+			sikuClickOnThisWithinRegion(screen, image, X, Y2, height, width);
+			break;
+		case "three":
+			sikuClickOnThisWithinRegion(screen, image, X, Y3, height, width);
+			break;
+		case "four":
+			sikuClickOnThisWithinRegion(screen, image, X, Y4, height, width);
+			break;
+		case "five":
+			sikuClickOnThisWithinRegion(screen, image, X, Y5, height, width);
+			break;
+		case "six":
+			sikuClickOnThisWithinRegion(screen, image, X, Y6, height, width);
+			break;
+		}
+		
+	}
+
+	public static void enterAge(String ageOfPersonFromExcel, String personNumber) throws InterruptedException, FindFailed {
+		
+		clickImageInRegion(personNumber, "Age.png");
+
 		int count = ageOfPersonFromExcel.length();
 		String[] str = ageOfPersonFromExcel.split("");
 
@@ -1162,7 +1231,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			Thread.sleep(timePerCharacter+newRandom2);
 
 		}
-
+		Thread.sleep(100 + randomNumberBetweenMinAndMax(1, 20));
 	}
 
 	public static void pressRightKey(int times) throws InterruptedException {
@@ -1196,27 +1265,9 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 	private static void selectForeignCountry(String nationalityOfPersonFromExcel, String person, String countryPerson) {
 		try {
 			if (nationalityOfPersonFromExcel.equalsIgnoreCase("foreigner")) {
-
-				switch (person) {
-				case "one":
-					sikuClickOnThisWithinRegion(screen_1a, "india.png", 107, 223, 1133, 125);
-					break;
-				case "two":
-					sikuClickOnThisWithinRegion(screen_2, "india.png", 107, 353, 1128, 120);
-					break;
-				case "three":
-					sikuClickOnThisWithinRegion(screen_3, "india.png", 107, 482, 1127, 117);
-					break;
-				case "four":
-					sikuClickOnThisWithinRegion(screen_4, "india.png", 107, 611, 1127, 111);
-					break;
-				case "five":
-					sikuClickOnThisWithinRegion(screen_5, "india.png", 107, 352, 1127, 124);
-					break;
-				case "six":
-					sikuClickOnThisWithinRegion(screen_6, "india.png", 107, 478, 1127, 123);
-					break;
-				}
+	
+				clickImageInRegion(person, "india.png");
+			
 				System.out.println("India image clicked");
 
 				sikuWaitForThisImage("select_country.png", 10, 0.5);
@@ -1316,5 +1367,26 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		System.out.println("CheckOut Date Code for " + checkOutDate + "--> " + checkOutMilliseconds);
 
 	}
+	
+	public void  moveMouseRandomly() throws FindFailed {
+		Screen screen = new Screen();
+        Location currentLocation = Mouse.at();
+
+        Random random = new Random();
+        int offsetX = random.nextInt(401) - 200; // Random value between -200 and 200
+        int offsetY = random.nextInt(401) - 200; // Random value between -200 and 200
+
+        Location newLocation = new Location(currentLocation.getX() + offsetX, currentLocation.getY() + offsetY);
+
+        // Make sure the new location is within the screen bounds
+        if (newLocation.getX() < 0) newLocation.setX(0);
+        if (newLocation.getY() < 0) newLocation.setY(0);
+        if (newLocation.getX() > screen.getW()) newLocation.setX(screen.getW());
+        if (newLocation.getY() > screen.getH()) newLocation.setY(screen.getH());
+
+        screen.mouseMove(newLocation);
+
+	}
+
 
 }

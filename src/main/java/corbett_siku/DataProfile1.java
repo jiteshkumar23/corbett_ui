@@ -58,7 +58,7 @@ public class DataProfile1 {
 	public static String emailAddress;
 	public static String upiToUse;
 	public static String upiAddress;
-
+	public static String machineType;
 
 	public DataProfile1() {
 
@@ -124,20 +124,23 @@ public class DataProfile1 {
 		emailAddress = test.get("emailAddress");
 		upiToUse = test.get("upiToUse");
 		upiAddress = test.get("upiAddress");
+		machineType = test.get("machineType");
+		
 		
 	}
 
 	public HashMap<String, String> returnData() {
 
 		HashMap<String, String> map1 = new HashMap<String, String>();	
-	
+		map1.put("machineType", "laptop"); // laptop (1920x1080 , 125%) ,desktop
+		
 		map1.put("checkInDate", "2024-12-11");
 		map1.put("checkOutDate", "2024-12-12");
 		
 		// set number of rooms
 		map1.put("numberOfRooms", "2");
 		// set number of adults
-		map1.put("NumberOfAdultsFromExcel", "4");
+		map1.put("NumberOfAdultsFromExcel", "6");
 		// set number of children
 		map1.put("numberOfChildren", "0");// valid values are "0", "1","2"
 		
@@ -170,12 +173,12 @@ public class DataProfile1 {
 		// Set First Person Details
 		map1.put("nameOfFirstPersonFromExcel", "Srishti Sharma");
 		map1.put("ageOfFirstPersonFromExcel", "33");
-		map1.put("genderOfFirstPersonFromExcel", "Female"); // valid values are "Male", "Female","Transgender"
-		map1.put("nationalityOfFirstPersonFromExcel", "Foreigner"); // valid values are
+		map1.put("genderOfFirstPersonFromExcel", "Transgender"); // valid values are "Male", "Female","Transgender"
+		map1.put("nationalityOfFirstPersonFromExcel", "Indian"); // valid values are
 																	// "Indian","Foreigner","Student","Senior Citizen"
 		map1.put("countryFirstPerson", "USA");   // valid values are "USA", "United Kingdom","Canada","Australia","Italy"
-		map1.put("IdTypeOfFirstPerson", "Passport"); // valid values "Aadhar Card","Pan Card","Driving License","Passport","Student ID Card"
-		map1.put("IdNumberOfFirstPerson", "AU869041");
+		map1.put("IdTypeOfFirstPerson", "Aadhar Card"); // valid values "Aadhar Card","Pan Card","Driving License","Passport","Student ID Card"
+		map1.put("IdNumberOfFirstPerson", "554398907678");
 
 		// Second Person Details
 		map1.put("NameOfSecondPerson", "Shivam Sharma");
@@ -205,7 +208,7 @@ public class DataProfile1 {
 		map1.put("IdNumberOfFourthPerson", "AU869044");
 
 		// Fifth Person Details
-		map1.put("NameOfFifthPerson", "FifthPerson Name");
+		map1.put("NameOfFifthPerson", "Fifth Person Name");
 		map1.put("AgeOfFifthPerson", "35");
 		map1.put("GenderOfFifthPerson", "Male");
 		map1.put("NationalityOfFifthPerson", "Foreigner");// valid values are "Indian","Foreigner","Student","Senior Citizen"
@@ -214,7 +217,7 @@ public class DataProfile1 {
 		map1.put("IdNumberOfFifthPerson", "AU869045");
 
 		// Sixth Person Details
-		map1.put("NameOfSixthPerson", "SixthPerson name");
+		map1.put("NameOfSixthPerson", "Sixth Person name");
 		map1.put("AgeOfSixthPerson", "36");
 		map1.put("GenderOfSixthPerson", "Transgender");
 		map1.put("NationalityOfSixthPerson", "Foreigner");// valid values are "Indian","Foreigner","Student","Senior Citizen"
@@ -224,8 +227,8 @@ public class DataProfile1 {
 
 		// set mobile number here
 		map1.put("mobileNumber", "9999999999");
-		map1.put("probabilityOfMakingErrorInName", "70");
-		map1.put("probabilityOfMakingErrorInId", "75");
+		map1.put("probabilityOfMakingErrorInName", "0");
+		map1.put("probabilityOfMakingErrorInId", "0");
 		
 		//set email address here
 		map1.put("emailAddress", "abcd@gmail.com");
