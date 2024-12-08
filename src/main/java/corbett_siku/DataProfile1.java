@@ -132,7 +132,7 @@ public class DataProfile1 {
 	public HashMap<String, String> returnData() {
 
 		HashMap<String, String> map1 = new HashMap<String, String>();	
-		map1.put("machineType", "laptop"); // laptop (1920x1080 , 125%) ,desktop
+		map1.put("machineType", "desktop"); // laptop (1920x1080 , 125%) ,desktop
 		
 		map1.put("checkInDate", "2024-12-11");
 		map1.put("checkOutDate", "2024-12-12");
