@@ -356,7 +356,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			X= 195;Y1= 186;Y2=316; Y3=446;Y4= 574;Y5=709;Y6=376; height=1136;width=123;
 		}
 		else if(machineType.toLowerCase().equalsIgnoreCase("desktop")) {
-			X= 107;Y1= 223;Y2=353; Y3=482;Y4= 611;Y5=352;Y6=478; height=1127;width=123;
+			X= 107;Y1= 185;Y2=316; Y3=447;Y4= 578;Y5=332;Y6=462; height=1127;width=123;
 		
 		}
 		
@@ -593,9 +593,12 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 		// Fifth Person Data Input
 		if (intNumberOfAdultsFromExcel >= 5) {
-
-			
+			if(machineType.toLowerCase().equalsIgnoreCase("desktop")) {
+				pressTab(1);
+			}
+			else {
 			clickImageInRegion("five", "FullName.png");
+			}
 			makeRandomErrorinTypingAndCorrect(NameOfFifthPerson.toLowerCase(), "five");
 
 //			pressTab(1);
@@ -642,10 +645,13 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 		// Sixth Person Data Input
 		if (intNumberOfAdultsFromExcel >= 6) {
-
-			pressTab(1);
 			Thread.sleep(randomNumberBetweenMinAndMax(200, 600));
-			//clickImageInRegion("six", "FullName.png");
+			if(machineType.toLowerCase().equalsIgnoreCase("laptop")) {
+			pressTab(1);
+			}
+			else {
+			clickImageInRegion("six", "FullName.png");
+			}
 			makeRandomErrorinTypingAndCorrect(NameOfSixthPerson.toLowerCase(), "six");
 
 //			pressTab(1);
