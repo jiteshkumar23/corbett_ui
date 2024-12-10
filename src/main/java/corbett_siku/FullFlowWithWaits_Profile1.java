@@ -356,7 +356,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			X= 195;Y1= 186;Y2=316; Y3=446;Y4= 574;Y5=709;Y6=376; height=1136;width=123;
 		}
 		else if(machineType.toLowerCase().equalsIgnoreCase("desktop")) {
-			X= 107;Y1= 185;Y2=316; Y3=447;Y4= 578;Y5=332;Y6=462; height=1127;width=123;
+			X= 107;Y1= 220;Y2=350; Y3=478;Y4= 611;Y5=348;Y6=482; height=1127;width=123;
 		
 		}
 		
