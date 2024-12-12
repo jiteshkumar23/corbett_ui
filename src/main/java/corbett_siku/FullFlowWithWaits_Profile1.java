@@ -1084,7 +1084,8 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		
 		if (gender.toLowerCase().equalsIgnoreCase("female")) {
 			clickImageInRegion(personNumber, "Gender.png");
-			screen.type(Key.DOWN);
+			//screen.type(Key.DOWN);
+			screen.type("f");
 			Thread.sleep(randomNumberBetweenMinAndMax(50, 100));
 			screen.type(Key.ENTER);
 			Thread.sleep(randomNumberBetweenMinAndMax(20, 40));
@@ -1092,8 +1093,9 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 		else if (gender.toLowerCase().equalsIgnoreCase("transgender")) {
 			clickImageInRegion(personNumber, "Gender.png");
-			screen.type(Key.DOWN);
-			screen.type(Key.DOWN);
+			//screen.type(Key.DOWN);
+			//screen.type(Key.DOWN);
+			screen.type("t");
 			Thread.sleep(randomNumberBetweenMinAndMax(40, 60));
 			screen.type(Key.ENTER);
 			Thread.sleep(randomNumberBetweenMinAndMax(20, 40));
@@ -1104,17 +1106,22 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 	public static void selectIDType(String IdTypeOfPerson) throws InterruptedException {
 		
 		if (IdTypeOfPerson.toLowerCase().contains("aadhar")) {
-			pressDownArrowKey(1);
+			//pressDownArrowKey(1);
+			screen.type("aa");
 		}
 
 		else if (IdTypeOfPerson.toLowerCase().contains("driving")) {
-			pressDownArrowKey(2);
+			//pressDownArrowKey(2);
+			screen.type("dr");
 		} else if (IdTypeOfPerson.toLowerCase().contains("passport")) {
-			pressDownArrowKey(3);
+			//pressDownArrowKey(3);
+			screen.type("pas");
 		} else if (IdTypeOfPerson.toLowerCase().contains("pan")) {
-			pressDownArrowKey(4);
+			//pressDownArrowKey(4);
+			screen.type("pan");
 		} else if (IdTypeOfPerson.toLowerCase().contains("student")) {
-			pressDownArrowKey(5);
+			//pressDownArrowKey(5);
+			screen.type("st");
 		}
 		screen.type(Key.ENTER);
 		Thread.sleep(randomNumberBetweenMinAndMax(40, 60));
