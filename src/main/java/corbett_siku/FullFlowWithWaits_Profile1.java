@@ -807,7 +807,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 				Thread.sleep(100);
 				sikuClickOnThis("paywithUPIQR.png", 40, 0.70);
 			} else if (upiToUse.toLowerCase().equalsIgnoreCase("upi_id")) {
-				Thread.sleep(100);
+				Thread.sleep(1000);
 				sikuClickOnThis("UPI_QR_Image2.png", 40, 0.70);
 				Thread.sleep(100);
 				sikuClickOnThis("UPI_ID_Image2.png", 40, 0.70);
