@@ -761,7 +761,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		
 		if(result.equalsIgnoreCase("first")) {
 		System.out.println("First image was found , now continuing the payment for first");
-		sikuFindImageWaitAndClick("contactdetails.png", 40, 100, 0.70);
+		sikuFindImageWaitAndClick("contactdetails.png", 40, 100, 0.50);
 		// sikuClickOnThis("contactdetails.png", 20, 0.70);
 		pressTab(1);
 		Thread.sleep(100);
