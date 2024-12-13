@@ -353,7 +353,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 	@Test
 	public void FillMemberDetails() throws Exception {			
 		if(machineType.toLowerCase().equalsIgnoreCase("laptop")) {
-			X= 195;Y1= 186;Y2=316; Y3=446;Y4= 574;Y5=709;Y6=376; height=1136;width=123;
+			X= 195;Y1= 218;Y2=349; Y3=481;Y4= 610;Y5=715;Y6=394; height=1136;width=123;
 		}
 		else if(machineType.toLowerCase().equalsIgnoreCase("desktop")) {
 			X= 107;Y1= 220;Y2=350; Y3=478;Y4= 611;Y5=348;Y6=482; height=1127;width=123;
@@ -593,12 +593,12 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 		// Fifth Person Data Input
 		if (intNumberOfAdultsFromExcel >= 5) {
-			if(machineType.toLowerCase().equalsIgnoreCase("desktop")) {
+//			if(machineType.toLowerCase().equalsIgnoreCase("desktop")) {
 				pressTab(1);
-			}
-			else {
-			clickImageInRegion("five", "FullName.png");
-			}
+//			}
+//			else {
+//			clickImageInRegion("five", "FullName.png");
+//			}
 			makeRandomErrorinTypingAndCorrect(NameOfFifthPerson.toLowerCase(), "five");
 
 //			pressTab(1);
