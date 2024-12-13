@@ -791,15 +791,23 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		else if (result.equalsIgnoreCase("second")) {
 			System.out.println("Second image was found , now contiuing the payment for second");
 			sikuClickOnThis("tiger.png", 40, 0.70);
-			pressTab(3);
+			Thread.sleep(100);
+			pressTab(1);
+			Thread.sleep(110);
+			pressTab(1);
+			Thread.sleep(120);
+			pressTab(1);
+			Thread.sleep(130);
 			screen_2.type(emailAddress);
 			sikuClickOnThis("proceedAfterTiger.png", 40, 0.70);
 			
 			if (upiToUse.toLowerCase().equalsIgnoreCase("upi")) {
+				Thread.sleep(100);
 				sikuClickOnThis("showQRAfterTiger.png", 40, 0.70);
+				Thread.sleep(100);
 				sikuClickOnThis("paywithUPIQR.png", 40, 0.70);
 			} else if (upiToUse.toLowerCase().equalsIgnoreCase("upi_id")) {
-				
+				Thread.sleep(100);
 				sikuClickOnThis("UPI_QR_Image2.png", 40, 0.70);
 				Thread.sleep(100);
 				sikuClickOnThis("UPI_ID_Image2.png", 40, 0.70);
