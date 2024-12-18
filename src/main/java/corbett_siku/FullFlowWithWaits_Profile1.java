@@ -1,8 +1,10 @@
 package corbett_siku;
 
+import java.awt.AWTException;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.Rectangle;
+import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
@@ -49,6 +51,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 	public int intnumberOfChildren = Integer.parseInt(numberOfChildren);
 	public boolean keyCombinationPressed = false;
 	public static int X,Y1,Y2,Y3,Y4,Y5,Y6,height,width = 0;
+
 
 	//@BeforeSuite
 	@Parameters("suiteName")
@@ -734,18 +737,8 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		pressTab(3);
 		int waitTime = 0;
 		waitTime = WaitsProfile1.totalTimeForTypingMobileNumber;
-
-		int count = mobileNumber.length();
-		int timePerCharacter = waitTime / count;
-		String[] str = mobileNumber.split("");
-
-		for (int i = 0; i < count; i++) {
-
-			screen.type(str[i]);
-			int newRandom2 = randomNumberBetweenMinAndMax(1, 99);
-			Thread.sleep(timePerCharacter+newRandom2);
-
-		}
+		typeTextWithRobot(mobileNumber);
+		
 		pressTab(1);
 		pressEnter(1);
 
@@ -771,6 +764,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		pressTab(1);
 		Thread.sleep(100);
 		screen_2.type(emailAddress);
+		//typeTextWithRobot(emailAddress);
 		// sikuClickOnThis("continue.png", 40, 0.70);
 		pressTab(1);
 		pressEnter(1);
@@ -783,6 +777,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			sikuClickOnThis("UPI_ID_Number.png", 40, 0.70);
 			pressTab(1);
 			screen_2.type(upiAddress);
+			//typeTextWithRobot(upiAddress);
 //			pressTab(1);
 //			pressEnter(1);
 			sikuClickOnThis("VerifyAndPay.png", 40, 0.70);	
@@ -799,6 +794,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			pressTab(1);
 			Thread.sleep(130);
 			screen_2.type(emailAddress);
+			//typeTextWithRobot(emailAddress);
 			sikuClickOnThis("proceedAfterTiger.png", 40, 0.70);
 			
 			if (upiToUse.toLowerCase().equalsIgnoreCase("upi")) {
@@ -813,6 +809,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 				sikuClickOnThis("UPI_ID_Image2.png", 40, 0.70);
 				Thread.sleep(200);
 				screen_2.type(upiAddress);
+				//typeTextWithRobot(upiAddress);
 				pressTab(1);
 				pressEnter(1);
 			}
@@ -1058,34 +1055,14 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		}
 
 		int timePerCharacter = waitTime / count;
-		String[] str = text.split("");
-
-		for (int i = 0; i < newRandom - 1; i++) {
-			screen_2.type(str[i]);
-			//Thread.sleep(timePerCharacter+randomNumberBetweenMinAndMax(1, 99));
-			Thread.sleep(timePerCharacter);
+		if(personNumber.toLowerCase().equalsIgnoreCase("one")) {
+		typeTextWithRobotSpecial(text);
+		}else {
+		typeTextWithRobot(text);
 		}
-		System.out.println(probabilityOfMakingErrorInName);
-		int newR = randomNumberBetweenMinAndMax(1, 100);
-		if (newR <= Integer.parseInt(probabilityOfMakingErrorInName)) {
-			Random random = new Random();
-			char[] alphabets = "abcdefghijklmnopqrstuvwxyz".toCharArray();
-			int randomIndex = random.nextInt(alphabets.length);
-			char randomAlphabet = alphabets[randomIndex];
+		//Thread.sleep(timePerCharacter+randomNumberBetweenMinAndMax(1, 20));
+		//Thread.sleep(timePerCharacter);
 
-			screen_2.type(String.valueOf(randomAlphabet));
-			Thread.sleep(randomNumberBetweenMinAndMax(1, 99));
-
-			// Simulate pressing the "Backspace" key to delete the last character
-			screen_2.type(Key.BACKSPACE);
-			Thread.sleep(randomNumberBetweenMinAndMax(1, 100));
-		}
-
-		for (int i = newRandom - 1; i < count; i++) {
-			screen_2.type(str[i]);
-			Thread.sleep(timePerCharacter+randomNumberBetweenMinAndMax(1, 99));
-
-		}
 		Thread.sleep(randomNumberBetweenMinAndMax(1, 100));
 	}
 
@@ -1168,34 +1145,9 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		}
 		// System.out.println("Name wait time is : "+waitTime);
 
-		int timePerCharacter = waitTime / count;
-
-		for (int i = 0; i < newRandom - 1; i++) {
-
-			screen_2.type(str[i]);
+		typeTextWithRobot(IdNumberOfPerson);
 			//Thread.sleep(timePerCharacter+randomNumberBetweenMinAndMax(1, 99));
-			Thread.sleep(timePerCharacter);
-		}
-		System.out.println(probabilityOfMakingErrorInId);
-		int newR = randomNumberBetweenMinAndMax(1, 100);
-		if (newR <= Integer.parseInt(probabilityOfMakingErrorInId)) {
-
-			int newRandom1 = randomNumberBetweenMinAndMax(0, 9);
-
-			screen_2.type(String.valueOf(newRandom1));
-			randomNumberBetweenMinAndMax(1, 199);
-
-			// Simulate pressing the "Backspace" key to delete the last character
-			screen_2.type(Key.BACKSPACE);
-			randomNumberBetweenMinAndMax(1, 99);
-		}
-
-		for (int i = newRandom - 1; i < count; i++) {
-
-			screen_2.type(str[i]);
-			Thread.sleep(timePerCharacter+randomNumberBetweenMinAndMax(1, 99));
-
-		}
+			//Thread.sleep(timePerCharacter);
 		Thread.sleep(randomNumberBetweenMinAndMax(1, 99));
 	}
 
@@ -1256,14 +1208,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		// System.out.println("Name wait time is : "+waitTime);
 
 		int timePerCharacter = waitTime / count;
-
-		for (int i = 0; i < count; i++) {
-
-			screen.type(str[i]);
-			int newRandom2 = randomNumberBetweenMinAndMax(1, 99);
-			Thread.sleep(timePerCharacter+newRandom2);
-
-		}
+		typeTextWithRobot(ageOfPersonFromExcel);
 		Thread.sleep(100 + randomNumberBetweenMinAndMax(1, 20));
 	}
 
@@ -1427,5 +1372,48 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		// Format and print the current date and time
 		System.out.println(msg + dateFormat.format(new Date()));
 	}
-
+	 
+	public static void typeTextWithRobot(String text) throws InterruptedException {
+		  try {
+	            // Create Robot instance within the method
+	            new Robot() {{
+	                
+	                for (char c : text.toCharArray()) {
+	                    int keyCode = KeyEvent.getExtendedKeyCodeForChar(c);
+	                    if (KeyEvent.CHAR_UNDEFINED == keyCode) {
+	                        throw new RuntimeException("Key code not found for character '" + c + "'");
+	                    }
+	                    keyPress(keyCode);
+	                    Thread.sleep(randomNumberBetweenMinAndMax(10, 30));
+	                    keyRelease(keyCode);
+	                    Thread.sleep(randomNumberBetweenMinAndMax(50, 80));
+	                }
+	            }};
+	            
+	        } catch (AWTException e) {
+	            e.printStackTrace();
+	        }
+    }
+	
+	public static void typeTextWithRobotSpecial(String text) throws InterruptedException {
+		  try {
+	            // Create Robot instance within the method
+	            new Robot() {{
+	                
+	                for (char c : text.toCharArray()) {
+	                    int keyCode = KeyEvent.getExtendedKeyCodeForChar(c);
+	                    if (KeyEvent.CHAR_UNDEFINED == keyCode) {
+	                        throw new RuntimeException("Key code not found for character '" + c + "'");
+	                    }
+	                    keyPress(keyCode);
+	                    Thread.sleep(randomNumberBetweenMinAndMax(10, 30));
+	                    keyRelease(keyCode);
+	                    Thread.sleep(randomNumberBetweenMinAndMax(75, 120));
+	                }
+	            }};
+	            
+	        } catch (AWTException e) {
+	            e.printStackTrace();
+	        }
+  }
 }
