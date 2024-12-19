@@ -737,7 +737,10 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		pressTab(3);
 		int waitTime = 0;
 		waitTime = WaitsProfile1.totalTimeForTypingMobileNumber;
-		typeTextWithRobot(mobileNumber);
+		int count = mobileNumber.length();
+		int timePerCharacter = waitTime / count;
+		
+		typeTextWithRobot(mobileNumber,timePerCharacter);
 		
 		pressTab(1);
 		pressEnter(1);
@@ -1056,9 +1059,9 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 		int timePerCharacter = waitTime / count;
 		if(personNumber.toLowerCase().equalsIgnoreCase("one")) {
-		typeTextWithRobotSpecial(text);
+		typeTextWithRobotSpecial(text,timePerCharacter);
 		}else {
-		typeTextWithRobot(text);
+		typeTextWithRobot(text,timePerCharacter);
 		}
 		//Thread.sleep(timePerCharacter+randomNumberBetweenMinAndMax(1, 20));
 		//Thread.sleep(timePerCharacter);
@@ -1144,8 +1147,9 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			break;
 		}
 		// System.out.println("Name wait time is : "+waitTime);
-
-		typeTextWithRobot(IdNumberOfPerson);
+		
+		int timePerCharacter = waitTime / count;
+		typeTextWithRobot(IdNumberOfPerson,timePerCharacter);
 			//Thread.sleep(timePerCharacter+randomNumberBetweenMinAndMax(1, 99));
 			//Thread.sleep(timePerCharacter);
 		Thread.sleep(randomNumberBetweenMinAndMax(1, 99));
@@ -1208,7 +1212,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		// System.out.println("Name wait time is : "+waitTime);
 
 		int timePerCharacter = waitTime / count;
-		typeTextWithRobot(ageOfPersonFromExcel);
+		typeTextWithRobot(ageOfPersonFromExcel,timePerCharacter);
 		Thread.sleep(100 + randomNumberBetweenMinAndMax(1, 20));
 	}
 
@@ -1373,7 +1377,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		System.out.println(msg + dateFormat.format(new Date()));
 	}
 	 
-	public static void typeTextWithRobot(String text) throws InterruptedException {
+	public static void typeTextWithRobot(String text, int timePerCharacter) throws InterruptedException {
 		  try {
 	            // Create Robot instance within the method
 	            new Robot() {{
@@ -1387,6 +1391,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 	                    Thread.sleep(randomNumberBetweenMinAndMax(10, 30));
 	                    keyRelease(keyCode);
 	                    Thread.sleep(randomNumberBetweenMinAndMax(50, 80));
+	                    Thread.sleep(timePerCharacter);
 	                }
 	            }};
 	            
@@ -1395,7 +1400,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 	        }
     }
 	
-	public static void typeTextWithRobotSpecial(String text) throws InterruptedException {
+	public static void typeTextWithRobotSpecial(String text, int timePerCharacter) throws InterruptedException {
 		  try {
 	            // Create Robot instance within the method
 	            new Robot() {{
@@ -1409,6 +1414,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 	                    Thread.sleep(randomNumberBetweenMinAndMax(10, 30));
 	                    keyRelease(keyCode);
 	                    Thread.sleep(randomNumberBetweenMinAndMax(75, 120));
+	                    Thread.sleep(timePerCharacter);
 	                }
 	            }};
 	            
