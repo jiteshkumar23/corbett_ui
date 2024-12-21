@@ -1291,10 +1291,8 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 				} else {
 
-					System.out.println("Inside USA Selection");
-					sikuClickOnThis("AForAmerica.png", 10, 0.5);
-					scrollDownToEnd(2);
-					sikuClickOnThis("USA.png", 10, 0.5);
+					System.out.println("Inside Other Country Selection");
+					searchForCountryAndClickOnIt(countryPerson);
 
 				}
 			}
