@@ -396,9 +396,9 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 		// sikuClickOnThisWithinRegion(screen_1a, "firstNameBox.png", 206, 203, 830,
 		// 96);
-
+		
 		sikuClickOnThis("firstNameBox.png", 600, 0.77);
-
+		Thread.sleep(200);
 		// First Person Data Input
 		
 
