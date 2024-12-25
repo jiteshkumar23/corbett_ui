@@ -15,6 +15,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.Random;
 import javax.swing.JFrame;
+import javax.swing.KeyStroke;
 import org.sikuli.script.FindFailed;
 import org.sikuli.script.Key;
 import org.sikuli.script.KeyModifier;
@@ -28,6 +29,9 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import com.tulskiy.keymaster.common.HotKey;
+import com.tulskiy.keymaster.common.HotKeyListener;
+import com.tulskiy.keymaster.common.Provider;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -50,10 +54,11 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 	public int intNumberOfRooms = Integer.parseInt(numberOfRooms);
 	public int intnumberOfChildren = Integer.parseInt(numberOfChildren);
 	public boolean keyCombinationPressed = false;
-	public static int X,Y1,Y2,Y3,Y4,Y5,Y6,height,width = 0;
+	public static int X, Y1, Y2, Y3, Y4, Y5, Y6, height, width = 0;
+	private static Provider provider;
+	private static boolean hotkeyPressed = false;
 
-
-	//@BeforeSuite
+	// @BeforeSuite
 	@Parameters("suiteName")
 	public void waitForKeyCombination(String suiteName) {
 		if ("MySpecificSuite".equals(suiteName)) {
@@ -354,31 +359,52 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 	}
 
 	@Test
-	public void FillMemberDetails() throws Exception {			
-		if(machineType.toLowerCase().equalsIgnoreCase("laptop")) {
-			X= 195;Y1= 218;Y2=349; Y3=481;Y4= 610;Y5=715;Y6=394; height=1136;width=123;
+	public void FillMemberDetails() throws Exception {
+		if (machineType.toLowerCase().equalsIgnoreCase("laptop")) {
+			X = 195;
+			Y1 = 218;
+			Y2 = 349;
+			Y3 = 481;
+			Y4 = 610;
+			Y5 = 715;
+			Y6 = 394;
+			height = 1136;
+			width = 123;
+		} else if (machineType.toLowerCase().equalsIgnoreCase("desktop")) {
+			X = 107;
+			Y1 = 220;
+			Y2 = 350;
+			Y3 = 478;
+			Y4 = 611;
+			Y5 = 348;
+			Y6 = 482;
+			height = 1127;
+			width = 123;
+
 		}
-		else if(machineType.toLowerCase().equalsIgnoreCase("desktop")) {
-			X= 107;Y1= 220;Y2=350; Y3=478;Y4= 611;Y5=348;Y6=482; height=1127;width=123;
-		
-		}
-		
+
 		intNumberOfAdultsFromExcel = Integer.parseInt(NumberOfAdultsFromExcel);
 
 		nationalityDropDownDisplayed = false;
-		
-		if (intNumberOfAdultsFromExcel >= 1 && nationalityOfFirstPersonFromExcel.toLowerCase().equalsIgnoreCase("foreigner")) {
-		    nationalityDropDownDisplayed = true;
-		} else if (intNumberOfAdultsFromExcel >= 2 && NationalityOfSecondPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-		    nationalityDropDownDisplayed = true;
-		} else if (intNumberOfAdultsFromExcel >= 3 && NationalityOfThirdPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-		    nationalityDropDownDisplayed = true;
-		} else if (intNumberOfAdultsFromExcel >= 4 && NationalityOfFourthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-		    nationalityDropDownDisplayed = true;
-		} else if (intNumberOfAdultsFromExcel >= 5 && NationalityOfFifthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-		    nationalityDropDownDisplayed = true;
-		} else if (intNumberOfAdultsFromExcel >= 6 && NationalityOfSixthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-		    nationalityDropDownDisplayed = true;
+
+		if (intNumberOfAdultsFromExcel >= 1
+				&& nationalityOfFirstPersonFromExcel.toLowerCase().equalsIgnoreCase("foreigner")) {
+			nationalityDropDownDisplayed = true;
+		} else if (intNumberOfAdultsFromExcel >= 2
+				&& NationalityOfSecondPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+			nationalityDropDownDisplayed = true;
+		} else if (intNumberOfAdultsFromExcel >= 3
+				&& NationalityOfThirdPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+			nationalityDropDownDisplayed = true;
+		} else if (intNumberOfAdultsFromExcel >= 4
+				&& NationalityOfFourthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+			nationalityDropDownDisplayed = true;
+		} else if (intNumberOfAdultsFromExcel >= 5
+				&& NationalityOfFifthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+			nationalityDropDownDisplayed = true;
+		} else if (intNumberOfAdultsFromExcel >= 6
+				&& NationalityOfSixthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+			nationalityDropDownDisplayed = true;
 		}
 
 		System.out.println("nationalityDropDownDisplayed is -->" + nationalityDropDownDisplayed);
@@ -396,53 +422,53 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 		// sikuClickOnThisWithinRegion(screen_1a, "firstNameBox.png", 206, 203, 830,
 		// 96);
-		
+
+		// First Person Data Input
+
+		// Initialize the provider once
+		provider = Provider.getCurrentProvider(false);
+
+		// Register a single hotkey for sequential execution
+		registerHotkey();
+
+		waitForHotkey();
+		printDateTime("Start Time -->");
+
 		sikuClickOnThis("firstNameBox.png", 600, 0.77);
 		Thread.sleep(200);
-		// First Person Data Input
-		
 
 		if (intNumberOfAdultsFromExcel >= 1) {
-			printDateTime("Start Time -->");
+
 			makeRandomErrorinTypingAndCorrect(nameOfFirstPersonFromExcel.toLowerCase(), "one");
-
-//			pressTab(1);
-
+			
 			genderSelection(genderOfFirstPersonFromExcel, "one");
 
 			Thread.sleep(WaitsProfile1.delayInGenderDropdown1);
 
+			waitForHotkey();
 			if (nationalityDropDownDisplayed) {
 				selectForeignCountry(nationalityOfFirstPersonFromExcel, "one", countryFirstPerson);
 				if (nationalityOfFirstPersonFromExcel.toLowerCase().equalsIgnoreCase("foreigner")) {
-					//sikuClickOnThisWithScreen(screen_1a, "IdentityProofType.png", 10, 0.5);
+
 				} else {
-//					pressTab(1);
+
 				}
 			} else {
-//				pressTab(1);
+
 			}
 
 			if (!nationalityOfFirstPersonFromExcel.toLowerCase().equalsIgnoreCase("foreigner")) {
-					
+
 				clickImageInRegion("one", "IdentityProofType.png");
-				//sikuClickOnThisWithScreen(screen_1a, "IdentityProofType.png", 10, 0.5);
-				
+
 				selectIDType(IdTypeOfFirstPerson);
 			}
 
-//			if (nationalityOfFirstPersonFromExcel.toLowerCase().equalsIgnoreCase("foreigner")) {
-//				pressTab(2);
-//			} else {
-//				pressTab(1);
-//			}
-
 			Thread.sleep(WaitsProfile1.delayInProofDropdown1);
-
+			waitForHotkey();
 			enterIDNumber(IdNumberOfFirstPerson.toLowerCase(), "one");
 
-//			pressTab(1);
-
+			waitForHotkey();
 			enterAge(ageOfFirstPersonFromExcel, "one");
 
 			Thread.sleep(WaitsProfile1.person1wait);
@@ -451,45 +477,36 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 		// Second Person Data Input
 		if (intNumberOfAdultsFromExcel >= 2) {
-//			pressTab(1);
+
+			waitForHotkey();
 			clickImageInRegion("two", "FullName.png");
 			makeRandomErrorinTypingAndCorrect(NameOfSecondPerson.toLowerCase(), "two");
-
-//			pressTab(1);
-
-			genderSelection(GenderOfSecondPerson,"two");
+			
+			genderSelection(GenderOfSecondPerson, "two");
 
 			Thread.sleep(WaitsProfile1.delayInGenderDropdown2);
 
+			waitForHotkey();
 			if (nationalityDropDownDisplayed) {
 				selectForeignCountry(NationalityOfSecondPerson, "two", countrySecondPerson);
 				if (NationalityOfSecondPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-					//sikuClickOnThisWithScreen(screen_2, "IdentityProofType.png", 10, 0.5);
 				} else {
-//					pressTab(1);
 				}
 			} else {
-//				pressTab(1);
+
 			}
 
 			if (!NationalityOfSecondPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-				//sikuClickOnThisWithScreen(screen_2, "IdentityProofType.png", 10, 0.5);
 				clickImageInRegion("two", "IdentityProofType.png");
 				selectIDType(IdTypeOfSecondPerson);
 			}
 
-//			if (NationalityOfSecondPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-//				pressTab(2);
-//			} else {
-//				pressTab(1);
-//			}
-
 			Thread.sleep(WaitsProfile1.delayInProofDropdown2);
 
+			waitForHotkey();
 			enterIDNumber(IdNumberOfSecondPerson.toLowerCase(), "two");
 
-//			pressTab(1);
-
+			waitForHotkey();
 			enterAge(AgeOfSecondPerson, "two");
 
 			Thread.sleep(WaitsProfile1.person2wait);
@@ -500,45 +517,34 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 		if (intNumberOfAdultsFromExcel >= 3) {
 
-//			pressTab(1);
+			waitForHotkey();
 			clickImageInRegion("three", "FullName.png");
 			makeRandomErrorinTypingAndCorrect(NameOfThirdPerson.toLowerCase(), "three");
-
-//			pressTab(1);
-
+			
 			genderSelection(GenderOfThirdPerson, "three");
 
 			Thread.sleep(WaitsProfile1.delayInGenderDropdown3);
 
+			waitForHotkey();
 			if (nationalityDropDownDisplayed) {
 				selectForeignCountry(NationalityOfThirdPerson, "three", countryThirdPerson);
 				if (NationalityOfThirdPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-					//sikuClickOnThisWithScreen(screen_3, "IdentityProofType.png", 10, 0.5);
+
 				} else {
-//					pressTab(1);
 				}
 			} else {
-//				pressTab(1);
 			}
 
 			if (!NationalityOfThirdPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-				//sikuClickOnThisWithScreen(screen_3, "IdentityProofType.png", 10, 0.5);
 				clickImageInRegion("three", "IdentityProofType.png");
 				selectIDType(IdTypeOfThirdPerson);
 			}
 
-//			if (NationalityOfThirdPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-//				pressTab(2);
-//			} else {
-//				pressTab(1);
-//			}
-
 			Thread.sleep(WaitsProfile1.delayInProofDropdown3);
-
+			waitForHotkey();
 			enterIDNumber(IdNumberOfThirdPerson.toLowerCase(), "three");
 
-//			pressTab(1);
-
+			waitForHotkey();
 			enterAge(AgeOfThirdPerson, "three");
 
 			Thread.sleep(WaitsProfile1.person3wait);
@@ -548,45 +554,34 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		// Fourth Person Data Input
 		if (intNumberOfAdultsFromExcel >= 4) {
 
-//			pressTab(1);
+			waitForHotkey();
 			clickImageInRegion("four", "FullName.png");
 			makeRandomErrorinTypingAndCorrect(NameOfFourthPerson.toLowerCase(), "four");
-
-//			pressTab(1);
 
 			genderSelection(GenderOfFourthPerson, "four");
 
 			Thread.sleep(WaitsProfile1.delayInGenderDropdown4);
 
+			waitForHotkey();
 			if (nationalityDropDownDisplayed) {
 				selectForeignCountry(NationalityOfFourthPerson, "four", countryFourthPerson);
 				if (NationalityOfFourthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-					//sikuClickOnThisWithScreen(screen_4, "IdentityProofType.png", 10, 0.5);
+
 				} else {
-//					pressTab(1);
 				}
 			} else {
-//				pressTab(1);
 			}
 
 			if (!NationalityOfFourthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-				//sikuClickOnThisWithScreen(screen_4, "IdentityProofType.png", 10, 0.5);
 				clickImageInRegion("four", "IdentityProofType.png");
 				selectIDType(IdTypeOfFourthPerson);
 			}
 
-//			if (NationalityOfFourthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-//				pressTab(2);
-//			} else {
-//				pressTab(1);
-//			}
-
 			Thread.sleep(WaitsProfile1.delayInProofDropdown4);
-
+			waitForHotkey();
 			enterIDNumber(IdNumberOfFourthPerson.toLowerCase(), "four");
 
-//			pressTab(1);
-
+			waitForHotkey();
 			enterAge(AgeOfFourthPerson, "four");
 
 			Thread.sleep(WaitsProfile1.person4wait);
@@ -596,101 +591,79 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 		// Fifth Person Data Input
 		if (intNumberOfAdultsFromExcel >= 5) {
-//			if(machineType.toLowerCase().equalsIgnoreCase("desktop")) {
-				pressTab(1);
-//			}
-//			else {
-//			clickImageInRegion("five", "FullName.png");
-//			}
-			makeRandomErrorinTypingAndCorrect(NameOfFifthPerson.toLowerCase(), "five");
 
-//			pressTab(1);
+			pressTab(1);
+
+			waitForHotkey();
+			makeRandomErrorinTypingAndCorrect(NameOfFifthPerson.toLowerCase(), "five");
 
 			genderSelection(GenderOfFifthPerson, "five");
 
 			Thread.sleep(WaitsProfile1.delayInGenderDropdown5);
 
+			waitForHotkey();
 			if (nationalityDropDownDisplayed) {
 				selectForeignCountry(NationalityOfFifthPerson, "five", countryFifthPerson);
 				if (NationalityOfFifthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-					//sikuClickOnThisWithScreen(screen_5, "IdentityProofType.png", 10, 0.5);
 				} else {
-//					pressTab(1);
 				}
 			} else {
-//				pressTab(1);
 			}
 
 			if (!NationalityOfFifthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-				//sikuClickOnThisWithScreen(screen_5, "IdentityProofType.png", 10, 0.5);
 				clickImageInRegion("five", "IdentityProofType.png");
 				selectIDType(IdTypeOfFifthPerson);
 			}
 
-//			if (NationalityOfFifthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-//				pressTab(2);
-//			} else {
-//				pressTab(1);
-//			}
-
 			Thread.sleep(WaitsProfile1.delayInProofDropdown5);
 
+			waitForHotkey();
 			enterIDNumber(IdNumberOfFifthPerson.toLowerCase(), "five");
 
-//			pressTab(1);
-
+			waitForHotkey();
 			enterAge(AgeOfFifthPerson, "five");
 
 			Thread.sleep(WaitsProfile1.person5wait);
-			
+
 			Thread.sleep(randomNumberBetweenMinAndMax(40, 60));
 		}
 
 		// Sixth Person Data Input
 		if (intNumberOfAdultsFromExcel >= 6) {
-			Thread.sleep(randomNumberBetweenMinAndMax(200, 600));
-			if(machineType.toLowerCase().equalsIgnoreCase("laptop")) {
-			pressTab(1);
-			}
-			else {
-			clickImageInRegion("six", "FullName.png");
-			}
-			makeRandomErrorinTypingAndCorrect(NameOfSixthPerson.toLowerCase(), "six");
 
-//			pressTab(1);
+			Thread.sleep(randomNumberBetweenMinAndMax(50, 100));
+			if (machineType.toLowerCase().equalsIgnoreCase("laptop")) {
+				pressTab(1);
+			} else {
+				clickImageInRegion("six", "FullName.png");
+			}
+			waitForHotkey();
+			makeRandomErrorinTypingAndCorrect(NameOfSixthPerson.toLowerCase(), "six");
 
 			genderSelection(GenderOfSixthPerson, "six");
 
 			Thread.sleep(WaitsProfile1.delayInGenderDropdown6);
+
+			waitForHotkey();
 			if (nationalityDropDownDisplayed) {
 				selectForeignCountry(NationalityOfSixthPerson, "six", countrySixthPerson);
 				if (NationalityOfSixthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-					//sikuClickOnThisWithScreen(screen_6, "IdentityProofType.png", 10, 0.5);
 				} else {
-//					pressTab(1);
 				}
 			} else {
-//				pressTab(1);
 			}
 
 			if (!NationalityOfSixthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-				//sikuClickOnThisWithScreen(screen_6, "IdentityProofType.png", 10, 0.5);
 				clickImageInRegion("six", "IdentityProofType.png");
 				selectIDType(IdTypeOfSixthPerson);
 			}
 
-//			if (NationalityOfSixthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
-//				pressTab(2);
-//			} else {
-//				pressTab(1);
-//			}
-
 			Thread.sleep(WaitsProfile1.delayInProofDropdown6);
 
+			waitForHotkey();
 			enterIDNumber(IdNumberOfSixthPerson.toLowerCase(), "six");
 
-//			pressTab(1);
-
+			waitForHotkey();
 			enterAge(AgeOfSixthPerson, "six");
 
 			Thread.sleep(WaitsProfile1.person6wait);
@@ -732,16 +705,15 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 	@Test
 	public void EnterMobile() throws Exception {
-
+		waitForHotkey();
 		scrollDownToEnd(2);
 		pressTab(3);
 		int waitTime = 0;
 		waitTime = WaitsProfile1.totalTimeForTypingMobileNumber;
 		int count = mobileNumber.length();
 		int timePerCharacter = waitTime / count;
-		
-		typeTextWithRobot(mobileNumber,timePerCharacter);
-		
+		typeTextWithRobot(mobileNumber, timePerCharacter);
+
 		pressTab(1);
 		pressEnter(1);
 
@@ -753,40 +725,39 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		sikuClickOnThis("UPI.png", 600, 0.70);
 		Thread.sleep(200);
 		sikuClickOnThis("PayNow.png", 120, 0.70);
-		String result = imageDetectionBetweenTwoImages("contactdetails.png" ,1, 0.70, "tiger.png" ,1, 0.70, 60000);
-		
-		if(result.equalsIgnoreCase("first")) {
-		System.out.println("First image was found , now continuing the payment for first");
-		//sikuFindImageWaitAndClick("contactdetails.png", 40, 100, 0.70);
-		sikuClickOnThis("contactdetails.png",100, 0.70);
-		// sikuClickOnThis("contactdetails.png", 20, 0.70);
-		pressTab(1);
-		Thread.sleep(100);
-		pressTab(1);
-		Thread.sleep(100);
-		pressTab(1);
-		Thread.sleep(100);
-		screen_2.type(emailAddress);
-		//typeTextWithRobot(emailAddress);
-		// sikuClickOnThis("continue.png", 40, 0.70);
-		pressTab(1);
-		pressEnter(1);
-		if (upiToUse.toLowerCase().equalsIgnoreCase("upi")) {
-			sikuClickOnThis("showQR.png", 40, 0.70);
-			sikuClickOnThis("recommended.png", 40, 0.70);
-		} else if (upiToUse.toLowerCase().equalsIgnoreCase("upi_id")) {
-			sikuClickOnThis("UPI_ID_Image1.png", 40, 0.70);
-			Thread.sleep(150);
-			sikuClickOnThis("UPI_ID_Number.png", 40, 0.70);
+		String result = imageDetectionBetweenTwoImages("contactdetails.png", 1, 0.70, "tiger.png", 1, 0.70, 60000);
+
+		if (result.equalsIgnoreCase("first")) {
+			System.out.println("First image was found , now continuing the payment for first");
+			// sikuFindImageWaitAndClick("contactdetails.png", 40, 100, 0.70);
+			sikuClickOnThis("contactdetails.png", 100, 0.70);
+			// sikuClickOnThis("contactdetails.png", 20, 0.70);
 			pressTab(1);
-			screen_2.type(upiAddress);
-			//typeTextWithRobot(upiAddress);
+			Thread.sleep(100);
+			pressTab(1);
+			Thread.sleep(100);
+			pressTab(1);
+			Thread.sleep(100);
+			screen_2.type(emailAddress);
+			// typeTextWithRobot(emailAddress);
+			// sikuClickOnThis("continue.png", 40, 0.70);
+			pressTab(1);
+			pressEnter(1);
+			if (upiToUse.toLowerCase().equalsIgnoreCase("upi")) {
+				sikuClickOnThis("showQR.png", 40, 0.70);
+				sikuClickOnThis("recommended.png", 40, 0.70);
+			} else if (upiToUse.toLowerCase().equalsIgnoreCase("upi_id")) {
+				sikuClickOnThis("UPI_ID_Image1.png", 40, 0.70);
+				Thread.sleep(150);
+				sikuClickOnThis("UPI_ID_Number.png", 40, 0.70);
+				pressTab(1);
+				screen_2.type(upiAddress);
+				// typeTextWithRobot(upiAddress);
 //			pressTab(1);
 //			pressEnter(1);
-			sikuClickOnThis("VerifyAndPay.png", 40, 0.70);	
-		}
-		}
-		else if (result.equalsIgnoreCase("second")) {
+				sikuClickOnThis("VerifyAndPay.png", 40, 0.70);
+			}
+		} else if (result.equalsIgnoreCase("second")) {
 			System.out.println("Second image was found , now contiuing the payment for second");
 			sikuClickOnThis("tiger.png", 40, 0.70);
 			Thread.sleep(100);
@@ -797,9 +768,9 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			pressTab(1);
 			Thread.sleep(130);
 			screen_2.type(emailAddress);
-			//typeTextWithRobot(emailAddress);
+			// typeTextWithRobot(emailAddress);
 			sikuClickOnThis("proceedAfterTiger.png", 40, 0.70);
-			
+
 			if (upiToUse.toLowerCase().equalsIgnoreCase("upi")) {
 				Thread.sleep(100);
 				sikuClickOnThis("showQRAfterTiger.png", 40, 0.70);
@@ -812,11 +783,11 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 				sikuClickOnThis("UPI_ID_Image2.png", 40, 0.70);
 				Thread.sleep(200);
 				screen_2.type(upiAddress);
-				//typeTextWithRobot(upiAddress);
+				// typeTextWithRobot(upiAddress);
 				pressTab(1);
 				pressEnter(1);
 			}
-			
+
 		}
 	}
 
@@ -863,36 +834,36 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 	}
 
-	public static String imageDetectionBetweenTwoImages(String specificImagePath1, int waitTime1, double match1,String specificImagePath2, int waitTime2, double match2, long timeout) {
+	public static String imageDetectionBetweenTwoImages(String specificImagePath1, int waitTime1, double match1,
+			String specificImagePath2, int waitTime2, double match2, long timeout) {
 
 		Pattern imagePattern1 = new Pattern(imagePath + specificImagePath1).similar(match1);
 		Pattern imagePattern2 = new Pattern(imagePath + specificImagePath2).similar(match2);
 
-		long startTime = System.currentTimeMillis(); 
-		
-		while (System.currentTimeMillis() - startTime < timeout) {
-            try {
-                screen_2.wait(imagePattern1, 0.5); // Check for 1 second
-                System.out.println("First image found!");
-                // Perform your action here
-                return "first";
-            } catch (FindFailed e1) {
-                try {
-                	screen_2.wait(imagePattern2, 0.5); // Check for 1 second
-                    System.out.println("Second image found!");
-                    // Perform your action here
-                    return "second";
-                } catch (FindFailed e2) {
-                     System.err.println("Neither image found, continue the loop");
-                }
-            }
-        }
-        
-        if (System.currentTimeMillis() - startTime >= timeout) {
-            System.out.println("Timeout reached without finding any image.");
-        }
-		return null;
+		long startTime = System.currentTimeMillis();
 
+		while (System.currentTimeMillis() - startTime < timeout) {
+			try {
+				screen_2.wait(imagePattern1, 0.5); // Check for 1 second
+				System.out.println("First image found!");
+				// Perform your action here
+				return "first";
+			} catch (FindFailed e1) {
+				try {
+					screen_2.wait(imagePattern2, 0.5); // Check for 1 second
+					System.out.println("Second image found!");
+					// Perform your action here
+					return "second";
+				} catch (FindFailed e2) {
+					System.err.println("Neither image found, continue the loop");
+				}
+			}
+		}
+
+		if (System.currentTimeMillis() - startTime >= timeout) {
+			System.out.println("Timeout reached without finding any image.");
+		}
+		return null;
 
 	}
 
@@ -1058,22 +1029,23 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		}
 
 		int timePerCharacter = waitTime / count;
-		if(personNumber.toLowerCase().equalsIgnoreCase("one")) {
-		typeTextWithRobotSpecial(text,timePerCharacter);
-		}else {
-		typeTextWithRobot(text,timePerCharacter);
+		if (personNumber.toLowerCase().equalsIgnoreCase("one")) {
+			typeTextWithRobotSpecial(text, timePerCharacter);
+		} else {
+			typeTextWithRobot(text, timePerCharacter);
 		}
-		//Thread.sleep(timePerCharacter+randomNumberBetweenMinAndMax(1, 20));
-		//Thread.sleep(timePerCharacter);
+		// Thread.sleep(timePerCharacter+randomNumberBetweenMinAndMax(1, 20));
+		// Thread.sleep(timePerCharacter);
 
 		Thread.sleep(randomNumberBetweenMinAndMax(1, 100));
 	}
 
 	public static void genderSelection(String gender, String personNumber) throws InterruptedException, FindFailed {
-		
+
 		if (gender.toLowerCase().equalsIgnoreCase("female")) {
+			waitForHotkey();
 			clickImageInRegion(personNumber, "Gender.png");
-			//screen.type(Key.DOWN);
+			// screen.type(Key.DOWN);
 			screen.type("f");
 			Thread.sleep(randomNumberBetweenMinAndMax(50, 100));
 			screen.type(Key.ENTER);
@@ -1081,9 +1053,10 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		}
 
 		else if (gender.toLowerCase().equalsIgnoreCase("transgender")) {
+			waitForHotkey();
 			clickImageInRegion(personNumber, "Gender.png");
-			//screen.type(Key.DOWN);
-			//screen.type(Key.DOWN);
+			// screen.type(Key.DOWN);
+			// screen.type(Key.DOWN);
 			screen.type("t");
 			Thread.sleep(randomNumberBetweenMinAndMax(40, 60));
 			screen.type(Key.ENTER);
@@ -1093,33 +1066,34 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 	}
 
 	public static void selectIDType(String IdTypeOfPerson) throws InterruptedException {
-		
+
 		if (IdTypeOfPerson.toLowerCase().contains("aadhar")) {
-			//pressDownArrowKey(1);
+			// pressDownArrowKey(1);
 			screen.type("aa");
 		}
 
 		else if (IdTypeOfPerson.toLowerCase().contains("driving")) {
-			//pressDownArrowKey(2);
+			// pressDownArrowKey(2);
 			screen.type("dr");
 		} else if (IdTypeOfPerson.toLowerCase().contains("passport")) {
-			//pressDownArrowKey(3);
+			// pressDownArrowKey(3);
 			screen.type("pas");
 		} else if (IdTypeOfPerson.toLowerCase().contains("pan")) {
-			//pressDownArrowKey(4);
+			// pressDownArrowKey(4);
 			screen.type("pan");
 		} else if (IdTypeOfPerson.toLowerCase().contains("student")) {
-			//pressDownArrowKey(5);
+			// pressDownArrowKey(5);
 			screen.type("st");
 		}
 		screen.type(Key.ENTER);
 		Thread.sleep(randomNumberBetweenMinAndMax(40, 60));
 	}
 
-	public static void enterIDNumber(String IdNumberOfPerson, String personNumber) throws InterruptedException, FindFailed {
-		
+	public static void enterIDNumber(String IdNumberOfPerson, String personNumber)
+			throws InterruptedException, FindFailed {
+
 		clickImageInRegion(personNumber, "ID_Number.png");
-		
+
 		int count = IdNumberOfPerson.length();
 		String[] str = IdNumberOfPerson.split("");
 		int newRandom = randomNumberBetweenMinAndMax(1, count);
@@ -1147,16 +1121,16 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			break;
 		}
 		// System.out.println("Name wait time is : "+waitTime);
-		
+
 		int timePerCharacter = waitTime / count;
-		typeTextWithRobot(IdNumberOfPerson,timePerCharacter);
-			//Thread.sleep(timePerCharacter+randomNumberBetweenMinAndMax(1, 99));
-			//Thread.sleep(timePerCharacter);
+		typeTextWithRobot(IdNumberOfPerson, timePerCharacter);
+		// Thread.sleep(timePerCharacter+randomNumberBetweenMinAndMax(1, 99));
+		// Thread.sleep(timePerCharacter);
 		Thread.sleep(randomNumberBetweenMinAndMax(1, 99));
 	}
 
 	private static void clickImageInRegion(String personNumber, String image) throws FindFailed, InterruptedException {
-		
+
 		switch (personNumber) {
 		case "one":
 			sikuClickOnThisWithinRegion(screen, image, X, Y1, height, width);
@@ -1177,11 +1151,12 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			sikuClickOnThisWithinRegion(screen, image, X, Y6, height, width);
 			break;
 		}
-		
+
 	}
 
-	public static void enterAge(String ageOfPersonFromExcel, String personNumber) throws InterruptedException, FindFailed {
-		
+	public static void enterAge(String ageOfPersonFromExcel, String personNumber)
+			throws InterruptedException, FindFailed {
+
 		clickImageInRegion(personNumber, "Age.png");
 
 		int count = ageOfPersonFromExcel.length();
@@ -1212,7 +1187,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		// System.out.println("Name wait time is : "+waitTime);
 
 		int timePerCharacter = waitTime / count;
-		typeTextWithRobot(ageOfPersonFromExcel,timePerCharacter);
+		typeTextWithRobot(ageOfPersonFromExcel, timePerCharacter);
 		Thread.sleep(100 + randomNumberBetweenMinAndMax(1, 20));
 	}
 
@@ -1247,9 +1222,9 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 	private static void selectForeignCountry(String nationalityOfPersonFromExcel, String person, String countryPerson) {
 		try {
 			if (nationalityOfPersonFromExcel.equalsIgnoreCase("foreigner")) {
-	
+
 				clickImageInRegion(person, "india.png");
-			
+
 				System.out.println("India image clicked");
 
 				sikuWaitForThisImage("select_country.png", 10, 0.5);
@@ -1257,43 +1232,47 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 				if (countryPerson.equalsIgnoreCase("USA")) {
 					System.out.println("Inside USA Selection");
 					sikuClickOnThis("AForAmerica.png", 10, 0.5);
-//					scrollDownToEnd(2);
-//					sikuClickOnThis("USA.png", 10, 0.5);
-					searchForCountryAndClickOnIt("usa");
+					scrollDownToEnd(2);
+					sikuClickOnThis("USA.png", 10, 0.5);
+					//searchForCountryAndClickOnIt("usa");
 
 				}
 
 				else if (countryPerson.equalsIgnoreCase("United Kingdom")) {
 					System.out.println("Inside United Kingdom Selection");
 					sikuClickOnThis("UForUnitedKingdom.png", 10, 0.6);
-					// sikuClickOnThis("UnitedKingdom.png", 10, 0.6);
-					searchForCountryAndClickOnIt("united");
+				    sikuClickOnThis("UnitedKingdom.png", 10, 0.6);
+					//searchForCountryAndClickOnIt("united");
 				} else if (countryPerson.equalsIgnoreCase("Canada")) {
 					System.out.println("Inside Canada Selection");
 					sikuClickOnThis("CForCanada.png", 10, 0.6);
-					// sikuClickOnThis("Canada.png", 10, 0.6);
-					searchForCountryAndClickOnIt("canada");
+					sikuClickOnThis("Canada.png", 10, 0.6);
+					//searchForCountryAndClickOnIt("canada");
 				} else if (countryPerson.equalsIgnoreCase("Australia")) {
 
 					System.out.println("Inside Australia Selection");
 					sikuClickOnThis("AForAmerica.png", 10, 0.6);
-					// scrollDownToEnd(1);
-					// sikuClickOnThisWithTargetOffset("Australia.png", -29, 84, 0.7);
-					searchForCountryAndClickOnIt("australia");
+					scrollDownToEnd(1);
+					sikuClickOnThis("Australia.png", 10, 0.6);
+					//searchForCountryAndClickOnIt("australia");
 				}
 
 				else if (countryPerson.equalsIgnoreCase("Italy")) {
 
 					System.out.println("Inside Italy Selection");
 					sikuClickOnThis("IForItaly.png", 10, 0.5);
-					// sikuClickOnThisWithTargetOffset("Italy.png", -72, 78, 0.6);
-					searchForCountryAndClickOnIt("italy");
+					sikuClickOnThis("Italy.png", 10, 0.5);
+				//	searchForCountryAndClickOnIt("italy");
 
 				} else {
 
-					System.out.println("Inside Other Country Selection");
-					searchForCountryAndClickOnIt(countryPerson);
-
+//					System.out.println("Inside Other Country Selection");
+//					searchForCountryAndClickOnIt(countryPerson);
+					System.out.println("Inside USA Selection");
+					sikuClickOnThis("AForAmerica.png", 10, 0.5);
+					scrollDownToEnd(2);
+					sikuClickOnThis("USA.png", 10, 0.5);
+					//searchForCountryAndClickOnIt("usa");
 				}
 			}
 		} catch (Exception e) {
@@ -1347,24 +1326,28 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		System.out.println("CheckOut Date Code for " + checkOutDate + "--> " + checkOutMilliseconds);
 
 	}
-	
-	public void  moveMouseRandomly() throws FindFailed {
+
+	public void moveMouseRandomly() throws FindFailed {
 		Screen screen = new Screen();
-        Location currentLocation = Mouse.at();
+		Location currentLocation = Mouse.at();
 
-        Random random = new Random();
-        int offsetX = random.nextInt(401) - 200; // Random value between -200 and 200
-        int offsetY = random.nextInt(401) - 200; // Random value between -200 and 200
+		Random random = new Random();
+		int offsetX = random.nextInt(401) - 200; // Random value between -200 and 200
+		int offsetY = random.nextInt(401) - 200; // Random value between -200 and 200
 
-        Location newLocation = new Location(currentLocation.getX() + offsetX, currentLocation.getY() + offsetY);
+		Location newLocation = new Location(currentLocation.getX() + offsetX, currentLocation.getY() + offsetY);
 
-        // Make sure the new location is within the screen bounds
-        if (newLocation.getX() < 0) newLocation.setX(0);
-        if (newLocation.getY() < 0) newLocation.setY(0);
-        if (newLocation.getX() > screen.getW()) newLocation.setX(screen.getW());
-        if (newLocation.getY() > screen.getH()) newLocation.setY(screen.getH());
+		// Make sure the new location is within the screen bounds
+		if (newLocation.getX() < 0)
+			newLocation.setX(0);
+		if (newLocation.getY() < 0)
+			newLocation.setY(0);
+		if (newLocation.getX() > screen.getW())
+			newLocation.setX(screen.getW());
+		if (newLocation.getY() > screen.getH())
+			newLocation.setY(screen.getH());
 
-        screen.mouseMove(newLocation);
+		screen.mouseMove(newLocation);
 
 	}
 
@@ -1374,50 +1357,82 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		// Format and print the current date and time
 		System.out.println(msg + dateFormat.format(new Date()));
 	}
-	 
+
 	public static void typeTextWithRobot(String text, int timePerCharacter) throws InterruptedException {
-		  try {
-	            // Create Robot instance within the method
-	            new Robot() {{
-	                
-	                for (char c : text.toCharArray()) {
-	                    int keyCode = KeyEvent.getExtendedKeyCodeForChar(c);
-	                    if (KeyEvent.CHAR_UNDEFINED == keyCode) {
-	                        throw new RuntimeException("Key code not found for character '" + c + "'");
-	                    }
-	                    keyPress(keyCode);
-	                    Thread.sleep(randomNumberBetweenMinAndMax(10, 30));
-	                    keyRelease(keyCode);
-	                    Thread.sleep(randomNumberBetweenMinAndMax(50, 80));
-	                    Thread.sleep(timePerCharacter);
-	                }
-	            }};
-	            
-	        } catch (AWTException e) {
-	            e.printStackTrace();
-	        }
-    }
-	
+		try {
+			// Create Robot instance within the method
+			new Robot() {
+				{
+
+					for (char c : text.toCharArray()) {
+						int keyCode = KeyEvent.getExtendedKeyCodeForChar(c);
+						if (KeyEvent.CHAR_UNDEFINED == keyCode) {
+							throw new RuntimeException("Key code not found for character '" + c + "'");
+						}
+						keyPress(keyCode);
+						Thread.sleep(randomNumberBetweenMinAndMax(10, 30));
+						keyRelease(keyCode);
+						Thread.sleep(randomNumberBetweenMinAndMax(50, 80));
+						Thread.sleep(timePerCharacter);
+					}
+				}
+			};
+
+		} catch (AWTException e) {
+			e.printStackTrace();
+		}
+	}
+
 	public static void typeTextWithRobotSpecial(String text, int timePerCharacter) throws InterruptedException {
-		  try {
-	            // Create Robot instance within the method
-	            new Robot() {{
-	                
-	                for (char c : text.toCharArray()) {
-	                    int keyCode = KeyEvent.getExtendedKeyCodeForChar(c);
-	                    if (KeyEvent.CHAR_UNDEFINED == keyCode) {
-	                        throw new RuntimeException("Key code not found for character '" + c + "'");
-	                    }
-	                    keyPress(keyCode);
-	                    Thread.sleep(randomNumberBetweenMinAndMax(10, 30));
-	                    keyRelease(keyCode);
-	                    Thread.sleep(randomNumberBetweenMinAndMax(75, 120));
-	                    Thread.sleep(timePerCharacter);
-	                }
-	            }};
-	            
-	        } catch (AWTException e) {
-	            e.printStackTrace();
-	        }
-  }
+		try {
+			// Create Robot instance within the method
+			new Robot() {
+				{
+
+					for (char c : text.toCharArray()) {
+						int keyCode = KeyEvent.getExtendedKeyCodeForChar(c);
+						if (KeyEvent.CHAR_UNDEFINED == keyCode) {
+							throw new RuntimeException("Key code not found for character '" + c + "'");
+						}
+						keyPress(keyCode);
+						Thread.sleep(randomNumberBetweenMinAndMax(10, 30));
+						keyRelease(keyCode);
+						Thread.sleep(randomNumberBetweenMinAndMax(75, 120));
+						Thread.sleep(timePerCharacter);
+					}
+				}
+			};
+
+		} catch (AWTException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private static void registerHotkey() {
+		// Register Alt+Q hotkey to trigger execution of methods
+		provider.register(KeyStroke.getKeyStroke(KeyEvent.VK_Q, KeyEvent.ALT_DOWN_MASK), new HotKeyListener() {
+			@Override
+			public void onHotKey(HotKey hotKey) {
+				// Set the flag to true when hotkey is pressed
+				hotkeyPressed = true;
+				System.out.println("Hot key pressed !");
+			}
+		});
+	}
+
+	public static void waitForHotkey() {
+
+		// Block until Alt+Q is pressed
+		while (!hotkeyPressed) {
+			// You can add a small delay here to avoid 100% CPU usage while waiting
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				Thread.currentThread().interrupt();
+			}
+		}
+		// Reset the hotkey press flag after it has been handled
+		hotkeyPressed = false;
+	}
+
 }
