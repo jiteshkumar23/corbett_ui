@@ -57,6 +57,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 	public static int X, Y1, Y2, Y3, Y4, Y5, Y6, height, width = 0;
 	private static Provider provider;
 	private static boolean hotkeyPressed = false;
+	
 
 	// @BeforeSuite
 	@Parameters("suiteName")
@@ -631,7 +632,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		// Sixth Person Data Input
 		if (intNumberOfAdultsFromExcel >= 6) {
 
-			Thread.sleep(randomNumberBetweenMinAndMax(50, 100));
+			//Thread.sleep(randomNumberBetweenMinAndMax(50, 100));
 			if (machineType.toLowerCase().equalsIgnoreCase("laptop")) {
 				pressTab(1);
 			} else {
@@ -713,7 +714,6 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		int count = mobileNumber.length();
 		int timePerCharacter = waitTime / count;
 		typeTextWithRobot(mobileNumber, timePerCharacter);
-
 		pressTab(1);
 		pressEnter(1);
 
@@ -730,14 +730,16 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		if (result.equalsIgnoreCase("first")) {
 			System.out.println("First image was found , now continuing the payment for first");
 			// sikuFindImageWaitAndClick("contactdetails.png", 40, 100, 0.70);
-			sikuClickOnThis("contactdetails.png", 100, 0.70);
+			//sikuClickOnThis("contactdetails.png", 100, 0.70);
 			// sikuClickOnThis("contactdetails.png", 20, 0.70);
-			pressTab(1);
-			Thread.sleep(100);
-			pressTab(1);
-			Thread.sleep(100);
-			pressTab(1);
-			Thread.sleep(100);
+//			pressTab(1);
+//			Thread.sleep(100);
+//			pressTab(1);
+//			Thread.sleep(100);
+//			pressTab(1);
+//			Thread.sleep(100);
+			sikuClickOnThis("emailAddressImage1.png", 40, 0.70);
+			//typeTextWithRobot(emailAddress, 0);
 			screen_2.type(emailAddress);
 			// typeTextWithRobot(emailAddress);
 			// sikuClickOnThis("continue.png", 40, 0.70);
