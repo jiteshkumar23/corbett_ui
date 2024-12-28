@@ -708,14 +708,15 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 	public void EnterMobile() throws Exception {
 		waitForHotkey();
 		scrollDownToEnd(2);
-		pressTab(3);
+		//pressTab(3);
+		sikuClickOnThis("MobileNumber.png", 15, 0.70);
 		int waitTime = 0;
 		waitTime = WaitsProfile1.totalTimeForTypingMobileNumber;
 		int count = mobileNumber.length();
 		int timePerCharacter = waitTime / count;
 		typeTextWithRobot(mobileNumber, timePerCharacter);
-		pressTab(1);
-		pressEnter(1);
+//		pressTab(1);
+//		pressEnter(1);
 
 	}
 
@@ -1436,5 +1437,11 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		// Reset the hotkey press flag after it has been handled
 		hotkeyPressed = false;
 	}
+	
+	 private static void scrollDown(Screen screen, int scrollAmount) {
+	        for (int i = 0; i < scrollAmount; i++) {
+	            screen.wheel(1, 1); // Perform scroll down action
+	        }
+	    }
 
 }
