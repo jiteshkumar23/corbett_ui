@@ -66,12 +66,12 @@ public class WaitsProfile1 {
 		
 
 		//Typing wait times
-		public static int totalTimeForTypingName1 = 600;
-		public static int totalTimeForTypingName2 = 600;
-		public static int totalTimeForTypingName3 = 600;
-		public static int totalTimeForTypingName4 = 600;
-		public static int totalTimeForTypingName5 = 600;
-		public static int totalTimeForTypingName6 = 600;
+		public static int totalTimeForTypingName1 = 800;
+		public static int totalTimeForTypingName2 = 800;
+		public static int totalTimeForTypingName3 = 800;
+		public static int totalTimeForTypingName4 = 800;
+		public static int totalTimeForTypingName5 = 800;
+		public static int totalTimeForTypingName6 = 800;
 		
 		public static int delayInGenderDropdown1 = 0;
 		public static int delayInGenderDropdown2=  0;

@@ -443,7 +443,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 			makeRandomErrorinTypingAndCorrect(nameOfFirstPersonFromExcel.toLowerCase(), "one");
 			
-			genderSelection(genderOfFirstPersonFromExcel, "one");
+			//genderSelection(genderOfFirstPersonFromExcel, "one");
 
 			Thread.sleep(WaitsProfile1.delayInGenderDropdown1);
 
@@ -484,7 +484,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			clickImageInRegion("two", "FullName.png");
 			makeRandomErrorinTypingAndCorrect(NameOfSecondPerson.toLowerCase(), "two");
 			
-			genderSelection(GenderOfSecondPerson, "two");
+			//genderSelection(GenderOfSecondPerson, "two");
 
 			Thread.sleep(WaitsProfile1.delayInGenderDropdown2);
 
@@ -523,7 +523,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			clickImageInRegion("three", "FullName.png");
 			makeRandomErrorinTypingAndCorrect(NameOfThirdPerson.toLowerCase(), "three");
 			
-			genderSelection(GenderOfThirdPerson, "three");
+			//genderSelection(GenderOfThirdPerson, "three");
 
 			Thread.sleep(WaitsProfile1.delayInGenderDropdown3);
 
@@ -560,7 +560,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			clickImageInRegion("four", "FullName.png");
 			makeRandomErrorinTypingAndCorrect(NameOfFourthPerson.toLowerCase(), "four");
 
-			genderSelection(GenderOfFourthPerson, "four");
+			//genderSelection(GenderOfFourthPerson, "four");
 
 			Thread.sleep(WaitsProfile1.delayInGenderDropdown4);
 
@@ -599,7 +599,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			waitForHotkey();
 			makeRandomErrorinTypingAndCorrect(NameOfFifthPerson.toLowerCase(), "five");
 
-			genderSelection(GenderOfFifthPerson, "five");
+			//genderSelection(GenderOfFifthPerson, "five");
 
 			Thread.sleep(WaitsProfile1.delayInGenderDropdown5);
 
@@ -642,7 +642,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			waitForHotkey();
 			makeRandomErrorinTypingAndCorrect(NameOfSixthPerson.toLowerCase(), "six");
 
-			genderSelection(GenderOfSixthPerson, "six");
+			//genderSelection(GenderOfSixthPerson, "six");
 
 			Thread.sleep(WaitsProfile1.delayInGenderDropdown6);
 
