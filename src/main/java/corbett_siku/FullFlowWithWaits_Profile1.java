@@ -374,14 +374,14 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			width = 93;
 		} else if (machineType.toLowerCase().equalsIgnoreCase("desktop")) {
 			X = 107;
-			Y1 = 220;
-			Y2 = 350;
-			Y3 = 478;
+			Y1 = 168;
+			Y2 = 267;
+			Y3 = 371;
 			Y4 = 611;
 			Y5 = 348;
 			Y6 = 482;
 			height = 1127;
-			width = 123;
+			width = 91;
 
 		}
 
