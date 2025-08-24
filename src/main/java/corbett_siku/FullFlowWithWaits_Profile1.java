@@ -57,6 +57,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 	public static int X, Y1, Y2, Y3, Y4, Y5, Y6, height, width = 0;
 	private static Provider provider;
 	private static boolean hotkeyPressed = false;
+	private static boolean hotkeyRepeatPressed = false;
 	
 
 	// @BeforeSuite
@@ -363,14 +364,14 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 	public void FillMemberDetails() throws Exception {
 		if (machineType.toLowerCase().equalsIgnoreCase("laptop")) {
 			X = 195;
-			Y1 = 218;
-			Y2 = 349;
-			Y3 = 481;
+			Y1 = 164;
+			Y2 = 262;
+			Y3 = 367;
 			Y4 = 610;
 			Y5 = 715;
 			Y6 = 394;
 			height = 1136;
-			width = 123;
+			width = 93;
 		} else if (machineType.toLowerCase().equalsIgnoreCase("desktop")) {
 			X = 107;
 			Y1 = 220;
@@ -435,7 +436,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		waitForHotkey();
 		printDateTime("Start Time -->");
 
-		sikuClickOnThis("firstNameBox.png", 600, 0.77);
+		sikuClickOnThis("firstNameBox.png", 600, 0.50);
 		Thread.sleep(200);
 
 		if (intNumberOfAdultsFromExcel >= 1) {
@@ -726,72 +727,71 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		sikuClickOnThis("UPI.png", 600, 0.70);
 		Thread.sleep(200);
 		sikuClickOnThis("PayNow.png", 120, 0.70);
-		String result = imageDetectionBetweenTwoImages("contactdetails.png", 1, 0.70, "tiger.png", 1, 0.70, 60000);
+//		String result = imageDetectionBetweenTwoImages("contactdetails.png", 1, 0.70, "tiger.png", 1, 0.70, 60000);
 
-		if (result.equalsIgnoreCase("first")) {
-			System.out.println("First image was found , now continuing the payment for first");
-			// sikuFindImageWaitAndClick("contactdetails.png", 40, 100, 0.70);
-			//sikuClickOnThis("contactdetails.png", 100, 0.70);
-			// sikuClickOnThis("contactdetails.png", 20, 0.70);
+//		if (result.equalsIgnoreCase("first")) {
+//			System.out.println("First image was found , now continuing the payment for first");
+//			// sikuFindImageWaitAndClick("contactdetails.png", 40, 100, 0.70);
+//			//sikuClickOnThis("contactdetails.png", 100, 0.70);
+//			// sikuClickOnThis("contactdetails.png", 20, 0.70);
+////			pressTab(1);
+////			Thread.sleep(100);
+////			pressTab(1);
+////			Thread.sleep(100);
+////			pressTab(1);
+////			Thread.sleep(100);
+//			sikuClickOnThis("emailAddressImage1.png", 40, 0.70);
+//			//typeTextWithRobot(emailAddress, 0);
+//			screen_2.type(emailAddress);
+//			// typeTextWithRobot(emailAddress);
+//			// sikuClickOnThis("continue.png", 40, 0.70);
 //			pressTab(1);
-//			Thread.sleep(100);
-//			pressTab(1);
-//			Thread.sleep(100);
-//			pressTab(1);
-//			Thread.sleep(100);
-			sikuClickOnThis("emailAddressImage1.png", 40, 0.70);
-			//typeTextWithRobot(emailAddress, 0);
-			screen_2.type(emailAddress);
-			// typeTextWithRobot(emailAddress);
-			// sikuClickOnThis("continue.png", 40, 0.70);
-			pressTab(1);
-			pressEnter(1);
+//			pressEnter(1);
 			if (upiToUse.toLowerCase().equalsIgnoreCase("upi")) {
 				sikuClickOnThis("showQR.png", 40, 0.70);
-				sikuClickOnThis("recommended.png", 40, 0.70);
+//				sikuClickOnThis("recommended.png", 40, 0.70);
 			} else if (upiToUse.toLowerCase().equalsIgnoreCase("upi_id")) {
 				sikuClickOnThis("UPI_ID_Image1.png", 40, 0.70);
 				Thread.sleep(150);
 				sikuClickOnThis("UPI_ID_Number.png", 40, 0.70);
-				pressTab(1);
 				screen_2.type(upiAddress);
 				// typeTextWithRobot(upiAddress);
 //			pressTab(1);
 //			pressEnter(1);
 				sikuClickOnThis("VerifyAndPay.png", 40, 0.70);
 			}
-		} else if (result.equalsIgnoreCase("second")) {
-			System.out.println("Second image was found , now contiuing the payment for second");
-			sikuClickOnThis("tiger.png", 40, 0.70);
-			Thread.sleep(100);
-			pressTab(1);
-			Thread.sleep(110);
-			pressTab(1);
-			Thread.sleep(120);
-			pressTab(1);
-			Thread.sleep(130);
-			screen_2.type(emailAddress);
-			// typeTextWithRobot(emailAddress);
-			sikuClickOnThis("proceedAfterTiger.png", 40, 0.70);
-
-			if (upiToUse.toLowerCase().equalsIgnoreCase("upi")) {
-				Thread.sleep(100);
-				sikuClickOnThis("showQRAfterTiger.png", 40, 0.70);
-				Thread.sleep(100);
-				sikuClickOnThis("paywithUPIQR.png", 40, 0.70);
-			} else if (upiToUse.toLowerCase().equalsIgnoreCase("upi_id")) {
-				Thread.sleep(1000);
-				sikuClickOnThis("UPI_QR_Image2.png", 40, 0.70);
-				Thread.sleep(100);
-				sikuClickOnThis("UPI_ID_Image2.png", 40, 0.70);
-				Thread.sleep(200);
-				screen_2.type(upiAddress);
-				// typeTextWithRobot(upiAddress);
-				pressTab(1);
-				pressEnter(1);
-			}
-
-		}
+//		} else if (result.equalsIgnoreCase("second")) {
+//			System.out.println("Second image was found , now contiuing the payment for second");
+//			sikuClickOnThis("tiger.png", 40, 0.70);
+//			Thread.sleep(100);
+//			pressTab(1);
+//			Thread.sleep(110);
+//			pressTab(1);
+//			Thread.sleep(120);
+//			pressTab(1);
+//			Thread.sleep(130);
+//			screen_2.type(emailAddress);
+//			// typeTextWithRobot(emailAddress);
+//			sikuClickOnThis("proceedAfterTiger.png", 40, 0.70);
+//
+//			if (upiToUse.toLowerCase().equalsIgnoreCase("upi")) {
+//				Thread.sleep(100);
+//				sikuClickOnThis("showQRAfterTiger.png", 40, 0.70);
+//				Thread.sleep(100);
+//				sikuClickOnThis("paywithUPIQR.png", 40, 0.70);
+//			} else if (upiToUse.toLowerCase().equalsIgnoreCase("upi_id")) {
+//				Thread.sleep(1000);
+//				sikuClickOnThis("UPI_QR_Image2.png", 40, 0.70);
+//				Thread.sleep(100);
+//				sikuClickOnThis("UPI_ID_Image2.png", 40, 0.70);
+//				Thread.sleep(200);
+//				screen_2.type(upiAddress);
+//				// typeTextWithRobot(upiAddress);
+//				pressTab(1);
+//				pressEnter(1);
+//			}
+//
+//		}
 	}
 
 	public static void sikuClickOnThis(String specificImagePath, int waitTime, double match) throws FindFailed {
@@ -1422,6 +1422,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			}
 		});
 	}
+
 
 	public static void waitForHotkey() {
 

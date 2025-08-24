@@ -132,15 +132,15 @@ public class DataProfile1 {
 	public HashMap<String, String> returnData() {
 
 		HashMap<String, String> map1 = new HashMap<String, String>();	
-		map1.put("machineType", "desktop"); // laptop (1920x1080 , 125%) ,desktop
+		map1.put("machineType", "laptop"); // laptop (1920x1080 , 125%) ,desktop
 		
-		map1.put("checkInDate", "2024-12-11");
-		map1.put("checkOutDate", "2024-12-12");
+		map1.put("checkInDate", "2025-12-22");
+		map1.put("checkOutDate", "2025-12-23");
 		
 		// set number of rooms
-		map1.put("numberOfRooms", "2");
+		map1.put("numberOfRooms", "1");
 		// set number of adults
-		map1.put("NumberOfAdultsFromExcel", "6");
+		map1.put("NumberOfAdultsFromExcel", "3");
 		// set number of children
 		map1.put("numberOfChildren", "0");// valid values are "0", "1","2"
 		
@@ -166,67 +166,67 @@ public class DataProfile1 {
 		//"Mailani"
 		//"Loghut-Dhikala"
 
-		map1.put("roomPrioirty", "Rathuwadhab");
+		map1.put("roomPrioirty", "Hutment-Dhikala");
 		
 		
 		
 		// Set First Person Details
 		map1.put("nameOfFirstPersonFromExcel", "Srishti Sharma");
 		map1.put("ageOfFirstPersonFromExcel", "33");
-		map1.put("genderOfFirstPersonFromExcel", "Transgender"); // valid values are "Male", "Female","Transgender"
-		map1.put("nationalityOfFirstPersonFromExcel", "Indian"); // valid values are
+		map1.put("genderOfFirstPersonFromExcel", "Male"); // valid values are "Male", "Female","Transgender"
+		map1.put("nationalityOfFirstPersonFromExcel", "Foreigner"); // valid values are
 																	// "Indian","Foreigner","Student","Senior Citizen"
 		map1.put("countryFirstPerson", "USA");   // valid values are "USA", "United Kingdom","Canada","Australia","Italy"
-		map1.put("IdTypeOfFirstPerson", "Aadhar Card"); // valid values "Aadhar Card","Pan Card","Driving License","Passport","Student ID Card"
-		map1.put("IdNumberOfFirstPerson", "554398907678");
+		map1.put("IdTypeOfFirstPerson", "Passport"); // valid values "Aadhar Card","Pan Card","Driving License","Passport","Student ID Card"
+		map1.put("IdNumberOfFirstPerson", "P0553336");
 
 		// Second Person Details
 		map1.put("NameOfSecondPerson", "Shivam Sharma");
 		map1.put("AgeOfSecondPerson", "36");
 		map1.put("GenderOfSecondPerson", "Male");
 		map1.put("NationalityOfSecondPerson", "Foreigner");// valid values are "Indian","Foreigner","Student","Senior Citizen"
-		map1.put("countrySecondPerson", "USA");
+		map1.put("countrySecondPerson", "United Kingdom");
 		map1.put("IdTypeOfSecondPerson", "Passport");
-		map1.put("IdNumberOfSecondPerson", "AU869042");
+		map1.put("IdNumberOfSecondPerson", "P0553337");
 
 		// Third Person Details
-		map1.put("NameOfThirdPerson", "Nisha Kiran Sharma");
+		map1.put("NameOfThirdPerson", "Nisha Kiran");
 		map1.put("AgeOfThirdPerson", "32");
-		map1.put("GenderOfThirdPerson", "Female");
+		map1.put("GenderOfThirdPerson", "Male");
 		map1.put("NationalityOfThirdPerson", "Foreigner");// valid values are "Indian","Foreigner","Student","Senior Citizen"
-		map1.put("countryThirdPerson", "USA");
+		map1.put("countryThirdPerson", "Canada");
 		map1.put("IdTypeOfThirdPerson", "Passport");
-		map1.put("IdNumberOfThirdPerson", "AU869043");
+		map1.put("IdNumberOfThirdPerson", "P0553338");
 
 		// Fourth Person Details
-		map1.put("NameOfFourthPerson", "Nimish Kiran Sharma");
+		map1.put("NameOfFourthPerson", "Nimish Kiran");
 		map1.put("AgeOfFourthPerson", "35");
 		map1.put("GenderOfFourthPerson", "Male");
-		map1.put("NationalityOfFourthPerson", "Foreigner");// valid values are "Indian","Foreigner","Student","Senior Citizen"
+		map1.put("NationalityOfFourthPerson", "Indian");// valid values are "Indian","Foreigner","Student","Senior Citizen"
 		map1.put("countryFourthPerson", "USA");
-		map1.put("IdTypeOfFourthPerson", "Passport");
-		map1.put("IdNumberOfFourthPerson", "AU869044");
+		map1.put("IdTypeOfFourthPerson", "Pan Card");
+		map1.put("IdNumberOfFourthPerson", "ARKPH1874M");
 
 		// Fifth Person Details
-		map1.put("NameOfFifthPerson", "Fifth Person Name");
+		map1.put("NameOfFifthPerson", "Satyendra Shukla");
 		map1.put("AgeOfFifthPerson", "35");
 		map1.put("GenderOfFifthPerson", "Male");
-		map1.put("NationalityOfFifthPerson", "Foreigner");// valid values are "Indian","Foreigner","Student","Senior Citizen"
+		map1.put("NationalityOfFifthPerson", "Indian");// valid values are "Indian","Foreigner","Student","Senior Citizen"
 		map1.put("countryFifthPerson", "USA");
 		map1.put("IdTypeOfFifthPerson", "Passport");
 		map1.put("IdNumberOfFifthPerson", "AU869045");
 
 		// Sixth Person Details
-		map1.put("NameOfSixthPerson", "Sixth Person name");
+		map1.put("NameOfSixthPerson", "Abhishek Kumar Pandey");
 		map1.put("AgeOfSixthPerson", "36");
-		map1.put("GenderOfSixthPerson", "Transgender");
-		map1.put("NationalityOfSixthPerson", "Foreigner");// valid values are "Indian","Foreigner","Student","Senior Citizen"
-		map1.put("countrySixthPerson", "USA");
+		map1.put("GenderOfSixthPerson", "Male");
+		map1.put("NationalityOfSixthPerson", "Indian");// valid values are "Indian","Foreigner","Student","Senior Citizen"
+		map1.put("countrySixthPerson", "India");
 		map1.put("IdTypeOfSixthPerson", "Passport");
 		map1.put("IdNumberOfSixthPerson", "AU869046");
 
 		// set mobile number here
-		map1.put("mobileNumber", "9999999999");
+		map1.put("mobileNumber", "9971185015");
 		map1.put("probabilityOfMakingErrorInName", "0");
 		map1.put("probabilityOfMakingErrorInId", "0");
 		
@@ -237,7 +237,7 @@ public class DataProfile1 {
 		map1.put("upiToUse", "UPI_ID"); //"UPI" or "UPI_ID"
 		
 		//set UPI Address
-		map1.put("upiAddress", "9999999999@ibl"); //"UPI" or "UPI_ID"
+		map1.put("upiAddress", "9971185015@ibl"); //"UPI" or "UPI_ID"
 		
 		return map1;
 	}

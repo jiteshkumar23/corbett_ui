@@ -66,12 +66,12 @@ public class WaitsProfile1 {
 		
 
 		//Typing wait times
-		public static int totalTimeForTypingName1 = 0;
-		public static int totalTimeForTypingName2 = 0;
-		public static int totalTimeForTypingName3 = 0;
-		public static int totalTimeForTypingName4 = 0;
-		public static int totalTimeForTypingName5 = 0;
-		public static int totalTimeForTypingName6 = 0;
+		public static int totalTimeForTypingName1 = 600;
+		public static int totalTimeForTypingName2 = 600;
+		public static int totalTimeForTypingName3 = 600;
+		public static int totalTimeForTypingName4 = 600;
+		public static int totalTimeForTypingName5 = 600;
+		public static int totalTimeForTypingName6 = 600;
 		
 		public static int delayInGenderDropdown1 = 0;
 		public static int delayInGenderDropdown2=  0;
@@ -94,19 +94,19 @@ public class WaitsProfile1 {
 		public static int delayInProofDropdown5 = 0;
 		public static int delayInProofDropdown6 = 0;
 		
-		public static int totalTimeForTypingID1 = 0;
-		public static int totalTimeForTypingID2 = 0;
-		public static int totalTimeForTypingID3 = 0;
-		public static int totalTimeForTypingID4 = 0;
-		public static int totalTimeForTypingID5 = 0;
-		public static int totalTimeForTypingID6 = 0;
+		public static int totalTimeForTypingID1 = 600;
+		public static int totalTimeForTypingID2 = 600;
+		public static int totalTimeForTypingID3 = 500;
+		public static int totalTimeForTypingID4 = 500;
+		public static int totalTimeForTypingID5 = 500;
+		public static int totalTimeForTypingID6 = 500;
 		
-		public static int totalTimeForTypingAge1 = 0;
-		public static int totalTimeForTypingAge2 = 0;
-		public static int totalTimeForTypingAge3 = 0;
-		public static int totalTimeForTypingAge4 = 0;
-		public static int totalTimeForTypingAge5 = 0;
-		public static int totalTimeForTypingAge6 = 0;
+		public static int totalTimeForTypingAge1 = 100;
+		public static int totalTimeForTypingAge2 = 100;
+		public static int totalTimeForTypingAge3 = 100;
+		public static int totalTimeForTypingAge4 = 100;
+		public static int totalTimeForTypingAge5 = 100;
+		public static int totalTimeForTypingAge6 = 100;
 		
 		public static int totalTimeForTypingMobileNumber = 0;
 
