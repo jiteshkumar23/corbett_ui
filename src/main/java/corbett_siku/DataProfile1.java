@@ -234,10 +234,10 @@ public class DataProfile1 {
 		map1.put("emailAddress", "abcd@gmail.com");
 		
 		//set UPI or UPI_ID here
-		map1.put("upiToUse", "UPI_ID"); //"UPI" or "UPI_ID"
+		map1.put("upiToUse", "UPI"); //"UPI" or "UPI_ID"
 		
 		//set UPI Address
-		map1.put("upiAddress", "9971185015@ibl"); //"UPI" or "UPI_ID"
+		map1.put("upiAddress", "9971100000@ibl"); //"UPI" or "UPI_ID"
 		
 		return map1;
 	}
