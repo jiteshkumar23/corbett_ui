@@ -377,9 +377,9 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			Y1 = 197;
 			Y2 = 298;
 			Y3 = 403;
-			Y4 = 500;
-			Y5 = 348;
-			Y6 = 482;
+			Y4 = 508;
+			Y5 = 609;
+			Y6 = 370;
 			height = 1127;
 			width = 91;
 
@@ -595,8 +595,9 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		if (intNumberOfAdultsFromExcel >= 5) {
 
 			pressTab(1);
-
+			Thread.sleep(randomNumberBetweenMinAndMax(40, 60));
 			waitForHotkey();
+			Thread.sleep(randomNumberBetweenMinAndMax(40, 60));
 			makeRandomErrorinTypingAndCorrect(NameOfFifthPerson.toLowerCase(), "five");
 
 			//genderSelection(GenderOfFifthPerson, "five");
@@ -632,13 +633,15 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 		// Sixth Person Data Input
 		if (intNumberOfAdultsFromExcel >= 6) {
+			pressTab(1);
+			Thread.sleep(randomNumberBetweenMinAndMax(40, 60));
 
 			//Thread.sleep(randomNumberBetweenMinAndMax(50, 100));
-			if (machineType.toLowerCase().equalsIgnoreCase("laptop")) {
-				pressTab(1);
-			} else {
-				clickImageInRegion("six", "FullName.png");
-			}
+//			if (machineType.toLowerCase().equalsIgnoreCase("laptop")) {
+//				pressTab(1);
+//			} else {
+//				clickImageInRegion("six", "FullName.png");
+//			}
 			waitForHotkey();
 			makeRandomErrorinTypingAndCorrect(NameOfSixthPerson.toLowerCase(), "six");
 
