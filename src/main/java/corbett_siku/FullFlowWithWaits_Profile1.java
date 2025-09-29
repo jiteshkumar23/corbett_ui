@@ -364,12 +364,12 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 	public void FillMemberDetails() throws Exception {
 		if (machineType.toLowerCase().equalsIgnoreCase("laptop")) {
 			X = 195;
-			Y1 = 164;
-			Y2 = 262;
-			Y3 = 367;
-			Y4 = 610;
-			Y5 = 715;
-			Y6 = 394;
+			Y1 = 198;
+			Y2 = 296;
+			Y3 = 400;
+			Y4 = 504;
+			Y5 = 607;
+			Y6 = 711;
 			height = 1136;
 			width = 93;
 		} else if (machineType.toLowerCase().equalsIgnoreCase("desktop")) {
@@ -449,6 +449,12 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 			waitForHotkey();
 			if (nationalityDropDownDisplayed) {
+				
+				//new code
+				if (nationalityOfFirstPersonFromExcel.toLowerCase().equalsIgnoreCase("foreigner")) {
+
+					checkIfNameWasFilled("one", nameOfFirstPersonFromExcel);	
+				}
 				selectForeignCountry(nationalityOfFirstPersonFromExcel, "one", countryFirstPerson);
 				if (nationalityOfFirstPersonFromExcel.toLowerCase().equalsIgnoreCase("foreigner")) {
 
@@ -461,6 +467,8 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 			if (!nationalityOfFirstPersonFromExcel.toLowerCase().equalsIgnoreCase("foreigner")) {
 
+				checkIfNameWasFilled("one", nameOfFirstPersonFromExcel);
+				
 				clickImageInRegion("one", "IdentityProofType.png");
 
 				selectIDType(IdTypeOfFirstPerson);
@@ -471,6 +479,9 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			enterIDNumber(IdNumberOfFirstPerson.toLowerCase(), "one");
 
 			waitForHotkey();
+			
+			checkIfIDNumberWasFilled("one", IdNumberOfFirstPerson);
+			
 			enterAge(ageOfFirstPersonFromExcel, "one");
 
 			Thread.sleep(WaitsProfile1.person1wait);
@@ -490,6 +501,10 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 			waitForHotkey();
 			if (nationalityDropDownDisplayed) {
+				//new code
+				if (NationalityOfSecondPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+					checkIfNameWasFilled("two", NameOfSecondPerson);	
+				}
 				selectForeignCountry(NationalityOfSecondPerson, "two", countrySecondPerson);
 				if (NationalityOfSecondPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
 				} else {
@@ -499,6 +514,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			}
 
 			if (!NationalityOfSecondPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+				checkIfNameWasFilled("two", NameOfSecondPerson);	
 				clickImageInRegion("two", "IdentityProofType.png");
 				selectIDType(IdTypeOfSecondPerson);
 			}
@@ -509,6 +525,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			enterIDNumber(IdNumberOfSecondPerson.toLowerCase(), "two");
 
 			waitForHotkey();
+			checkIfIDNumberWasFilled("two", IdNumberOfSecondPerson);
 			enterAge(AgeOfSecondPerson, "two");
 
 			Thread.sleep(WaitsProfile1.person2wait);
@@ -529,6 +546,10 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 			waitForHotkey();
 			if (nationalityDropDownDisplayed) {
+				//new code
+				if (NationalityOfThirdPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+					checkIfNameWasFilled("three", NameOfThirdPerson);	
+				}
 				selectForeignCountry(NationalityOfThirdPerson, "three", countryThirdPerson);
 				if (NationalityOfThirdPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
 
@@ -538,6 +559,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			}
 
 			if (!NationalityOfThirdPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+				checkIfNameWasFilled("three", NameOfThirdPerson);	
 				clickImageInRegion("three", "IdentityProofType.png");
 				selectIDType(IdTypeOfThirdPerson);
 			}
@@ -547,6 +569,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			enterIDNumber(IdNumberOfThirdPerson.toLowerCase(), "three");
 
 			waitForHotkey();
+			checkIfIDNumberWasFilled("three", IdNumberOfThirdPerson);
 			enterAge(AgeOfThirdPerson, "three");
 
 			Thread.sleep(WaitsProfile1.person3wait);
@@ -566,6 +589,10 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 			waitForHotkey();
 			if (nationalityDropDownDisplayed) {
+				//new code
+				if (NationalityOfFourthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+					checkIfNameWasFilled("four", NameOfFourthPerson);	
+				}
 				selectForeignCountry(NationalityOfFourthPerson, "four", countryFourthPerson);
 				if (NationalityOfFourthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
 
@@ -575,6 +602,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			}
 
 			if (!NationalityOfFourthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+				checkIfNameWasFilled("four", NameOfFourthPerson);
 				clickImageInRegion("four", "IdentityProofType.png");
 				selectIDType(IdTypeOfFourthPerson);
 			}
@@ -584,6 +612,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			enterIDNumber(IdNumberOfFourthPerson.toLowerCase(), "four");
 
 			waitForHotkey();
+			checkIfIDNumberWasFilled("four", IdNumberOfFourthPerson);
 			enterAge(AgeOfFourthPerson, "four");
 
 			Thread.sleep(WaitsProfile1.person4wait);
@@ -606,6 +635,12 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 			waitForHotkey();
 			if (nationalityDropDownDisplayed) {
+				
+				//new code
+				if (NationalityOfFifthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+					checkIfNameWasFilled("five", NameOfFifthPerson);	
+				}
+				
 				selectForeignCountry(NationalityOfFifthPerson, "five", countryFifthPerson);
 				if (NationalityOfFifthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
 				} else {
@@ -614,6 +649,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			}
 
 			if (!NationalityOfFifthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+				checkIfNameWasFilled("five", NameOfFifthPerson);
 				clickImageInRegion("five", "IdentityProofType.png");
 				selectIDType(IdTypeOfFifthPerson);
 			}
@@ -624,6 +660,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			enterIDNumber(IdNumberOfFifthPerson.toLowerCase(), "five");
 
 			waitForHotkey();
+			checkIfIDNumberWasFilled("five", IdNumberOfFifthPerson);
 			enterAge(AgeOfFifthPerson, "five");
 
 			Thread.sleep(WaitsProfile1.person5wait);
@@ -651,6 +688,12 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 			waitForHotkey();
 			if (nationalityDropDownDisplayed) {
+				
+				//new code
+				if (NationalityOfSixthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+					checkIfNameWasFilled("six", NameOfSixthPerson);	
+				}
+				
 				selectForeignCountry(NationalityOfSixthPerson, "six", countrySixthPerson);
 				if (NationalityOfSixthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
 				} else {
@@ -659,6 +702,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			}
 
 			if (!NationalityOfSixthPerson.toLowerCase().equalsIgnoreCase("foreigner")) {
+				checkIfNameWasFilled("six", NameOfSixthPerson);	
 				clickImageInRegion("six", "IdentityProofType.png");
 				selectIDType(IdTypeOfSixthPerson);
 			}
@@ -669,6 +713,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			enterIDNumber(IdNumberOfSixthPerson.toLowerCase(), "six");
 
 			waitForHotkey();
+			checkIfIDNumberWasFilled("six", IdNumberOfSixthPerson);
 			enterAge(AgeOfSixthPerson, "six");
 
 			Thread.sleep(WaitsProfile1.person6wait);
@@ -1162,9 +1207,9 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 	public static void enterAge(String ageOfPersonFromExcel, String personNumber)
 			throws InterruptedException, FindFailed {
-
+		
 		clickImageInRegion(personNumber, "Age.png");
-
+		
 		int count = ageOfPersonFromExcel.length();
 		String[] str = ageOfPersonFromExcel.split("");
 
@@ -1447,5 +1492,113 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 	            screen.wheel(1, 1); // Perform scroll down action
 	        }
 	    }
+	 
+	 private static void clickImageInRegionWithTimeOut(String personNumber, String image, double TimeOut) throws FindFailed, InterruptedException {
 
+			switch (personNumber) {
+			case "one":
+				sikuClickOnThisWithinRegionWithTimeout(screen, image, X, Y1, height, width ,TimeOut );
+				break;
+			case "two":
+				sikuClickOnThisWithinRegionWithTimeout(screen, image, X, Y2, height, width,TimeOut);
+				break;
+			case "three":
+				sikuClickOnThisWithinRegionWithTimeout(screen, image, X, Y3, height, width,TimeOut);
+				break;
+			case "four":
+				sikuClickOnThisWithinRegionWithTimeout(screen, image, X, Y4, height, width,TimeOut);
+				break;
+			case "five":
+				sikuClickOnThisWithinRegionWithTimeout(screen, image, X, Y5, height, width,TimeOut);
+				break;
+			case "six":
+				sikuClickOnThisWithinRegionWithTimeout(screen, image, X, Y6, height, width,TimeOut);
+				break;
+			}
+
+		}
+
+	 public static void sikuClickOnThisWithinRegionWithTimeout(Screen screen, String specificImagePath, int regionX, int regionY,
+				int regionWidth, int regionHeight, double TimeOut) throws FindFailed, InterruptedException {
+
+			String fullImagePath = imagePath + specificImagePath;
+			// Pattern targetImagePattern = new Pattern(fullImagePath).targetOffset(targetX,
+			// targetY).similar(offset);
+
+			
+				// Define the region on the screen
+				Region region = new Region(regionX, regionY, regionWidth, regionHeight);
+
+				// Set the search region
+				screen.setRect(region);
+
+				// Find and click on the dropdown within the defined region
+
+				Pattern dropdownPattern = new Pattern(fullImagePath).similar(0.8);
+				screen.wait(dropdownPattern, TimeOut);
+				screen.click(dropdownPattern);
+
+				// You can further interact with the dropdown or its options as needed
+
+		}
+	 
+	 public void checkIfNameWasFilled(String personNumber, String nameOfPersonFromExcel) {
+		 try {
+				clickImageInRegionWithTimeOut(personNumber, "FullNameNotFilled.png",0.25);
+				System.out.println("Name was NOT filled , filling it for person number "+personNumber);
+				makeRandomErrorinTypingAndCorrect(nameOfPersonFromExcel.toLowerCase(), personNumber);
+			}catch(Exception e) {
+				System.out.println("Name was already filled , doing nothing for person number -->"+personNumber);
+			}
+	 }
+	 
+	 public static void checkIfIDNumberWasFilled(String personNumber, String IdNumberOfPerson) {
+		 try {
+				clickImageInRegionWithTimeOut(personNumber, "ID_Number.png",0.25);
+				System.out.println("ID Number was NOT filled , filling it for person number "+personNumber);
+				enterIDNumberWithOutClicking(IdNumberOfPerson.toLowerCase(), personNumber);
+			}catch(Exception e) {
+				System.out.println("ID Number was already filled , doing nothing for person number -->"+personNumber);
+			}
+	 }
+	 
+	 public static void enterIDNumberWithOutClicking(String IdNumberOfPerson, String personNumber)
+				throws InterruptedException, FindFailed {
+
+			//clickImageInRegion(personNumber, "ID_Number.png");
+
+			int count = IdNumberOfPerson.length();
+			String[] str = IdNumberOfPerson.split("");
+			int newRandom = randomNumberBetweenMinAndMax(1, count);
+
+			int waitTime = 0;
+
+			switch (personNumber) {
+			case "one":
+				waitTime = WaitsProfile1.totalTimeForTypingID1;
+				break;
+			case "two":
+				waitTime = WaitsProfile1.totalTimeForTypingID2;
+				break;
+			case "three":
+				waitTime = WaitsProfile1.totalTimeForTypingID3;
+				break;
+			case "four":
+				waitTime = WaitsProfile1.totalTimeForTypingID4;
+				break;
+			case "five":
+				waitTime = WaitsProfile1.totalTimeForTypingID5;
+				break;
+			case "six":
+				waitTime = WaitsProfile1.totalTimeForTypingID6;
+				break;
+			}
+			// System.out.println("Name wait time is : "+waitTime);
+
+			int timePerCharacter = waitTime / count;
+			typeTextWithRobot(IdNumberOfPerson, timePerCharacter);
+			// Thread.sleep(timePerCharacter+randomNumberBetweenMinAndMax(1, 99));
+			// Thread.sleep(timePerCharacter);
+			Thread.sleep(randomNumberBetweenMinAndMax(1, 99));
+		}
 }
